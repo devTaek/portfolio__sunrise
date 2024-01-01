@@ -2,7 +2,7 @@ import React from 'react'
 
 function Players() {
   return (
-    <div>
+    <div id='players'>
       <h1>Players Page</h1>
     </div>
   )

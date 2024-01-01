@@ -2,7 +2,7 @@ import React from 'react'
 
 function Main() {
   return (
-    <div>
+    <div id='main'>
       <h1>Main Page</h1>
     </div>
   )
