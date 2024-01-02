@@ -10,7 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url('../public/data/img/stadium-189777_1280.jpg') no-repeat center/cover fixed;
+  background: url('../public/img/stadium-189777_1280.jpg') no-repeat center/cover fixed;
 }
 ol, ul, li {
   list-style: none;
