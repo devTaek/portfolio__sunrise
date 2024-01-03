@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './notice.scss'
+import './scss/notice.scss'
 
 const Notice= () => {
   const [thisWeek, setThisWeek] = useState(false);

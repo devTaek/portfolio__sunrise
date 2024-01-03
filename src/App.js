@@ -4,12 +4,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Notice from './Page/Notice';
 import Header from './Page/Header';
-import Main from './Page/Main';
+import Main from './Page/Main/Main';
 import Footer from './Page/Footer'
-import Players from './Page/Players';
-import Match from './Page/Match';
-import Manage from './Page/Manage';
-import Community from './Page/Community';
+import Players from './Page/Main/Players';
+import Match from './Page/Main/Match';
+import Manage from './Page/Main/Manage';
+import Community from './Page/Main/Community';
 
 
 function App() {
