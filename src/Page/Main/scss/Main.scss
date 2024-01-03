@@ -1,13 +1,56 @@
 #main {
-  background-color: black;
-  height: 6000px;
-  font-family: 'nanumsquare';
-  div {
-    margin-top: 1000px;
-    color: white;
-    text-align: center;
-    font-size: 100px;
-    opacity: 0;
-    transition: all 0.5s;
+  width: 100%;
+  .container {
+    max-width: 1050px;
+    margin: 0 auto;
+    .gap {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      :nth-child(n) {
+        background-color: gray;
+        margin: 20px;
+      }
+      .mainPlayers {
+        align-items: center;
+        justify-content: center;
+        article {
+          width: 100%;
+          display: grid;
+          img {
+            width: 20px;
+          }
+          h3 {
+            width: 20%;
+            color: white;
+          }
+        }
+        
+      }
+      .mainMatch {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h3 {
+        color: white;
+        }
+      }
+      .mainManage {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h3 {
+        color: white;
+        }
+      }
+      .mainCommunity {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h3 {
+        color: white;
+        }
+      }
+    }
   }
 }

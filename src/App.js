@@ -6,10 +6,10 @@ import Notice from './Page/Notice';
 import Header from './Page/Header';
 import Main from './Page/Main/Main';
 import Footer from './Page/Footer'
-import Players from './Page/Main/Players';
-import Match from './Page/Main/Match';
-import Manage from './Page/Main/Manage';
-import Community from './Page/Main/Community';
+import Players from './Page/Players';
+import Match from './Page/Match';
+import Manage from './Page/Manage';
+import Community from './Page/Community';
 
 
 function App() {

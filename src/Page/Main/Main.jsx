@@ -1,9 +1,38 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
+import './scss/Main.scss'
 
 function Main() {
+  const [position, setPosition] = useState(0);
+
+  function onScroll() {
+    setPosition(window.scrollY);
+  }
+  useEffect(()=>{
+    window.addEventListener("scroll", onScroll);
+    return ()=> {
+      window.removeEventListener("scroll", onScroll)
+    };
+  },[])
   return (
     <main id='main'>
-      <h1>Main Page</h1>
+      <section className="container">
+        <div className="gap">
+          <article className="mainPlayers" style={{transform: `translateX(${position}px)`}}>
+            <img src='./img/4254b1223bdb-dybala21-copia.png' alt="" />
+            <h3>정태균</h3>
+          </article>
+          <article className="mainMatch" style={{transform: `translateX(${-position}px)`}}>
+            <h3>MATCH</h3>
+          </article>
+          <article className="mainManage" style={{transform: `translateX(${position}px)`}} >
+            <h3>MANAGE</h3>
+          </article>
+          <article className="mainCommunity" style={{transform: `translateX(${-position}px)`}}>
+            <h3>COMMUNITY</h3>
+          </article>
+        </div>
+      </section>
+      
     </main>
   )
 }
