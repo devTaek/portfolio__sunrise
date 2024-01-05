@@ -1,26 +1,30 @@
 #header {
   width: 100%;
-  margin: 20px 0;
   .container {
     width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
+    height: 120px;
+    max-width: 1920px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     .gap {
       display: flex;
       align-items: center;
-      justify-content: space-evenly;
       >a {
         img {
           width: 5rem;
         }
       }
       .headerMenu {
+        margin-left: 200px;
         a {
           margin: 30px;
           color: white;
           text-decoration: none;
-          font-size: 20px;
+          font-size: 18px;
           font-weight: 700;
+          font-family: Pretendard;
         }
       }
     }
