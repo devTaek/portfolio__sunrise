@@ -3,13 +3,28 @@
   height: 750px;
   .container {
     width: 100%;
+    position: relative;
+    h1 {
+      color: white; 
+      font-size: 60px;
+    }
     .gap {
-      h1 {
-        color: white; 
-        font-size: 60px;
+      display: flex;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      .prev-btn {
+        left: 0;
       }
+      .next-btn {
+        right: 0;
+      }
+      button {
+        z-index: 2;
+        position: absolute;
+      }      
       .main-players-box {
-        ul {
+        z-index: 1;
             display: flex;
             li {
               border: 1px solid #fff;
@@ -32,7 +47,6 @@
               justify-content: center;
             }
           }
-        }
       }
     }
   }

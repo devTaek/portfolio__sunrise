@@ -7,24 +7,22 @@ import { PlayersListContext } from '../../store/PlayersListContext';
 
 const MainPlayers= () => {
 
-  const playerList = useContext(PlayersListContext);
+  const {playerList} = useContext(PlayersListContext);
   return (
     <section id='mainPlayers'>
       <div className="container">
-        <div className="gap">
           <h1>PLAYERS</h1>
+        <div className="gap">
+          <button className='prev-btn'>left</button>
           <div className="main-players-box">
-            <ul>
-              <li>
-                <img src="./img/4254b1223bdb-dybala21-copia.png" alt="" />
-                <span>정태균</span>
-              </li>
-              <li>
-                <img src="./img/4254b1223bdb-dybala21-copia.png" alt="" />
-                <span>정태균</span>
-              </li>
-            </ul>
+              {playerList.map((item,id) => (
+                <li key={item.id}>
+                  <img src="./img/4254b1223bdb-dybala21-copia.png" alt="" />
+                  <span>{item.name}</span>
+                </li>
+              ))}
           </div>
+          <button className='next-btn'>right</button>
         </div>
       </div>
     </section>  
