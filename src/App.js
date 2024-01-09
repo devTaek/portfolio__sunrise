@@ -115,16 +115,7 @@ function App() {
     },
   ];
 
-  const [position, setPosition] = useState(0);
-  function onScroll() {
-    setPosition(window.scrollY);
-  }
-  useEffect(()=>{
-    window.addEventListener("scroll", onScroll)
-    return () => 
-      window.removeEventListener("scroll", onScroll);
-    ;
-  },[])
+  const [isDark, setIsDark] = useState(false);
 
   return (
     <div className="App">
@@ -133,7 +124,7 @@ function App() {
           {/* <Notice /> */}
           <Header />
           <Routes>
-            <Route path='/' element={<Main />} />
+            <Route path='/' element={<Main isDark={isDark} setIsDark={setIsDark}/>} />
             <Route path='/players' element={<Players />} />
             <Route path='/match' element={<Match />} />
             <Route path='/manage' element={<Manage />} />

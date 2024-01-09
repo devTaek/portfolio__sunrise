@@ -10,7 +10,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url('../public/img/pascal-muller-0oMsWA8yLN0-unsplash\ 1.png') no-repeat center/cover fixed;
   /* opacity: 0.8; */
 }
 ol, ul, li {
