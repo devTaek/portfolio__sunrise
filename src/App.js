@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { PlayersListContext } from './store/PlayersListContext';
@@ -115,7 +115,6 @@ function App() {
     },
   ];
 
-  const [isDark, setIsDark] = useState(false);
 
   return (
     <div className="App">
@@ -124,7 +123,7 @@ function App() {
           {/* <Notice /> */}
           <Header />
           <Routes>
-            <Route path='/' element={<Main isDark={isDark} setIsDark={setIsDark}/>} />
+            <Route path='/' element={<Main />} />
             <Route path='/players' element={<Players />} />
             <Route path='/match' element={<Match />} />
             <Route path='/manage' element={<Manage />} />

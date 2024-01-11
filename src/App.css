@@ -1,12 +1,6 @@
 .App {
   text-align: center;
-  z-index: 1;
-  background: url('../public/img/pascal-muller-0oMsWA8yLN0-unsplash\ 1.png') no-repeat center/cover fixed rgba(1,1,1,1);
+  background: url('../public/img/bg-1-main.png') no-repeat center/cover fixed;
 }
-.App::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  opacity: 1;
-}
+
 

@@ -7,13 +7,10 @@ import MainManage from './MainManage';
 import MainCommunity from './MainCommunity';
 
 
-function Main(props) {
+function Main() {
   const [position, setPosition] = useState(0);
   function onScroll() {
     setPosition(window.scrollY);
-    if(position >= 500) {
-      props.setIsDark(true);
-    }
   }
   useEffect(()=>{
     window.addEventListener("scroll", onScroll)
@@ -21,7 +18,6 @@ function Main(props) {
       window.removeEventListener("scroll", onScroll);
     ;
   },[])
-
   return (
     <main id='main'>
       <article className="container">
