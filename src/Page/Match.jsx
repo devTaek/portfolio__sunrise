@@ -1,7 +1,11 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import './scss/match.scss';
 
+import {MatchListContext, matchList} from '../store/PlayersListContext';
+
 function Match() {
+  const {matchList} = useContext(MatchListContext);
+
   return (
     <div id='match'>
       <div className="container">
@@ -20,24 +24,29 @@ function Match() {
               <span>상대팀</span>
               <span>경기결과</span>
             </div>
-            <div className="row3">
-              <div className="left">
-                <div className="matchDate">2024.01.08(일) 14:00</div>
-                <div className="matchPlace">대전 월드컵 경기장</div>
-              </div>
-              <div className="center">
-                <span>썬라이즈</span>
-                <i><img src="./img/pc-logo.png" alt="" /></i>
-                <span>1</span>
-                <span>VS</span>
-                <span>0</span>
-                <i><img src="./img/pc-jeonbuk.png" alt="" /></i>
-                <span></span>
-              </div>
-              <div className="right">
-                <span>승</span>
-              </div>
-            </div>
+            <ul className="row3">
+              {matchList.map((item, id)=> (
+                <li key={item.id}>
+                  <div className="left">
+                    <div className="matchDate">{item.when}</div>
+                    <div className="matchPlace">{item.where}</div>
+                  </div>
+                  <div className="center">
+                    <span>썬라이즈</span>
+                    <i><img src="./img/pc-logo.png" alt="" /></i>
+                    <span>1</span>
+                    <span>VS</span>
+                    <span>0</span>
+                    <i><img src="./img/pc-jeonbuk.png" alt="" /></i>
+                    <span></span>
+                  </div>
+                  <div className="right">
+                    <span>승</span>
+                  </div>
+                </li>
+              ))}
+              
+            </ul>
           </div>
         </div>
       </div>

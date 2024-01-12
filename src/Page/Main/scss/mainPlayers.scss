@@ -19,6 +19,7 @@
         width: 80px;
         height: 80px;
         border-radius: 40px;
+        z-index:3;
       }
       .prev-btn {
         left: 10%;
@@ -27,6 +28,7 @@
         right: 10%;
       }   
       .main-players-box {
+        z-index:1;
             display: flex;
             li {
               border: 1px solid #fff;

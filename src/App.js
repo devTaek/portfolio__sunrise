@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { PlayersListContext } from './store/PlayersListContext';
+import { PlayersListContext, MatchListContext } from './store/PlayersListContext';
 
 //import Notice from './Page/Notice';
 import Header from './Page/Header';
@@ -94,22 +94,22 @@ function App() {
 
   const matchList= [
     {
-      when: '7일',    // 그달의 일요일
-      where: '천마풋살파크 a구장',
+      when: '2024.01.07(일) 06:00',    // 그달의 일요일
+      where: '대전 월드컵 경기장',
       time: '7-9'
     },
     {
-      when: '14일',
+      when: '2024.01.14(일) 07:00',
       where: '마루공원 1면',
       time: '7-9'
     },
     {
-      when: '21일',
+      when: '2024.01.21(일) 06:00',
       where: '천마풋살파크 b구장',
       time: '7-9'
     },
     {
-      when: '28일',
+      when: '2024.01.28(일) 08:00',
       where: '마루공원 2면',
       time: '7-9'
     },
@@ -119,6 +119,7 @@ function App() {
   return (
     <div className="App">
       <PlayersListContext.Provider value={{playerList}}>
+      <MatchListContext.Provider value={{matchList}}>
         <BrowserRouter>
           {/* <Notice /> */}
           <Header />
@@ -130,6 +131,7 @@ function App() {
             <Route path='/community' element={<Community />} />
           </Routes>
         </BrowserRouter>
+      </MatchListContext.Provider>
       </PlayersListContext.Provider>
     </div>
   );
