@@ -94,24 +94,44 @@ function App() {
 
   const matchList= [
     {
+      id:1,
       when: '2024.01.07(일) 06:00',    // 그달의 일요일
       where: '대전 월드컵 경기장',
-      time: '7-9'
+      time: '7-9',
+      home: 'Sunrise',
+      home_logo: './img/pc-logo.png',
+      away: 'JEJU',
+      away_logo: './img/pc-dhFC.png',
     },
     {
+      id:2,
       when: '2024.01.14(일) 07:00',
-      where: '마루공원 1면',
-      time: '7-9'
+      where: 'FC서울',
+      time: '7-9',
+      home: 'Sunrise',
+      home_logo: './img/pc-logo.png',
+      away: 'DAEJEON',
+      away_logo: './img/pc-dhFC.png'
     },
     {
+      id:3,
       when: '2024.01.21(일) 06:00',
       where: '천마풋살파크 b구장',
-      time: '7-9'
+      time: '7-9',
+      home: 'Sunrise',
+      home_logo: './img/pc-logo.png',
+      away: 'GEOJE',
+      away_logo: './img/pc-geoje.png'
     },
     {
+      id:4,
       when: '2024.01.28(일) 08:00',
       where: '마루공원 2면',
-      time: '7-9'
+      time: '7-9',
+      home: 'Sunrise',
+      home_logo: './img/pc-logo.png',
+      away: 'JEONBUK',
+      away_logo: './img/pc-jeonbuk.png',
     },
   ];
 

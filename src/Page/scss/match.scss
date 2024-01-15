@@ -26,7 +26,7 @@
       background-color: black;
       width: 100%;
       padding: 40px 0;
-      .container {
+      >.container {
         width: 100%;
         width: 1280px;
         margin: 0 auto;
@@ -65,8 +65,9 @@
           justify-content: space-between;
           align-items: center;
           border-bottom: 3px solid white;
-          padding: 0 100px;
+          padding: 0 50px;
           span {
+            margin-right: 7px;
             color: white;
             text-align: center;
           }
@@ -76,30 +77,33 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-top: 20px;
+          border-bottom: 1px solid #958fa9; 
           .left {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 200px;
+            width: 20%;
             flex-direction: column;
             color: white;
           }
           .center {
-            width: 650px;
+            width: 60%;
+            height: 100%;
             color: white;
             display: flex;
             margin: 0 90px;
             >div {
-              width: auto;
+              width: 120px;
               color: #FFF;
               font-family: Pretendard;
               font-weight: 700;
               font-size: 32px;
-              padding: 32px;
+              padding: 40px;
               font-size: 22px;
             }
             i {
+              padding: 15px;
+              margin-left: 20px;
               img {
                 width: 74px;
                 height: 74px;
@@ -107,11 +111,12 @@
             }
           }
           .right {
-            width: 200px;
+            width: 20%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
+            padding-left: 10px;
           }
         }
       }

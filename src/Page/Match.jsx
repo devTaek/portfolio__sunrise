@@ -1,8 +1,11 @@
-import React from 'react';
+import React,{useContext, useState} from 'react';
 import './scss/match.scss';
+import { MatchListContext } from '../store/PlayersListContext';
 
 
 function Match() {
+  const {matchList} = useContext(MatchListContext);
+
   return (
     <div id='match'>
       <div className="container">
@@ -18,27 +21,29 @@ function Match() {
             </div>
             <div className="row2">
               <span>경기일정</span>
-              <span>상대팀</span>
+              <span>스코어</span>
               <span>경기결과</span>
             </div>
-            <div className="row3">
-              <div className="left">
-                <div className="matchDate">2024.01.08(일) 14:00</div>
-                <div className="matchPlace">대전 월드컵 경기장</div>
-              </div>
-              <div className="center">
-                <div className='homeTeam'>썬라이즈</div>
-                <i><img src="./img/pc-logo.png" alt="" /></i>
-                <div>1</div>    {/* 더 높은 점수가 노란 글씨 입도록! */}
-                <div>VS</div>
-                <div>0</div>
-                <i><img src="./img/pc-jeonbuk.png" alt="" /></i>
-                <div className='awayTeam'>전북</div>
-              </div>
-              <div className="right">
-                <span>승</span>
-              </div>
-            </div>
+              {matchList && matchList.map((item, id)=>(
+                <div className="row3" key={item.id}>
+                  <div className="left">
+                    <div className="matchDate">{item.when}</div>
+                    <div className="matchPlace">{item.where}</div>
+                  </div>
+                  <div className="center">
+                    <div className='homeTeam'>{item.home}</div>
+                    <i><img src={item.home_logo} alt="" /></i>
+                    <div>1</div>    {/* 더 높은 점수가 노란 글씨 입도록! */}
+                    <div>VS</div>
+                    <div>0</div>
+                    <i><img src={item.away_logo} alt="" /></i>
+                    <div className='awayTeam'>{item.away}</div>
+                  </div>
+                  <div className="right">
+                    <span>승</span>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </div>
