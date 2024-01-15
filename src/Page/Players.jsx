@@ -1,10 +1,11 @@
-import React, {useContext} from 'react';
+import {useContext} from 'react';
 import './scss/players.scss';
 
 import {PlayersListContext} from '../store/PlayersListContext';
 
 function Players() {
   const {playerList} = useContext(PlayersListContext);
+  
   return (
     <div id='players'>
       <div className="container">

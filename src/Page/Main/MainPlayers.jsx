@@ -18,8 +18,8 @@ const MainPlayers= () => {
   const {cnt} = state;
   const slideWrap = React.useRef();
   const mainSlide=()=>{
-    slideWrap.current.style.transition = `all 0.6s ease-in-out`
-    slideWrap.current.style.transform = `translateX(${-1200*cnt}px)`
+    slideWrap.current.style.transition = `all 0.8s ease-in-out`
+    slideWrap.current.style.transform = `translateX(${-1195*cnt}px)`
 }
 
   const prevBtn= (e) => {
@@ -41,7 +41,7 @@ const MainPlayers= () => {
       <div className="container">
         <h1>PLAYERS</h1>
         <div className="gap">
-          <button onClick={prevBtn} className='prev-btn'>left</button>
+          <button onClick={prevBtn} className='prev-btn'><img src="./img/pc-prev-btn.png" alt="" /></button>
           <div ref={slideWrap} className="main-players-box">
               {playerList.map((item,id) => (
                 <li key={item.id}>
@@ -50,7 +50,7 @@ const MainPlayers= () => {
                 </li>
               ))}
           </div>
-          <button onClick={nextBtn} className='next-btn'>right</button>
+          <button onClick={nextBtn} className='next-btn'><img src="./img/pc-next-btn.png" alt="" /></button>
         </div>
       </div>
     </section>  

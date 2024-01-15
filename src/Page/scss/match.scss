@@ -35,7 +35,7 @@
           align-items: center;
           justify-content: space-evenly;
           border-bottom: 3px solid white;
-          padding-bottom: 10px;
+          padding-bottom: 20px;
           button {
             display: flex;
             padding: 16px;
@@ -68,33 +68,49 @@
           padding: 0 100px;
           span {
             color: white;
+            text-align: center;
           }
         }
         .row3 {
-          display: flex;
           width: 1280px;
-          
-          justify-content: space-evenly;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 20px;
           .left {
             display: flex;
+            align-items: center;
+            justify-content: center;
             width: 200px;
             flex-direction: column;
-            padding: 12px;
             color: white;
           }
           .center {
-            width: 622px;
+            width: 650px;
             color: white;
-            span {
-              padding-left: 32px;
+            display: flex;
+            margin: 0 90px;
+            >div {
+              width: auto;
+              color: #FFF;
+              font-family: Pretendard;
+              font-weight: 700;
+              font-size: 32px;
+              padding: 32px;
+              font-size: 22px;
             }
             i {
-              width: 74px;
-              height: 74px;
-              padding: 32px;
+              img {
+                width: 74px;
+                height: 74px;
+              }
             }
           }
           .right {
+            width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
           }
         }
