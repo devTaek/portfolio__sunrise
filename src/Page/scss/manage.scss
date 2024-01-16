@@ -1,7 +1,7 @@
-#match {
+#manage {
   width: 100vw;
   height: 721px;
-  background: url(../../../public/img/bg-1-match.png) no-repeat center/cover fixed;
+  background: url(../../../public/img/bg-1-manage.png) no-repeat center/cover fixed;
   .container {
     width: 100%;
     padding: 20px auto;
@@ -22,7 +22,7 @@
       }
     }
 
-    .matchBox {
+    .manageBox {
       background-color: black;
       width: 100%;
       padding: 40px 0;
@@ -35,7 +35,7 @@
           align-items: center;
           justify-content: space-evenly;
           border-bottom: 3px solid white;
-          padding-bottom: 20px;
+          padding-bottom: 28px;
           button {
             display: flex;
             padding: 16px;
@@ -67,56 +67,33 @@
           border-bottom: 3px solid white;
           padding: 0 50px;
           span {
-            margin-right: 7px;
+            width: 80px;
             color: white;
             text-align: center;
           }
         }
         .row3 {
-          width: 1280px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-bottom: 1px solid #958fa9; 
-          .left {
+          li {
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 20%;
-            flex-direction: column;
-            color: white;
-          }
-          .center {
-            width: 60%;
-            height: 100%;
-            color: white;
-            display: flex;
-            margin: 0 90px;
-            >div {
-              width: 120px;
-              color: #FFF;
-              font-family: Pretendard;
-              font-weight: 700;
-              font-size: 32px;
-              padding: 40px;
-              font-size: 22px;
+            justify-content: space-between;
+            width: 100%;
+            height: 90px;
+            padding: 0 50px;
+            border-bottom: 3px solid white;
+            span {
+              width: 80px;
+              color: white;
+              text-align: center;
             }
-            i {
-              padding: 15px;
-              margin-left: 20px;
-              img {
-                width: 74px;
-                height: 74px;
-              }
+            :nth-child(4) {
+              display: flex;
+              padding: 6px 10px;
+              align-items: center;
+              border: 1px solid #D6B534;
+              border-radius: 50px;
+              background: rgba(214, 181, 52, 0.08);
             }
-          }
-          .right {
-            width: 20%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            padding-left: 10px;
           }
         }
       }
