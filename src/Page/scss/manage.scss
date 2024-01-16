@@ -30,6 +30,32 @@
         width: 100%;
         width: 1280px;
         margin: 0 auto;
+        .total-money-box {
+          width: 100%;
+          max-width: 1280px;
+          border-radius: 16px;
+          background: rgba(255, 255, 255, 0.08);
+          margin: 40px 0;
+          .gap {
+            padding: 56px;
+            color: white;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            h3 {
+              color: #FFF;
+              font-size: 32px;
+              font-weight: 700;
+            }
+            .total-money {
+              color: #FFF;
+              text-align: right;
+              font-size: 32px;
+              font-weight: 700;
+              text-decoration: underline;
+            }
+          }
+        }
         .row1 {
           display: flex;
           align-items: center;

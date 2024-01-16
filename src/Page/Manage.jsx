@@ -15,6 +15,12 @@ function Manage() {
         </title>
         <div className="manageBox">
           <div className="container">
+            <div className='total-money-box'>
+              <div className='gap'>
+                <h3>총 금액</h3>
+                <div className="total-money">100,000원</div>
+              </div>
+            </div>
             <div className="row1">
               <button><img src="./img/pc-prev-btn.png"  alt="" /></button>
               <div className="dateBox">2024.01</div>
