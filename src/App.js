@@ -146,7 +146,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Main />} />
             <Route path='/players' element={<Players />} />
-            <Route path='/match' element={<Match />} />
+            <Route path='/match' element={<Match matchList={matchList}/>} />
             <Route path='/manage' element={<Manage />} />
             <Route path='/community' element={<Community />} />
           </Routes>

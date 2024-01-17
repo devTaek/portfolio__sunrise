@@ -69,19 +69,22 @@
             gap: 10px;
             border-radius: 100px;
             background: rgba(255, 255, 255, 0.10);
+            cursor: pointer;
             img {
               width: 32px;
               height: 32px;
             }
           }
           .dateBox {
-          color: #FFF;
-          text-align: center;
-          font-family: Pretendard;
-          font-size: 40px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: normal;
+            width: 40px;
+            color: #FFF;
+            text-align: center;
+            font-family: Pretendard;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            
           }
         }
         .row2 {

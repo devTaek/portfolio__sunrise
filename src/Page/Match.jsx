@@ -1,10 +1,26 @@
-import React,{useContext} from 'react';
+import React,{useContext, useState} from 'react';
 import './scss/match.scss';
 import { MatchListContext } from '../store/PlayersListContext';
 
 
-function Match() {
+function Match(props) {
   const {matchList} = useContext(MatchListContext);
+
+  const [filteredMonth, setFilteredMonth] = useState(1);
+
+
+  const onClickPrevMonth = () => {
+    setFilteredMonth(filteredMonth-1);
+    if(filteredMonth <= 1) {
+      setFilteredMonth(12);
+    }
+  }
+  const onClickNextMonth = () => {
+    setFilteredMonth(filteredMonth+1);
+    if(filteredMonth >= 12) {
+      setFilteredMonth(1);
+    }
+  }
 
   return (
     <div id='match'>
@@ -15,9 +31,11 @@ function Match() {
         <div className="matchBox">
           <div className="container">
             <div className="row1">
-              <button><img src="./img/pc-prev-btn.png"  alt="" /></button>
-              <div className="dateBox">2024.01</div>
-              <button><img src="./img/pc-next-btn.png"  alt="" /></button>
+              <button onClick={onClickPrevMonth}><img src="./img/pc-prev-btn.png"  alt="" /></button>
+              <div className="dateBox">
+                {filteredMonth}
+              </div>
+              <button onClick={onClickNextMonth}><img src="./img/pc-next-btn.png"  alt="" /></button>
             </div>
             <div className="row2">
               <span>경기일정</span>
