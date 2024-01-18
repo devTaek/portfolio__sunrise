@@ -1,6 +1,4 @@
 .App {
-  text-align: center;
-  background: url('../public/img/bg-1-main.png') no-repeat center/cover fixed;
+  width:100%;
+  height:100%;
 }
-
-

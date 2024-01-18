@@ -30,10 +30,11 @@ function Match(props) {
         </title>
         <div className="matchBox">
           <div className="container">
+            <div className="gap">
             <div className="row1">
               <button onClick={onClickPrevMonth}><img src="./img/pc-prev-btn.png"  alt="" /></button>
               <div className="dateBox">
-                {filteredMonth}
+                2024.{filteredMonth}
               </div>
               <button onClick={onClickNextMonth}><img src="./img/pc-next-btn.png"  alt="" /></button>
             </div>
@@ -42,26 +43,30 @@ function Match(props) {
               <span>스코어</span>
               <span>경기결과</span>
             </div>
+            <ul>
               {matchList && matchList.map((item, id)=>(
-                <div className="row3" key={item.id}>
-                  <div className="left">
-                    <div className="matchDate">{item.when}</div>
-                    <div className="matchPlace">{item.where}</div>
-                  </div>
-                  <div className="center">
-                    <div className='homeTeam'>{item.home}</div>
-                    <i><img src={item.home_logo} alt="" /></i>
-                    <div>1</div>    {/* 더 높은 점수가 노란 글씨 입도록! */}
-                    <div>VS</div>
-                    <div>0</div>
-                    <i><img src={item.away_logo} alt="" /></i>
-                    <div className='awayTeam'>{item.away}</div>
-                  </div>
-                  <div className="right">
-                    <span>승</span>
-                  </div>
-                </div>
-              ))}
+                  <li className="row3" key={item.id}>
+                    <div className="left">
+                      <div className="matchDate">{item.when}</div>
+                      <div className="matchTime">{item.time}</div>
+                      <div className="matchPlace">{item.where}</div>
+                    </div>
+                    <div className="center">
+                      <div className="col-gap">
+                        <span className='homeTeam'>{item.home}</span>
+                        <i><img src={item.home_logo} alt="" /></i>
+                        <span>1</span>    {/* 더 높은 점수가 노란 글씨 입도록! */}
+                        <span style={{fontSize: `32px`}}>VS</span>
+                        <span>0</span>
+                        <i><img src={item.away_logo} alt="" /></i>
+                        <span className='awayTeam'>{item.away}</span>
+                      </div>
+                    </div>
+                    <div className="right">승</div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

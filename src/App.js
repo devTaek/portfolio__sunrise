@@ -15,6 +15,8 @@ import Community from './Page/Community';
 
 function App() {
 
+
+  // 데이터 어떻게 다룰지 생각좀 해봅시다
   const playerList = [
     {
       id: 1,
@@ -92,12 +94,13 @@ function App() {
     }
   ]
 
+  // 이것도 너무 이상해요
   const matchList= [
     {
       id:1,
-      when: '2024.01.07(일) 06:00',    // 그달의 일요일
+      when: '2024.01.07(일)',    // 그달의 일요일
       where: '대전 월드컵 경기장',
-      time: '7-9',
+      time: '06:00',
       home: 'Sunrise',
       home_logo: './img/pc-logo.png',
       away: 'JEJU',
@@ -105,9 +108,9 @@ function App() {
     },
     {
       id:2,
-      when: '2024.01.14(일) 07:00',
+      when: '2024.01.14(일)',
       where: 'FC서울',
-      time: '7-9',
+      time: '07:00',
       home: 'Sunrise',
       home_logo: './img/pc-logo.png',
       away: 'DAEJEON',
@@ -115,9 +118,9 @@ function App() {
     },
     {
       id:3,
-      when: '2024.01.21(일) 06:00',
+      when: '2024.01.21(일)',
       where: '천마풋살파크 b구장',
-      time: '7-9',
+      time: '06:00',
       home: 'Sunrise',
       home_logo: './img/pc-logo.png',
       away: 'GEOJE',
@@ -125,9 +128,9 @@ function App() {
     },
     {
       id:4,
-      when: '2024.01.28(일) 08:00',
+      when: '2024.01.28(일)',
       where: '마루공원 2면',
-      time: '7-9',
+      time: '08:00',
       home: 'Sunrise',
       home_logo: './img/pc-logo.png',
       away: 'JEONBUK',

@@ -18,13 +18,26 @@
       margin-top: 20px;
       width: 100%;
       display: flex;
-      flex-flow: row wrap;
+      flex-flow: wrap;
       li {
         width: 33.33%;
         padding: 10px;
+        @media all and (max-width: 1024px) {
+          width: 50%;
+        }
+        @media all and (max-width: 780px) {
+          width: 100%;
+        }
         .player_img {
           width: 100%;
           border-bottom: 5px solid #fff;
+          margin: 15px;
+          @media all and (max-width: 1024px) {
+            padding: 10px;
+          }
+          @media all and (max-width: 780px) {
+            padding: 10px;
+          }
           img {
             width: 100%;
           }
