@@ -1,11 +1,10 @@
 #match {
-  width: 100vw;
+  width: 100%;
   height: 100%;
   background: url(../../../public/img/bg-1-match.png) no-repeat center/cover fixed;
   .container {
     width: 100%;
-    height: 100%;
-    padding: 20px auto;
+    padding: 0;
     .title {
       width: 100%;
       height: 721px;
@@ -24,18 +23,13 @@
     }
     .matchBox {
       background-color: black;
-      width: 100%;
       height: 100%;
       padding: 40px 0;
       >.container {
         width: 100%;
-        margin: 0 auto;
         .gap {
-          margin: 0 200px;
           color: white;
-          @media all and (width < 1280px) {
-            margin: 0 100px;
-          }
+          margin: 0 320px;
           .row1 {
             display: flex;
             align-items: center;
@@ -74,9 +68,9 @@
             align-items: center;
             border-bottom: 3px solid white;
             padding: 0 40px;
-            @media all and (width < 1280px) {
+            /* @media all and (width < 1280px) {
               display: none;
-            }
+            } */
             span {
               width: 130px;
               text-align: center;
@@ -90,11 +84,11 @@
               height: 90px;
               justify-content: space-between;
               align-items: center;
-              padding: 48px 40px 48px 40px;
+              padding: 48px 40px;
               border-radius: 16px;
               background: rgba(255, 255, 255, 0.08);
               margin: 20px 0;
-              @media all and (max-width : 1280px) {
+              /* @media all and (max-width : 1280px) {
                 width: 100%;
                 height: auto;
                 display: flex;
@@ -102,19 +96,12 @@
                 flex-direction: column;
                 border-radius: 12px;
                 background: rgba(255, 255, 255, 0.08);
-              }
+              } */
               /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
-              @media all and (min-width:768px) and (max-width: 1065px) {
-                width: 100%;
-                height: auto;
-                padding: 16px 12px;
-              } 
+     
               
               /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
-              @media all and (max-width:866px) {
-                padding: 8px 6px;
-              }
-              
+         
               
 
 
@@ -122,12 +109,7 @@
                 width: 130px;
                 text-align: center;
                 color: white;
-                @media all and (width < 1280px) {
-                  font-size: 14px;
-                }
-                @media all and (width < 866px) {
-                  font-size: 10px;
-                }
+                font-size: 18px;
               }
               .center {
                 color: white;
@@ -138,44 +120,18 @@
                   align-items: center;
                   justify-content: space-between;
                   gap: 32px;
-                  @media all and (width < 1280px) {
-                    gap: 16px;
-                  }
-                  @media all and (width < 1024px) {
-                    width: 400px;
-                    gap: 8px;
-                  }
-                  @media all and (width < 800px) {
-                    width: 300px;
-                    gap: 6px;
-                  }
                   >span {
                     width: 72px;
                     font-family: Pretendard;
                     font-weight: 700;
                     font-size: 22px;
                     text-align: center;
-                    @media all and (width < 1280px) {
-                      font-size: 22px;
-                    }
-                    @media all and (width < 866px) {
-                      font-size: 14px;
-                    }
-                    
                   }
                   i {
                     padding: 15px;
                     img {
                       width: 64px;
                       height: 64px;
-                      @media all and (width < 1280px) {
-                        width: 32px;
-                        height: 32px;
-                      }
-                      @media all and (width < 800px) {
-                        width: 16px;
-                        height: 16px;
-                      }
                     }
                   }
                 }
@@ -185,9 +141,6 @@
                 color: white;
                 text-align: center;
                 font-size: 2rem;
-                @media all and (width < 1280px) {
-                  display: none;
-                }
               }
             }
           }

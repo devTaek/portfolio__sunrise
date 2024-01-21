@@ -40,7 +40,7 @@ function Manage() {
               <div  className="dateBox">{filteredMonth}</div>
               <button onClick={onClickNextMonth}><img src="./img/pc-next-btn.png"  alt="" /></button>
             </div>
-            <div className="row2">
+            <div className="row2">ㅌ
               <span> 이름</span>
               <span>납부 금액</span>
               <span>납부 날짜</span>
