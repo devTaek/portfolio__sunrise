@@ -1,10 +1,10 @@
 #header {
-  position: fixed;
-  display: flex;
+  position: sticky;
+  background: #000;
   width: 100%;
+  padding: 0;
   top: 0;
   left: 0;
-  background: #000;
   z-index: 99;
   .container {
     width: 100%;
@@ -22,7 +22,7 @@
       }
       .headerMenu {
         margin-left: 200px;
-        @media all and (max-width : 1300px) {
+        @media all and (max-width : 1024px) {
           display: none;
         }
         a {
@@ -39,12 +39,11 @@
         width: 50px;
         height: 50px;
         cursor: pointer;
-        @media all and (width < 1300px) {
-          display: block;
-          padding-left: 550px;
+        @media all and (width < 1024px) {
+          display: flex;
+          justify-content: flex-end;
         }
         a {
-          
           color: white;
           text-decoration: none;
         }

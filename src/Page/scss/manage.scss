@@ -1,17 +1,17 @@
 #manage {
-  width: 100vw;
-  height: 721px;
+  width: 100%;
+  height: 100%;
   background: url(../../../public/img/bg-1-manage.png) no-repeat center/cover fixed;
-  background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.08) 100%);
   .container {
     width: 100%;
-    padding: 20px auto;
+    padding: 0;
     .title {
       width: 100%;
       height: 721px;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.08) 100%);
       h1 {
         color: #FFF;
         text-align: center;
@@ -24,45 +24,62 @@
     }
 
     .manageBox {
-      background-color: black;
       width: 100%;
-      padding: 40px 0;
+      padding: 130px 0;
+      background: black;
       >.container {
         width: 100%;
-        width: 1280px;
-        margin: 0 auto;
-        .total-money-box {
+        max-width: 1280px;
+        .gap {
+            color: white;
+            @media all and (max-width: 1360px) {
+              margin: 0 40px;
+            }
+            @media all and (max-width: 768px) {
+              margin: 0 16px;
+            }
+          .total-money-box {
           width: 100%;
           max-width: 1280px;
           border-radius: 16px;
           background: rgba(255, 255, 255, 0.08);
-          margin: 40px 0;
+          margin-bottom: 120px;
           .gap {
             padding: 56px;
-            color: white;
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            h3 {
-              color: #FFF;
+            @media all and (max-width: 1104px) {
+              height: auto;
+              padding: 32px 24px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              gap: 24px;
+              align-self: stretch;
+            }
+            span {
               font-size: 32px;
               font-weight: 700;
             }
             .total-money {
-              color: #FFF;
               text-align: right;
               font-size: 32px;
               font-weight: 700;
               text-decoration: underline;
+              
             }
           }
-        }
-        .row1 {
-          display: flex;
-          align-items: center;
-          justify-content: space-evenly;
-          border-bottom: 3px solid white;
-          padding-bottom: 28px;
+          }
+          .row1 {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            align-self: stretch;
+            justify-content: space-between;
+            border-bottom: 3px solid white;
+            padding-bottom: 28px;
           button {
             display: flex;
             padding: 16px;
@@ -77,52 +94,63 @@
             }
           }
           .dateBox {
-            width: 40px;
-            color: #FFF;
+            width: 156px;
+            color: #fff;
             text-align: center;
             font-family: Pretendard;
             font-size: 40px;
             font-style: normal;
             font-weight: 700;
             line-height: normal;
-            
           }
-        }
-        .row2 {
+          }
+          .row2 {
           width: 100%;
           height: 90px;
           display: flex;
-          justify-content: space-between;
           align-items: center;
+          align-self: stretch;
+          justify-content: space-between;
           border-bottom: 3px solid white;
-          padding: 0 50px;
+          padding: 48px 40px;
           span {
+            // row3 하고 다시한번 체크
             width: 80px;
-            color: white;
             text-align: center;
           }
-        }
-        .row3 {
-          li {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            height: 90px;
-            padding: 0 50px;
-            border-bottom: 1px solid white;
-            span {
-              width: 80px;
-              color: white;
-              text-align: center;
-            }
-            :nth-child(4) {
+          }
+          .row3 {
+            margin-top: 30px;
+            li {
+              height: 90px;
               display: flex;
-              padding: 6px 10px;
               align-items: center;
-              border: 1px solid #D6B534;
-              border-radius: 50px;
-              background: rgba(214, 181, 52, 0.08);
+              align-self: stretch;
+              justify-content: space-between;
+              padding: 48px 40px;
+              border-bottom: 1px solid white;
+              span {
+                width: 80px;
+                text-align: center;
+              }
+              :nth-child(4) {
+                display: flex;
+                padding: 6px 10px;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #D6B534;
+                border-radius: 50px;
+                background: rgba(214, 181, 52, 0.08);
+                @media all and (max-width: 450px) {
+                  display: none;
+                }
+              }
+              :nth-child(5) {
+                display: none;
+                @media all and (max-width: 450px) {
+                  display: block;
+                }
+              }
             }
           }
         }

@@ -11,6 +11,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.08) 100%);
       h1 {
         color: #FFF;
         text-align: center;
@@ -21,19 +22,28 @@
         line-height: normal;
       }
     }
+
     .matchBox {
+      width: 100%;
+      padding: 130px 0;
       background-color: black;
-      height: 100%;
-      padding: 40px 0;
       >.container {
         width: 100%;
+        max-width: 1280px;
         .gap {
           color: white;
-          margin: 0 320px;
+          @media all and (max-width: 1360px) {
+            margin: 0 40px;
+          }
+          @media all and (max-width: 768px) {
+            margin: 0 16px;
+          }
           .row1 {
+            width: 100%;
             display: flex;
             align-items: center;
-            justify-content: space-evenly;
+            align-self: stretch;
+            justify-content: space-between;
             border-bottom: 3px solid white;
             padding-bottom: 28px;
             button {
@@ -67,80 +77,118 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 3px solid white;
-            padding: 0 40px;
-            /* @media all and (width < 1280px) {
+            padding: 48px 40px;
+            @media all and (width < 1104px) {
               display: none;
-            } */
+            }
             span {
-              width: 130px;
+              width: 200px;
               text-align: center;
             }
             
           }
           ul {
             margin-top: 30px;
-            li {
+            .row3 {
+              height: 64px;
               display: flex;
-              height: 90px;
-              justify-content: space-between;
               align-items: center;
+              align-self: stretch;
+              justify-content: space-between;
               padding: 48px 40px;
               border-radius: 16px;
               background: rgba(255, 255, 255, 0.08);
               margin: 20px 0;
-              /* @media all and (max-width : 1280px) {
-                width: 100%;
-                height: auto;
-                display: flex;
-                padding: 32px 24px;
-                flex-direction: column;
-                border-radius: 12px;
-                background: rgba(255, 255, 255, 0.08);
-              } */
-              /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
-     
-              
-              /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
-         
-              
 
+              /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
+              /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
+              
+              @media all and (max-width: 1104px) {
+                height: auto;
+                padding: 32px 24px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 24px;
+                align-self: stretch;
+              }
 
               .left {
-                width: 130px;
+                .matchDate {
+                  width: 200px;
+                  line-height: normal;
+                }
+                .matchPlace {
+                  width: 200px;
+                  line-height: normal;
+                }
+                color: #FFF;
+                font-family: Pretendard;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
                 text-align: center;
-                color: white;
-                font-size: 18px;
+                @media all and (max-width: 1104px) {
+                  font-size: 14px;
+                }
               }
               .center {
                 color: white;
                 text-align: center;
                 .col-gap {
-                  width: 558px;
+                  width: 100%;
                   display: flex;
                   align-items: center;
                   justify-content: space-between;
-                  gap: 32px;
+                  @media all and (max-width: 768px) {
+                    justify-content: space-evenly;
+                  }
                   >span {
                     width: 72px;
+                    font-size: 22px;
                     font-family: Pretendard;
                     font-weight: 700;
-                    font-size: 22px;
                     text-align: center;
+                    @media all and (max-width: 1104px) {
+                      width: 50px;
+                      font-size: 16px;
+                      text-align: center;
+                    }
+                    
+                  }
+                  .homeTeam, .awayTeam {
+                    @media all and (max-width: 600px) {
+                      //display: none;
+                      font-size: 8px;
+                    }
                   }
                   i {
                     padding: 15px;
+                    @media all and (max-width: 600px) {
+                      padding: 0;
+                    }
                     img {
                       width: 64px;
                       height: 64px;
+                      @media all and (max-width: 600px) {
+                        width: 25px;
+                        height: 25px;
+                      }
                     }
                   }
                 }
               }
               .right {
-                width: 130px;
+                width: 200px;
                 color: white;
                 text-align: center;
                 font-size: 2rem;
+                font-family: Pretendard;
+                font-weight: 700;
+                @media all and (max-width: 1104px) {
+                  display: none;
+                }
               }
             }
           }

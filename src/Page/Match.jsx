@@ -28,6 +28,9 @@ function Match(props) {
         <title className="title">
           <h1>MATCH</h1>
         </title>
+        <div className="bgGradient">
+          
+        </div>
         <div className="matchBox">
           <div className="container">
             <div className="gap">
@@ -47,8 +50,7 @@ function Match(props) {
               {matchList && matchList.map((item, id)=>(
                   <li className="row3" key={item.id}>
                     <div className="left">
-                      <div className="matchDate">{item.when}</div>
-                      <div className="matchTime">{item.time}</div>
+                      <div className="matchDate">{item.when} {item.time}</div>
                       <div className="matchPlace">{item.where}</div>
                     </div>
                     <div className="center">
