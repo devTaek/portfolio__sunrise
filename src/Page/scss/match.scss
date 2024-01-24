@@ -27,15 +27,17 @@
       width: 100%;
       padding: 130px 0;
       background-color: black;
-      >.container {
+      .container {
         width: 100%;
         max-width: 1280px;
+        margin: 0 auto;
         .gap {
           color: white;
+          transition: all 0.7s;
           @media all and (max-width: 1360px) {
             margin: 0 40px;
           }
-          @media all and (max-width: 768px) {
+          @media all and (max-width: 1023px) {
             margin: 0 16px;
           }
           .row1 {
@@ -44,19 +46,26 @@
             align-items: center;
             align-self: stretch;
             justify-content: space-between;
-            border-bottom: 3px solid white;
-            padding-bottom: 28px;
+            @media all and (max-width: 1023px) {
+              padding-bottom: 24px;
+              border-bottom: 3px solid #fff;
+            }
             button {
               display: flex;
               padding: 16px;
               align-items: center;
-              margin: 10px;
+              gap: 10px;
+              border: 1px solid #000;
               border-radius: 100px;
               background: rgba(255, 255, 255, 0.10);
               cursor: pointer;
               img {
                 width: 32px;
                 height: 32px;
+                @media all and (max-width: 767px) {
+                  width: 16px;
+                  height: 16px;
+                }
               }
             }
             .dateBox {
@@ -68,6 +77,9 @@
               font-style: normal;
               font-weight: 700;
               line-height: normal;
+              @media all and (max-width: 767px) {
+                font-size: 22px;
+              }
             }
           }
           .row2 {
@@ -76,9 +88,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid white;
             padding: 48px 40px;
-            @media all and (width < 1104px) {
+            margin: 32px 0;
+            border-top: 3px solid white;
+            border-bottom: 3px solid white;
+            @media all and (max-width : 1023px) {
               display: none;
             }
             span {
@@ -90,7 +104,7 @@
           ul {
             margin-top: 30px;
             .row3 {
-              height: 64px;
+              height: 160px;
               display: flex;
               align-items: center;
               align-self: stretch;
@@ -98,13 +112,9 @@
               padding: 48px 40px;
               border-radius: 16px;
               background: rgba(255, 255, 255, 0.08);
-              margin: 20px 0;
-
-              /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
-              /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
-              
-              @media all and (max-width: 1104px) {
-                height: auto;
+              margin: 24px 0;
+              transition: all 0.7s;
+              @media all and (max-width: 1023px) {
                 padding: 32px 24px;
                 display: flex;
                 flex-direction: column;
@@ -115,22 +125,25 @@
               }
 
               .left {
+                color: #FFF;
+                font-family: Pretendard;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                text-align: left;
+                transition: all 0.7s;
                 .matchDate {
                   width: 200px;
                   line-height: normal;
                 }
                 .matchPlace {
+                  padding-top: 10px;
                   width: 200px;
                   line-height: normal;
                 }
-                color: #FFF;
-                font-family: Pretendard;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 400;
-                text-align: center;
-                @media all and (max-width: 1104px) {
+                @media all and (max-width: 1023px) {
                   font-size: 14px;
+                  text-align: center;
                 }
               }
               .center {
@@ -141,40 +154,60 @@
                   display: flex;
                   align-items: center;
                   justify-content: space-between;
-                  @media all and (max-width: 768px) {
-                    justify-content: space-evenly;
+                  gap: 32px;
+                  transition: all 0.7s;
+                  @media all and (max-width: 1238px) {
+                    gap: 5px;
                   }
+                  @media all and (max-width: 1023px) {
+                    width: 100%;
+                    gap: 20px;
+                  }
+                  @media all and (max-width: 767px) {
+                    gap: 10px;
+                  }
+                  
+                  
+
                   >span {
                     width: 72px;
-                    font-size: 22px;
+                    font-size: 40px;
                     font-family: Pretendard;
                     font-weight: 700;
                     text-align: center;
-                    @media all and (max-width: 1104px) {
+                    @media all and (max-width: 525px) {
                       width: 50px;
-                      font-size: 16px;
-                      text-align: center;
                     }
-                    
                   }
+                  
+                  // VS
+                  :nth-child(4) {
+                    font-size: 32px;
+                    @media all and (max-width: 767px) {
+                      font-size: 20px;
+                    }
+                  }
+                  
                   .homeTeam, .awayTeam {
-                    @media all and (max-width: 600px) {
+                    font-size: 22px;
+                    transition: all 0.7s;
+                    @media all and (max-width: 767px) {
                       //display: none;
-                      font-size: 8px;
+                      font-size: 16px;
+                    }
+                    @media all and (max-width: 525px) {
+                      display: none;
                     }
                   }
                   i {
-                    padding: 15px;
-                    @media all and (max-width: 600px) {
-                      padding: 0;
-                    }
                     img {
                       width: 64px;
                       height: 64px;
-                      @media all and (max-width: 600px) {
-                        width: 25px;
-                        height: 25px;
+                      @media all and (max-width: 767px) {
+                        width: 32px;
+                        height: 32px;
                       }
+                      
                     }
                   }
                 }
@@ -182,11 +215,12 @@
               .right {
                 width: 200px;
                 color: white;
-                text-align: center;
+                text-align: right;
                 font-size: 2rem;
                 font-family: Pretendard;
                 font-weight: 700;
-                @media all and (max-width: 1104px) {
+                padding-right: 12px;
+                @media all and (max-width: 1023px) {
                   display: none;
                 }
               }
@@ -197,3 +231,5 @@
     }
   }
 }
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 

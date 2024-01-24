@@ -33,13 +33,13 @@ function Manage() {
               <div className='total-money-box'>
               <div className='gap'>
                 <span>총 금액</span>
-                <div className="total-money">100,000원</div>
+                <div className="total-money">300,000원</div>
               </div>
               </div>
               <div className="row1">
-                <button onClick={onClickPrevMonth}><img src="./img/pc-prev-btn.png"  alt="" /></button>
+                <button onClick={onClickPrevMonth}><img style={{transform: `rotate(180deg)`}} src="./img/nextBtn.svg"  alt="" /></button>
                 <div  className="dateBox">2024.{filteredMonth}</div>
-                <button onClick={onClickNextMonth}><img src="./img/pc-next-btn.png"  alt="" /></button>
+                <button onClick={onClickNextMonth}><img src="./img/nextBtn.svg"  alt="" /></button>
               </div>
               <div className="row2">
                 <span> 이름</span>
