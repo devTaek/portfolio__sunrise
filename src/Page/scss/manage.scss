@@ -1,3 +1,5 @@
+//1360 (1238) 1023 767 525
+
 #manage {
   width: 100%;
   height: 100%;
@@ -9,7 +11,7 @@
       width: 100%;
       height: 721px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.08) 100%);
       h1 {
@@ -30,12 +32,14 @@
       >.container {
         width: 100%;
         max-width: 1280px;
+        margin: 0 auto;
         .gap {
+          transition: all 0.7s;
             color: white;
             @media all and (max-width: 1360px) {
               margin: 0 40px;
             }
-            @media all and (max-width: 768px) {
+            @media all and (max-width: 1023px) {
               margin: 0 16px;
             }
           .total-money-box {
@@ -43,33 +47,54 @@
           max-width: 1280px;
           border-radius: 16px;
           background: rgba(255, 255, 255, 0.08);
-          margin-bottom: 120px;
+          margin-bottom: 80px;
+          @media all and (max-width: 767px) {
+            margin-bottom: 60px;
+          }
           .gap {
             padding: 56px;
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            @media all and (max-width: 1104px) {
-              height: auto;
-              padding: 32px 24px;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              gap: 24px;
-              align-self: stretch;
+            font-weight: 700;
+            padding: 56px;
+            transition: all 0.7s;
+            @media all and (max-width: 767px) {
+              padding: 36px;
+            }
+            @media all and (max-width: 360px) {
+              padding: 24px;
             }
             span {
               font-size: 32px;
               font-weight: 700;
+              font-family: Pretendard;
+              @media all and (max-width: 1023px) {
+                font-size: 25px;
+              }
+              @media all and (max-width: 767px) {
+                font-size: 22px;
+              }
+              @media all and (max-width: 360px) {
+                font-size: 18px;
+              }
             }
             .total-money {
-              text-align: right;
               font-size: 32px;
-              font-weight: 700;
               text-decoration: underline;
-              
+              font-weight: 700;
+              font-family: Pretendard;
+              @media all and (max-width: 1023px) {
+                font-size: 25px;
+              }
+              @media all and (max-width: 767px) {
+                font-size: 22px;
+              }
+              @media all and (max-width: 360px) {
+                font-size: 18px;
+              }
             }
+            
           }
           }
           .row1 {
@@ -80,17 +105,29 @@
             justify-content: space-between;
             border-bottom: 3px solid white;
             padding-bottom: 28px;
+            @media all and (max-width: 767px) {
+              padding-bottom: 24px;
+            }
           button {
             display: flex;
             padding: 16px;
             align-items: center;
             gap: 10px;
+            border: 1px solid #000;
             border-radius: 100px;
             background: rgba(255, 255, 255, 0.10);
             cursor: pointer;
             img {
               width: 32px;
               height: 32px;
+              @media all and (max-width: 767px) {
+                width: 16px;
+                height: 16px;
+              }
+              @media all and (max-width: 360px) {
+                width: 8px;
+                height: 8px;
+              }
             }
           }
           .dateBox {
@@ -102,36 +139,68 @@
             font-style: normal;
             font-weight: 700;
             line-height: normal;
+            @media all and (max-width: 767px) {
+              font-size: 22px;
+            }
+            @media all and (max-width: 360px) {
+              font-size: 16px;
+            }
           }
           }
+
           .row2 {
-          width: 100%;
-          height: 90px;
-          display: flex;
-          align-items: center;
-          align-self: stretch;
-          justify-content: space-between;
-          border-bottom: 3px solid white;
-          padding: 48px 40px;
-          span {
-            // row3 하고 다시한번 체크
-            width: 80px;
-            text-align: center;
+            width: 100%;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            align-self: stretch;
+            justify-content: space-between;
+            border-bottom: 3px solid white;
+            padding: 48px 40;
+            @media all and (max-width: 525px) {
+              display: none;
+            }
+            div {
+              // row3 하고 다시한번 체크
+              width: 160px;
+              text-align: center;
+
+              :nth-child(3) {
+                display: none;
+              }
+              // @media all and (max-width: 600px) {
+              //   display: none;
+              // }
+            }
           }
-          }
+
           .row3 {
-            margin-top: 30px;
+            margin-top: 28px;
+            @media all and (max-width: 525px) {
+              margin-top: 24px;
+            }
             li {
+              width: 100%;
               height: 90px;
               display: flex;
               align-items: center;
               align-self: stretch;
               justify-content: space-between;
-              padding: 48px 40px;
+              padding: 48px 30px;
               border-bottom: 1px solid white;
-              span {
-                width: 80px;
-                text-align: center;
+              font-size: 20px;
+              @media all and (max-width: 525px) {
+                font-size: 16px;
+              }
+              .player-month-name {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 16px;
+                img {
+                  border-radius: 100px;
+                  background: rgba(255, 255, 255, 0.12);
+                }
               }
               :nth-child(4) {
                 display: flex;

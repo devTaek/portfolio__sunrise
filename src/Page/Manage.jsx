@@ -42,19 +42,22 @@ function Manage() {
                 <button onClick={onClickNextMonth}><img src="./img/nextBtn.svg"  alt="" /></button>
               </div>
               <div className="row2">
-                <span> 이름</span>
-                <span>납부 금액</span>
-                <span>납부 날짜</span>
-                <span>납부 여부</span>
+                <div>팀원</div>
+                <div>납부 금액</div>
+                <div>납부 날짜</div>
+                <div>납부 여부</div>
               </div>
               <ul className="row3">
                     {playerList.map((item, id) => (
                       <li key={item.id}>
-                        <span>{item.name}</span>
-                        <span>20,000</span>
-                        <span>24.01.01</span>
-                        <span>납부완료</span>
-                        <span className="mobile-monthMoneyCheck">✅</span>
+                          <div className='player-month-name'>
+                            <img src="./img/Player1 2.png" alt="" />
+                            <span>{item.name}</span>
+                          </div>
+                          <div className='player-month-money-check'>납부완료</div>
+                          <div className='player-month-money'>20,000</div>
+                          <div className='player-month-date'>24.01.01</div>
+                          <div className="mobile-monthMoneyCheck">✅</div>
                       </li>
                     ))}
               </ul>
