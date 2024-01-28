@@ -54,10 +54,9 @@ function Manage() {
                             <img src="./img/Player1 2.png" alt="" />
                             <span>{item.name}</span>
                           </div>
-                          <div className='player-month-money-check'>납부완료</div>
                           <div className='player-month-money'>20,000</div>
                           <div className='player-month-date'>24.01.01</div>
-                          <div className="mobile-monthMoneyCheck">✅</div>
+                          <div className='player-month-money-check'><span>납부완료</span></div>
                       </li>
                     ))}
               </ul>
