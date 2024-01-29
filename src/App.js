@@ -21,76 +21,76 @@ function App() {
     {
       id: 1,
       name: '김지강',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player6 1.png'
     },
     {
       id: 2,
       name: '나예석',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player1 1.png'
     },
     {
       id: 3,
       name: '박성우',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player6 1.png'
     },
     {
       id: 4,
       name: '박오수',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player1 1.png'
     },
     {
       id: 5,
       name: '배태림',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player6 1.png'
     },{
       id: 6,
       name: '백재우',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player1 1.png'
     },
     {
       id: 7,
       name: '서정훈',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player6 1.png'
     },
     {
       id: 8,
       name: '송석주',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player1 1.png'
     },
     {
       id: 9,
       name: '이경부',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player6 1.png'
     },
     {
       id: 10,
       name: '이대현',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player1 1.png'
     },
     {
       id: 11,
       name: '이종명',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player6 1.png'
     },
     {
       id: 12,
       name: '이혁',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player1 1.png'
     },
     {
       id: 13,
       name: '정태균',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player6 1.png'
     },
     {
       id: 14,
       name: '최경민',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player1 1.png'
     },
     {
       id: 15,
       name: '한성수',
-      img: './img/4254b1223bdb-dybala21-copia.png'
+      img: './img/Player6 1.png'
     }
   ]
 
@@ -149,7 +149,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Main />} />
             <Route path='/players' element={<Players />} />
-            <Route path='/match' element={<Match matchList={matchList}/>} />
+            <Route path='/match' element={<Match />} />
             <Route path='/manage' element={<Manage />} />
             <Route path='/community' element={<Community />} />
           </Routes>
