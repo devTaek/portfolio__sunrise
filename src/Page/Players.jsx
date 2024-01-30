@@ -16,6 +16,9 @@ function Players() {
           {playerList && playerList.map((item,id) => (
             <li key={item.id}>
               <img src={item.img} alt="" />
+              <div className="text">
+                <div className="name">{item.name}</div>
+              </div>
             </li>
           ))}
         </ul>
@@ -23,5 +26,4 @@ function Players() {
     </div>
   )
 }
-
 export default Players
