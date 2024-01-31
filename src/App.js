@@ -21,76 +21,76 @@ function App() {
     {
       id: 1,
       name: '김지강',
-      img: './img/Player6 1.png'
+      img: './img/Player/img_player1.png'
     },
     {
       id: 2,
       name: '나예석',
-      img: './img/Player1 1.png'
+      img: './img/Player/img_player2.png'
     },
     {
       id: 3,
       name: '박성우',
-      img: './img/Player6 1.png'
+      img: './img/Player/img_player3.png'
     },
     {
       id: 4,
       name: '박오수',
-      img: './img/Player1 1.png'
+      img: './img/Player/img_player4.png'
     },
     {
       id: 5,
       name: '배태림',
-      img: './img/Player6 1.png'
+      img: './img/Player/img_player5.png'
     },{
       id: 6,
       name: '백재우',
-      img: './img/Player1 1.png'
+      img: './img/Player/img_player6.png'
     },
     {
       id: 7,
       name: '서정훈',
-      img: './img/Player6 1.png'
+      img: './img/Player/img_player7.png'
     },
     {
       id: 8,
       name: '송석주',
-      img: './img/Player1 1.png'
+      img: './img/Player/img_player8.png'
     },
     {
       id: 9,
       name: '이경부',
-      img: './img/Player6 1.png'
+      img: './img/Player/img_player9.png'
     },
     {
       id: 10,
       name: '이대현',
-      img: './img/Player1 1.png'
+      img: './img/Player/img_player1.png'
     },
     {
       id: 11,
       name: '이종명',
-      img: './img/Player6 1.png'
+      img: './img/Player/img_player2.png'
     },
     {
       id: 12,
       name: '이혁',
-      img: './img/Player1 1.png'
+      img: './img/Player/img_player3.png'
     },
     {
       id: 13,
       name: '정태균',
-      img: './img/Player6 1.png'
+      img: './img/Player/img_player4.png'
     },
     {
       id: 14,
       name: '최경민',
-      img: './img/Player1 1.png'
+      img: './img/Player/img_player5.png'
     },
     {
       id: 15,
       name: '한성수',
-      img: './img/Player6 1.png'
+      img: './img/Player/img_player6.png'
     }
   ]
 
