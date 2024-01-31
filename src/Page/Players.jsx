@@ -12,16 +12,20 @@ function Players() {
         <title className="title">
           <h1>Players</h1>
         </title>
-        <ul className="playerBox">
-          {playerList && playerList.map((item,id) => (
-            <li key={item.id}>
-              <img src={item.img} alt="" />
-              <div className="text">
-                <div className="name">{item.name}</div>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div className="playerBox">
+          <div className="container">
+             <ul>
+              {playerList && playerList.map((item,id) => (
+              <li key={item.id}>
+                <img src={item.img} alt="" />
+                <div className="text">
+                  <div className="name">{item.name}</div>
+                </div>
+              </li>
+            ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   )
