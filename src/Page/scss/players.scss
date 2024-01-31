@@ -24,71 +24,53 @@
     }
     .playerBox {
       width: 100%;
-      padding: 130px 0;
+      height: 100%;
       background: black;
-      .container {
-        width: 100%;
-        max-width: 1280px;
-        margin: 0 auto;
-        ul {
+      display: flex;
+      flex-flow: wrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      li {
+        width: 384px;
+        height: 501px;
+        margin : 12px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        position: relative;
+        transition: all 0.1s;
+        :hover {background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, black 100%);}
+        img {
+          width: 100%;
+          height: 100%;
+          opacity: 1;
+          display: block;
+          backface-visibility: hidden;
+        }
+        .text {
+          position: absolute;
+          top:0;
+          left:0;
+          width: 100%;
+          height: 100%;
           display: flex;
-          flex-flow: wrap;
-          gap: 40px;
           align-items: center;
           justify-content: center;
-          @media all and (max-width: 1360px) {
-            margin: 0 40px;
+          font-family: Pretendard;
+          opacity:0;
+          transition: 0.4s;
+          color: white;
+          &:hover {
+            opacity:1;
           }
-          @media all and (max-width: 1023px) {
-            margin: 0 16px;
-          }
-          li {
-            position: relative;
-            width: 400px;
-            height: auto;
-            background: rgba(255, 255, 255, 0.08);
-            //
-            background-size: contain;
-            border-radius: 16px;
-            transition: all 0.1s;
-            :hover {background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, black 100%);}
-            img {
-              width: 100%;
-              height: 100%;
-              padding-top: 46px;
-              opacity: 1;
-              display: block;
-              backface-visibility: hidden;
-            }
-            .text {
-              position: absolute;
-              top:0;
-              left:0;
-              width: 100%;
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-family: Pretendard;
-              opacity:0;
-              transition: 0.4s;
-              color: white;
-              &:hover {
-                opacity:1;
-              }
-              .name {
-                width: 92px;
-                height: 26px;
-                text-align: center;
-                color: white;
-                font-size: 22px;
-                font-weight: 700;
-                margin: 410px 140px 65px 140px;
-                @media all and (max-width: 370px) {
-                  font-size: 1.8rem;
-                }
-              }
-            }
+          .name {
+            width: 92px;
+            height: 26px;
+            text-align: center;
+            color: white;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 410px 140px 65px 140px;
           }
         }
       }
