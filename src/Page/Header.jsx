@@ -39,7 +39,7 @@ function Header() {
   }, [isToggled, isMobileView]);
 
   return (
-    <header id="header">
+    <header style={{fontFamily: `Pretendard`}} id="header">
       <div className="container">
         <div className="gap">
           <div className="logo">
@@ -62,7 +62,7 @@ function Header() {
           </div>
         </div>
       </div>
-      {isToggled && <ToggledMenu headerMenu={headerMenu} snsMenu={snsMenu}/>}
+      {isToggled && <ToggledMenu isToggled={isToggled} setIsToggled={setIsToggled} headerMenu={headerMenu} snsMenu={snsMenu}/>}
     </header>
   )
 

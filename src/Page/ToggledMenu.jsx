@@ -1,25 +1,29 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function ToggledMenu(props) {
-  
+function ToggledMenu({headerMenu, snsMenu, isToggled, setIsToggled}) {
+
+  const menuClickAndClose= ()=> {
+    setIsToggled(!isToggled)
+  }
+
   return (
     <div className="toggle_menu">
       <div className='toggle-headerMenu'>
         <ul>
-          {props.headerMenu.map((item, key) => (
+          {headerMenu.map((item, key) => (
             <li key={item.id}>
-              <Link to={item.address}>{item.name}</Link>
+              <Link onClick={menuClickAndClose} to={item.address}>{item.name}</Link>
             </li>
         ))}
-        </ul>
+          </ul>
       </div>
       <div className='toggle-snsMenu'>
-        {props.snsMenu.map((item,key) => (
-          <ul>
+        <ul>
+        {snsMenu.map((item,key) => (
             <li key={item.id}><img src={item.img} alt="" /></li>
-          </ul>
         ))}
+        </ul>
       </div>
     </div>
   )
