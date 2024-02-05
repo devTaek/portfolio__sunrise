@@ -1,32 +1,40 @@
-import {useContext} from 'react';
+import {useContext, useState} from 'react';
 import './scss/players.scss';
 
 import {PlayersListContext} from '../store/PlayersListContext';
 
+import DisplayCountSelector from './DisplayCountSelector';
+import PostList from './PostList';
+import Pagination from './Pagination';
+
 function Players() {
   const {playerList} = useContext(PlayersListContext);
-  
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage, setPostsPerPage] = useState(6);
+
+  const firstPostIndex = (currentPage - 1) * postPerPage;
+  const lastPostIndex = firstPostIndex + postPerPage;
+  const currentPosts = playerList.slice(firstPostIndex, lastPostIndex);
+
   return (
     <div id='players'>
       <div className="container">
         <title className="title">
           <h1>Players</h1>
         </title>
+        <DisplayCountSelector setCurrentPage={setCurrentPage} setPostsPerPage={setPostsPerPage}/>
         <div className="playerBox">
           <div className="container">
-             <ul>
-              {playerList && playerList.map((item,id) => (
-              <li key={item.id}>
-                <img src={item.img} alt="" />
-                <div className="text">
-                  <div className="name">{item.name}</div>
-                </div>
-              </li>
-            ))}
-            </ul>
+             <PostList list={currentPosts}/>
           </div>
         </div>
-      </div>
+        <Pagination 
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          postPerPage={postPerPage}
+          postsNum={playerList.length}
+          />
+        </div>
     </div>
   )
 }
