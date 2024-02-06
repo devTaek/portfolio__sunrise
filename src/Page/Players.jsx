@@ -10,10 +10,10 @@ import Pagination from './Pagination';
 function Players() {
   const {playerList} = useContext(PlayersListContext);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostsPerPage] = useState(6);
+  const [postsPerPage, setPostsPerPage] = useState(6);
 
-  const firstPostIndex = (currentPage - 1) * postPerPage;
-  const lastPostIndex = firstPostIndex + postPerPage;
+  const firstPostIndex = (currentPage - 1) * postsPerPage;
+  const lastPostIndex = firstPostIndex + postsPerPage;
   const currentPosts = playerList.slice(firstPostIndex, lastPostIndex);
 
   return (
@@ -22,17 +22,20 @@ function Players() {
         <title className="title">
           <h1>Players</h1>
         </title>
-        <DisplayCountSelector setCurrentPage={setCurrentPage} setPostsPerPage={setPostsPerPage}/>
+        <DisplayCountSelector 
+          setCurrentPage={setCurrentPage} 
+          setPostsPerPage={setPostsPerPage}
+        />
         <div className="playerBox">
           <div className="container">
              <PostList list={currentPosts}/>
           </div>
         </div>
-        <Pagination 
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          postPerPage={postPerPage}
-          postsNum={playerList.length}
+          <Pagination 
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            postsPerPage={postsPerPage}
+            postsNum={playerList.length}
           />
         </div>
     </div>

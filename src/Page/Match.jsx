@@ -7,18 +7,20 @@ function Match(props) {
   const {matchList} = useContext(MatchListContext);
 
   const [filteredMonth, setFilteredMonth] = useState(1);
-
+  const [filteredYear, setFilteredYear] = useState(2024);
 
   const onClickPrevMonth = () => {
     setFilteredMonth(filteredMonth-1);
     if(filteredMonth <= 1) {
       setFilteredMonth(12);
+      setFilteredYear(filteredYear - 1);
     }
   }
   const onClickNextMonth = () => {
     setFilteredMonth(filteredMonth+1);
     if(filteredMonth >= 12) {
       setFilteredMonth(1);
+      setFilteredYear(filteredYear + 1);
     }
   }
 
@@ -34,7 +36,7 @@ function Match(props) {
             <div className="row1">
               <button onClick={onClickPrevMonth}><img style={{transform: `rotate(180deg)`}} src="./img/nextBtn.svg"  alt="" /></button>
               <div className="dateBox">
-                2024.{filteredMonth}
+              {filteredYear}.{filteredMonth}
               </div>
               <button onClick={onClickNextMonth}><img src="./img/nextBtn.svg"  alt="" /></button>
             </div>

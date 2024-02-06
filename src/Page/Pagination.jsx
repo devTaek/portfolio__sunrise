@@ -6,7 +6,6 @@ function Pagination({
 }) {
   const pageList = [];
   const totalPages = Math.ceil(postsNum / postsPerPage);
-
   for (let i = 1; i <= totalPages; i++) {
     pageList.push(i);
   }
@@ -26,7 +25,7 @@ function Pagination({
   return (
     <div className="pagination">
       <button onClick={goToPrevPage} disabled={currentPage === 1}>
-        prev
+        ◀️
       </button>
 
       {pageList.map((page) => (
@@ -40,7 +39,7 @@ function Pagination({
       ))}
 
       <button onClick={goToNextPage} disabled={currentPage === pageList.length}>
-        next
+        ▶️
       </button>
     </div>
   );

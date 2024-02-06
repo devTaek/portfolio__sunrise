@@ -2,8 +2,8 @@ import React from 'react'
 
 function DisplayCountSelector({setCurrentPage,setPostsPerPage}) {
   return (
-    <div style={{background: `black`}}>
-      <label style={{color: `white`}} htmlFor="displayCount">페이지당 게시물 수</label>
+    <div className='displayCountBox'>
+      <label htmlFor="displayCount"></label>
 
       <select
         id="displayCount"
