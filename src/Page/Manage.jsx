@@ -7,19 +7,23 @@ function Manage() {
 
   const {playerList} = useContext(PlayersListContext);
   const [filteredMonth, setFilteredMonth] = useState(1);
+  const [filteredYear, setFilteredYear] = useState(2024);
 
   const onClickPrevMonth = () => {
     setFilteredMonth(filteredMonth-1);
     if(filteredMonth <= 1) {
       setFilteredMonth(12);
+      setFilteredYear(filteredYear - 1);
     }
   }
   const onClickNextMonth = () => {
     setFilteredMonth(filteredMonth+1);
     if(filteredMonth >= 12) {
       setFilteredMonth(1);
+      setFilteredYear(filteredYear + 1);
     }
   }
+
 
   return (
     <div id='manage'>
