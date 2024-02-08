@@ -1,9 +1,22 @@
+import styled from "styled-components";
+
 function Pagination({
   postsNum,
   postsPerPage,
   setCurrentPage,
   currentPage
 }) {
+  const Button = styled.button`
+    width: 50px;
+    height: 50px;
+    margin: 40px;
+    border: none;
+    border-radius: 100px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  `;
+
   const pageList = [];
   const totalPages = Math.ceil(postsNum / postsPerPage);
   for (let i = 1; i <= totalPages; i++) {
@@ -24,23 +37,23 @@ function Pagination({
   }
   return (
     <div className="pagination">
-      <button onClick={goToPrevPage} disabled={currentPage === 1}>
+      <Button onClick={goToPrevPage} disabled={currentPage === 1}>
         ◀️
-      </button>
+      </Button>
 
       {pageList.map((page) => (
-        <button
+        <Button
           key={page}
           onClick={() => setCurrentPage(page)}
           className={currentPage === page ? "active" : ""}
         >
           {page}
-        </button>
+        </Button>
       ))}
 
-      <button onClick={goToNextPage} disabled={currentPage === pageList.length}>
+      <Button onClick={goToNextPage} disabled={currentPage === pageList.length}>
         ▶️
-      </button>
+      </Button>
     </div>
   );
 }
