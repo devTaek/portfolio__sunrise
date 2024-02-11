@@ -1,12 +1,6 @@
 import styled from "styled-components";
 
-function Pagination({
-  postsNum,
-  postsPerPage,
-  setCurrentPage,
-  currentPage
-}) {
-  const Button = styled.button`
+const Button = styled.button`
     width: 50px;
     height: 50px;
     margin: 40px;
@@ -16,6 +10,14 @@ function Pagination({
     color: white;
     cursor: pointer;
   `;
+
+  function Pagination({
+    postsNum,
+    postsPerPage,
+    setCurrentPage,
+    currentPage
+  }) {
+    
 
   const pageList = [];
   const totalPages = Math.ceil(postsNum / postsPerPage);

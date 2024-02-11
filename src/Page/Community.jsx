@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+
+import './scss/community.scss';
+import DisplayCountSelector from './DisplayCountSelector';
 
 function Community() {
   return (
     <div id='community'>
-      <h1>Community Page</h1>
+      <div className="container">
+        <title className="title">
+          <h1>COMMUNITY</h1>
+        </title>
+      </div>
     </div>
   )
 }
