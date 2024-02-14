@@ -1,4 +1,5 @@
 import React from 'react'
+import Article from './Article';
 
 function PostList({list}) {
   return (
@@ -8,6 +9,7 @@ function PostList({list}) {
             <img src={item.img} alt="" />
             <div className="text">
               <div className="name">{item.name}</div>
+              <div className="source">{item.source}</div>
             </div>
           </li>
         ))}
@@ -15,4 +17,4 @@ function PostList({list}) {
   )
 }
 
-export default PostList
+export default PostList;
