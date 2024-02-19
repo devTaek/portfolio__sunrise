@@ -10,7 +10,7 @@ import Pagination from './Pagination';
 function Players() {
   const {playerList} = useContext(PlayersListContext);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(6);
+  const [postsPerPage, setPostsPerPage] = useState(3);
 
   const firstPostIndex = (currentPage - 1) * postsPerPage;
   const lastPostIndex = firstPostIndex + postsPerPage;
@@ -37,7 +37,7 @@ function Players() {
             postsPerPage={postsPerPage}
             postsNum={playerList.length}
           />
-        </div>
+      </div>
     </div>
   )
 }
