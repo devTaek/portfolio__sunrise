@@ -21,76 +21,376 @@ function App() {
     {
       id: 1,
       name: '김지강',
-      img: './img/Player/img_player1.png'
+      img: './img/Player/img_player1.png',
+      stats: [
+        {
+          subject: '체력', A: 50, B: 55, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 70, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 50, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 43, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 23, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 1, B: 85, fullMark: 150,
+        },
+      ]
     },
     {
       id: 2,
       name: '나예석',
-      img: './img/Player/img_player2.png'
+      img: './img/Player/img_player2.png',
+      stats: [
+        {
+          subject: '체력', A: 120, B: 110, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 98, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 86, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 99, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 85, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 65, B: 85, fullMark: 150,
+        },
+      ]
     },
     {
       id: 3,
       name: '박성우',
-      img: './img/Player/img_player3.png'
+      img: './img/Player/img_player3.png',
+      stats: [
+        {
+          subject: '체력', A: 120, B: 110, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 98, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 86, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 99, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 85, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 65, B: 85, fullMark: 150,
+        },
+      ]
     },
     {
       id: 4,
       name: '박오수',
-      img: './img/Player/img_player4.png'
+      img: './img/Player/img_player4.png',
+      stats: [
+        {
+          subject: '체력', A: 120, B: 110, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 98, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 86, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 99, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 85, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 65, B: 85, fullMark: 150,
+        },
+      ]
     },
     {
       id: 5,
       name: '배태림',
-      img: './img/Player/img_player5.png'
+      img: './img/Player/img_player5.png',
+      stats: [
+        {
+          subject: '체력', A: 120, B: 110, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 98, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 86, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 99, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 85, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 65, B: 85, fullMark: 150,
+        },
+      ]
     },{
       id: 6,
       name: '백재우',
-      img: './img/Player/img_player6.png'
+      img: './img/Player/img_player6.png',
+      stats: [
+        {
+          subject: '체력', A: 120, B: 110, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 98, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 86, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 99, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 85, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 65, B: 85, fullMark: 150,
+        },
+      ]
     },
     {
       id: 7,
       name: '서정훈',
-      img: './img/Player/img_player7.png'
+      img: './img/Player/img_player7.png',
+      stats: [
+        {
+          subject: '체력', A: 120, B: 110, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 98, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 86, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 99, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 85, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 65, B: 85, fullMark: 150,
+        },
+      ]
     },
     {
       id: 8,
       name: '송석주',
-      img: './img/Player/img_player8.png'
+      img: './img/Player/img_player8.png',
+      stats: [
+        {
+          subject: '체력', A: 120, B: 110, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 98, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 86, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 99, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 85, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 65, B: 85, fullMark: 150,
+        },
+      ]
     },
     {
       id: 9,
       name: '이경부',
-      img: './img/Player/img_player9.png'
+      img: './img/Player/img_player9.png',
+      stats: [
+        {
+          subject: '체력', A: 120, B: 110, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 98, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 86, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 99, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 85, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 65, B: 85, fullMark: 150,
+        },
+      ]
     },
     {
       id: 10,
       name: '이대현',
-      img: './img/Player/img_player1.png'
+      img: './img/Player/img_player1.png',
+      stats: [
+        {
+          subject: '체력', A: 120, B: 110, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 98, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 86, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 99, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 85, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 65, B: 85, fullMark: 150,
+        },
+      ]
     },
     {
       id: 11,
       name: '이종명',
-      img: './img/Player/img_player2.png'
+      img: './img/Player/img_player2.png',
+      stats: [
+        {
+          subject: '체력', A: 120, B: 110, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 98, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 86, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 99, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 85, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 65, B: 85, fullMark: 150,
+        },
+      ]
     },
     {
       id: 12,
       name: '이혁',
-      img: './img/Player/img_player3.png'
+      img: './img/Player/img_player3.png',
+      stats: [
+        {
+          subject: '체력', A: 120, B: 110, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 98, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 86, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 99, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 85, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 65, B: 85, fullMark: 150,
+        },
+      ]
     },
     {
       id: 13,
       name: '정태균',
-      img: './img/Player/img_player4.png'
+      img: './img/Player/img_player4.png',
+      stats: [
+        {
+          subject: '체력', A: 120, B: 110, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 98, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 86, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 99, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 85, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 65, B: 85, fullMark: 150,
+        },
+      ]
     },
     {
       id: 14,
       name: '최경민',
-      img: './img/Player/img_player5.png'
+      img: './img/Player/img_player5.png',
+      stats: [
+        {
+          subject: '체력', A: 120, B: 110, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 98, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 86, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 99, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 85, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 65, B: 85, fullMark: 150,
+        },
+      ]
     },
     {
       id: 15,
       name: '한성수',
-      img: './img/Player/img_player6.png'
+      img: './img/Player/img_player6.png',
+      stats: [
+        {
+          subject: '체력', A: 120, B: 110, fullMark: 150,
+        },
+        {
+          subject: '기본기', A: 98, B: 130, fullMark: 150,
+        },
+        {
+          subject: '판단력', A: 86, B: 130, fullMark: 150,
+        },
+        {
+          subject: '공간능력', A: 99, B: 100, fullMark: 150,
+        },
+        {
+          subject: '정확성', A: 85, B: 90, fullMark: 150,
+        },
+        {
+          subject: '침착성', A: 65, B: 85, fullMark: 150,
+        },
+      ]
     }
   ]
 
