@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import Chart from './Chart';
 import styled from "styled-components";
 
@@ -23,7 +22,7 @@ const Button = styled.button`
   background: gray;
   font-weight: bold;
 `;
-const Modal = forwardRef(function Modal({selectedPlayer,closeSelectedModal},ref) {
+const Modal = ({selectedPlayer,closeSelectedModal}) => {
   return(
     <SelectedComponent>
       <Button onClick={closeSelectedModal}>X</Button>
@@ -31,6 +30,6 @@ const Modal = forwardRef(function Modal({selectedPlayer,closeSelectedModal},ref)
       <Chart selectedPlayer={selectedPlayer}/>
     </SelectedComponent>
   )
-})
+}
 
 export default Modal;
