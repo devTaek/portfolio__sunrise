@@ -2,8 +2,7 @@ import React,{useContext, useState} from 'react';
 import './scss/match.scss';
 import { MatchListContext } from '../store/PlayersListContext';
 
-
-function Match(props) {
+function Match() {
   const {matchList} = useContext(MatchListContext);
 
   const [filteredMonth, setFilteredMonth] = useState(1);
@@ -23,7 +22,6 @@ function Match(props) {
       setFilteredYear(filteredYear + 1);
     }
   }
-
   return (
     <div id='match'>
       <div className="container">
@@ -56,14 +54,14 @@ function Match(props) {
                       <div className="col-gap">
                         <span className='homeTeam'>{matchList.home}</span>
                         <i><img src={matchList.home_logo} alt="" /></i>
-                        <span>1</span>    {/* 더 높은 점수가 노란 글씨 입도록! */}
+                        <span>{matchList.home_score}</span>    {/* 더 높은 점수가 노란 글씨 입도록! */}
                         <span>VS</span>
-                        <span>0</span>
+                        <span>{matchList.away_score}</span>
                         <i><img src={matchList.away_logo} alt="" /></i>
                         <span className='awayTeam'>{matchList.away}</span>
                       </div>
                     </div>
-                    <div className="right">승</div>
+                    <div className="right">{matchList.home_score>matchList.away_score ? '승' : '패'}</div>
                   </li>
                 ))}
               </ul>

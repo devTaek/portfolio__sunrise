@@ -1,14 +1,23 @@
 import styled from "styled-components";
 
+const PaginationContainre = styled.div`
+  width: 179px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const Button = styled.button`
-    width: 50px;
-    height: 50px;
+    width: 16px;
     margin: 40px;
     border: none;
     border-radius: 100px;
-    background-color: black;
+    padding: 0 16px;
     color: white;
     cursor: pointer;
+    background: none;
+    font-size: 18px;
   `;
 
   function Pagination({
@@ -39,6 +48,7 @@ const Button = styled.button`
   }
   return (
     <div className="pagination">
+      <PaginationContainre>
       <Button onClick={goToPrevPage} disabled={currentPage === 1}>
         ◀️
       </Button>
@@ -56,6 +66,7 @@ const Button = styled.button`
       <Button onClick={goToNextPage} disabled={currentPage === pageList.length}>
         ▶️
       </Button>
+      </PaginationContainre>
     </div>
   );
 }
