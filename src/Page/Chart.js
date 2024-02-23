@@ -1,25 +1,16 @@
 import React from 'react';
 import {
-  Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
+  Radar,ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
 } from 'recharts';
-import styled from 'styled-components';
-
-const ChartContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-`;
-
 
 const Chart = ({selectedPlayer}) => {
   
   return (
-    <ChartContainer>
+    <ResponsiveContainer width={700} height={400}>
       <RadarChart 
-        cx={190} 
-        cy={180} 
-        outerRadius={150} 
+        cx="50%" 
+        cy="50%" 
+        outerRadius="80%" 
         width={384} 
         height={501} 
         data={selectedPlayer.stats}
@@ -29,7 +20,7 @@ const Chart = ({selectedPlayer}) => {
         <PolarRadiusAxis display="none"/> {/* 옆에 막대기 없는거 */}
         <Radar name="Mike" dataKey="A" stroke="red" fill="black" fillOpacity={0.6} />
       </RadarChart>
-    </ChartContainer>
+    </ResponsiveContainer>
   );
 };
 

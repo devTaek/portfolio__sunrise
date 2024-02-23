@@ -10,7 +10,7 @@ const PaginationContainre = styled.div`
 
 const Button = styled.button`
     width: 16px;
-    margin: 40px;
+    margin: 10px;
     border: none;
     border-radius: 100px;
     padding: 0 16px;
