@@ -6,19 +6,19 @@ import {
 const Chart = ({selectedPlayer}) => {
   
   return (
-    <ResponsiveContainer width={700} height={400}>
+    <ResponsiveContainer width={700} height={500}>
       <RadarChart 
-        cx="50%" 
+        cx="40%" 
         cy="50%" 
-        outerRadius="80%" 
-        width={384} 
-        height={501} 
+        outerRadius="100%" 
+        width={500} 
+        height={701} 
         data={selectedPlayer.stats}
       >
         <PolarGrid />
         <PolarAngleAxis dataKey="subject"  tick={{ fill: 'red', fontSize: 14 }} />
         <PolarRadiusAxis display="none"/> {/* 옆에 막대기 없는거 */}
-        <Radar name="Mike" dataKey="A" stroke="red" fill="black" fillOpacity={0.6} />
+        <Radar name={selectedPlayer.name} dataKey="A" stroke="red" fill="black" fillOpacity={0.6} />
       </RadarChart>
     </ResponsiveContainer>
   );
