@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { PlayersListContext, MatchListContext,CommunityContext } from './store/PlayersListContext';
 
 //import Notice from './Page/Notice';
+
+import MainTemplate from './components/MainTemplate';
 import Header from './Page/Header';
 import Main from './Page/Main/Main';
 import Players from './Page/Players';
@@ -15,7 +17,33 @@ import Community from './Page/Community';
 
 function App() {
 
-
+  const page = [
+    {
+      id: 1,
+      element:<Main />,
+      path:"/main"
+    },
+    {
+      id: 2,
+      element:<Players />,
+      path:"/main"
+    },
+    {
+      id: 3,
+      element:<Match />,
+      path:"/main"
+    },
+    {
+      id: 4,
+      element:<Manage />,
+      path:"/main"
+    },
+    {
+      id: 5,
+      element:<Community/>,
+      path:"/main"
+    },
+  ]
   // 데이터 어떻게 다룰지 생각좀 해봅시다
   const playerList = [
     {
@@ -505,14 +533,15 @@ function App() {
       <CommunityContext.Provider value={{communityList}}>
         <BrowserRouter>
           {/* <Notice /> */}
-          <Header />
-          <Routes>
-            <Route path='/' element={<Main />} />
-            <Route path='/players' element={<Players />} />
-            <Route path='/match' element={<Match />} />
-            <Route path='/manage' element={<Manage />} />
-            <Route path='/community' element={<Community />} />
-          </Routes>
+            <MainTemplate header={<Header />}>
+              <Routes>
+                  <Route path='/' element={<Main />} />
+                  <Route path='/players' element={<Players />} />
+                  <Route path='/match' element={<Match />} />
+                  <Route path='/manage' element={<Manage />} />
+                  <Route path='/community' element={<Community />} />
+              </Routes>
+            </MainTemplate>
         </BrowserRouter>
       </CommunityContext.Provider>
       </MatchListContext.Provider>
