@@ -3,48 +3,9 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { PlayersListContext, MatchListContext,CommunityContext } from './store/PlayersListContext';
-
-//import Notice from './Page/Notice';
-
-import MainTemplate from './components/MainTemplate';
-import Header from './Page/Header';
-import Main from './Page/Main/Main';
-import Players from './Page/Players';
-import Match from './Page/Match';
-import Manage from './Page/Manage';
-import Community from './Page/Community';
-
+import routes from './lib/routes/index';
 
 function App() {
-
-  // const page = [
-  //   {
-  //     id: 1,
-  //     element:<Main />,
-  //     path:"/main"
-  //   },
-  //   {
-  //     id: 2,
-  //     element:<Players />,
-  //     path:"/main"
-  //   },
-  //   {
-  //     id: 3,
-  //     element:<Match />,
-  //     path:"/main"
-  //   },
-  //   {
-  //     id: 4,
-  //     element:<Manage />,
-  //     path:"/main"
-  //   },
-  //   {
-  //     id: 5,
-  //     element:<Community/>,
-  //     path:"/main"
-  //   },
-  // ]
-  // 데이터 어떻게 다룰지 생각좀 해봅시다
   const playerList = [
     {
       id: 1,
@@ -468,8 +429,7 @@ function App() {
     }
   ]
 
-  // 이것도 너무 이상해요
-  const matchList= [
+  const matchList = [
     {
       id:1,
       when: '2024.01.07(일)',    // 그달의 일요일
@@ -536,37 +496,37 @@ function App() {
     {
       id: 1,
       name: '손흥민, 점프맨 로고 그려진 유니폼 입고 경기에 나선다?',
-      img:'./img/community-01.png',
+      img: './img/community-01.png',
       source: '구단소식',
     },
     {
       id: 2,
       name: '엔소 페르난데스, EPL 역대 최고 이적료로 첼시 FC 이적한다',
-      img:'./img/community-02.png',
+      img: './img/community-02.png',
       source: '구단소식',
     },
     {
       id: 3,
       name: '슈퍼컴퓨터가 예측한 2022-23 시즌 프리미어 리그 우승팀은?',
-      img:'./img/community-03.png',
+      img: './img/community-03.png',
       source: '구단소식',
     },
     {
       id: 4,
       name: '두 한국 기업이 프리미어 리그 ‘첼시 FC’ 인수전에 뛰어들었다',
-      img:'./img/community-04.png',
+      img: './img/community-04.png',
       source: '구단소식',
     },
     {
       id: 5,
       name: '손흥민 & 해리 케인, EPL 역대 최다 합작골 신기록 작성',
-      img:'./img/community-05.png',
+      img: './img/community-05.png',
       source: '구단소식',
     },
     {
       id: 6,
       name: '토트넘 & 첼시가 한국 ‘괴물’ 수비수 김민재를 두고 영입 경쟁 나...',
-      img:'./img/community-06.png',
+      img: './img/community-06.png',
       source: '구단소식',
     },
     
@@ -578,16 +538,11 @@ function App() {
       <MatchListContext.Provider value={{matchList}}>
       <CommunityContext.Provider value={{communityList}}>
         <BrowserRouter>
-          {/* <Notice /> */}
-            <MainTemplate header={<Header />}>
               <Routes>
-                  <Route path='/' element={<Main />} />
-                  <Route path='/players' element={<Players />} />
-                  <Route path='/match' element={<Match />} />
-                  <Route path='/manage' element={<Manage />} />
-                  <Route path='/community' element={<Community />} />
+                {routes.map(({element,path},id)=>(
+                  <Route key={id} path={path} element={element}/>
+                ))}
               </Routes>
-            </MainTemplate>
         </BrowserRouter>
       </CommunityContext.Provider>
       </MatchListContext.Provider>
