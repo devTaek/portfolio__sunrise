@@ -1,5 +1,5 @@
 import React from "react";
-import Manage from '../../components/manage/Manage';
+import Manage from '../../components/Manage/Manage';
 
 import {PlayersListContext} from '../../store/PlayersListContext';
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Community from '../../components/community/Community';
+import Community from '../../components/Community/Community';
 
 import { CommunityContext } from "../../store/PlayersListContext";
 

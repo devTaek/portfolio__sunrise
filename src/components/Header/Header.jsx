@@ -1,27 +1,19 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState,useEffect,useContext} from 'react'
 import { Link } from 'react-router-dom'
-import './scss/header.scss';
+import './header.scss';
 
 import ToggledMenu from './ToggledMenu';
 
+import { HeaderContext } from '../../store/PlayersListContext';
+
 function Header() {
+
+  const {headerMenu,snsMenu} = useContext(HeaderContext);
 
   const [isToggled, setIsToggled] = useState(false);
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 767);
   
-  const headerMenu = [
-    {id: 1, name:"PLAYERS", address:"/players"},
-    {id: 2, name:"MATCH", address:"/match"},
-    {id: 3, name:"MANAGE", address:"/manage"},
-    {id: 4, name:"COMMUNITY", address:"/community"},
-  ]
 
-  const snsMenu = [
-    {id: 1, name:"YOUTUBE", adress:"/", img:"./img/youtube.svg"},
-    {id: 2, name:"FACEBOOK", address:"/", img:"./img/facebook.svg"},
-    {id: 3, name:"KAKAO", address:"/", img:"./img/kakao.svg"},
-    {id: 4, name:"BLOG", address:"/", img:"./img/blog.svg"},
-  ]
 
   useEffect(() => {
     const handleResize = () => {

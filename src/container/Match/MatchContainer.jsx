@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import Match from '../../components/match/Match';
+import React from "react";
+import Match from '../../components/Match/Match';
 
 import {MatchListContext} from '../../store/PlayersListContext';
 
@@ -67,7 +67,6 @@ const MatchContainer = () => {
       away_score: 2,
     }
   ];
-
 
   return (
     <MatchListContext.Provider value={{matchList}}>
