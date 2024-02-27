@@ -1,0 +1,39 @@
+#playerInfo {
+  width: 50%;
+  height: 500px;
+  padding-left: 100px;
+  color: white;
+  img {
+    margin-top: 60px;
+    width: 30%;
+    height: auto;
+    border-radius: 200px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+  h2 {
+    padding: 20px 0;
+    text-align: left;
+  }
+  .play-style {
+    width: 200px;
+    border-bottom: 1px solid white;
+    padding: 20px 0;
+    .position {
+      display: grid;
+    }
+  }
+  .physical {
+    width: 200px;
+    padding: 20px 0;
+    .height {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .age {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

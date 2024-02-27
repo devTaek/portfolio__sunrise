@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MainTemplate = ({header,footer,children}) => {
+const PageContainer = ({header,footer,children}) => {
   return (
     <div id="page-template">
       {header}
@@ -10,4 +10,4 @@ const MainTemplate = ({header,footer,children}) => {
   )
 }
 
-export default MainTemplate
+export default PageContainer
