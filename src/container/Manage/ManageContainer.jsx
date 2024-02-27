@@ -1,10 +1,10 @@
-import React, {useContext} from "react";
-import Players from '../components/players/Players';
+import React from "react";
+import Manage from '../../components/manage/Manage';
 
-import {PlayersListContext} from '../store/PlayersListContext';
+import {PlayersListContext} from '../../store/PlayersListContext';
 
-const PlayersContainer = () => {
-  
+const ManageContainer = () => {
+
   const playersList = [
     {
       id: 1,
@@ -427,12 +427,12 @@ const PlayersContainer = () => {
       ]
     }
   ]
-
+  console.log(playersList)
   return (
     <PlayersListContext.Provider value={{playersList}}>
-      <Players />
+      <Manage />
     </PlayersListContext.Provider>
   )
 }
 
-export default PlayersContainer;
+export default ManageContainer;

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import PageContainer from '../components/PageContainer';
-import MainContainer from '../container/MainContainer';
+import MainContainer from '../container/Main/MainContainer';
 
 import Header from './Header';
 import Footer from './Footer';

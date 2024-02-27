@@ -1,5 +1,5 @@
 import PageContainer from '../components/PageContainer';
-import PlayersContainer from '../container/PlayersContainer';
+import PlayersContainer from '../container/Players/PlayersContainer';
 
 import Header from './Header';
 import Footer from './Footer';

@@ -1,9 +1,10 @@
 import React from "react";
 import './Main.scss'
 
-import MainMatch from './MainMatch';
-import MainManage from './MainManage';
-import MainCommunity from './MainCommunity';
+// import MainPlayers from "./MainPlayers";
+// import MainMatch from './MainMatch';
+// import MainManage from './MainManage';
+// import MainCommunity from './MainCommunity';
 
 const Main = () => {
   return (
@@ -11,9 +12,6 @@ const Main = () => {
       <article className="container">
       <h3>Welcome to the sunrise soccer team</h3>
       </article>
-      <MainMatch />
-      <MainManage />
-      <MainCommunity />
     </main>
   )
 }
