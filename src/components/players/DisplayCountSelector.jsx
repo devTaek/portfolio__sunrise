@@ -2,9 +2,13 @@ import React from 'react'
 
 function DisplayCountSelector({setCurrentPage,setPostsPerPage}) {
   return (
-    <div className='displayCountBox'>
+    <div className='displayCountBox'
+      style={{
+        display: `flex`,
+        justifyContent: `flex-end`,
+        marginRight: `20px`}} 
+    >
       <label htmlFor="displayCount"></label>
-
       <select
         id="displayCount"
         onChange={({ target: { value } }) => {

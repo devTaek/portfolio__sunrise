@@ -1,12 +1,12 @@
 import React, {useContext, useState} from 'react';
 import './mainPlayers.scss';
-import { PlayersListContext } from '../../store/PlayersListContext';
+import { PlayersContext } from '../../store/Context/SunriseContext';
 
 
 
 
 const MainPlayers= () => {
-  const {playerList} = useContext(PlayersListContext);
+  const {playerList} = useContext(PlayersContext);
   const [state, setState] = useState({
     cnt: 0
   });

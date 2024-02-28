@@ -1,11 +1,11 @@
 import React,{useContext, useState} from 'react'
-import { PlayersListContext } from '../../store/PlayersListContext'
+import { PlayersContext } from '../../store/Context/SunriseContext'
 
 import './manage.scss'
 
 const Manage = () => {
 
-  const {playersList} = useContext(PlayersListContext);
+  const {playersList} = useContext(PlayersContext);
   const [filteredMonth, setFilteredMonth] = useState(1);
   const [filteredYear, setFilteredYear] = useState(2024);
 

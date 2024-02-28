@@ -7,7 +7,6 @@ function PostList({list}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlayer, setSelectedPlayer] = useState(null);
 
-
   const onShowModal = (player) => {
     setSelectedPlayer(player);
     setIsModalOpen(true);
@@ -22,7 +21,6 @@ function PostList({list}) {
             <img src={item.img} alt="" />
             <div className="text">
               <div className="name">{item.name}</div>
-              <div className="source">{item.source}</div>
             </div>
           </li>
         ))}

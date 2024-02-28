@@ -13,6 +13,9 @@
     align-items: center;
     justify-content: center;
     padding: 0 20px;
+    @media all and (max-width: 767px) {
+      height: 76px;
+    }
     .gap {
       display: flex;
       align-items: center;
@@ -33,7 +36,11 @@
             width: 150px;
           }
           img {
-            width: 5rem;
+            width: 4rem;
+            @media all and (max-width: 767px) {
+              margin-left: 10px;
+              width: 40%;
+            }
           }
         }
       }

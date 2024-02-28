@@ -1,7 +1,7 @@
 import React from "react";
 import Manage from '../../components/Manage/Manage';
 
-import {PlayersListContext} from '../../store/PlayersListContext';
+import {PlayersContext} from '../../store/Context/SunriseContext';
 
 const ManageContainer = () => {
 
@@ -429,9 +429,9 @@ const ManageContainer = () => {
   ]
   console.log(playersList)
   return (
-    <PlayersListContext.Provider value={{playersList}}>
+    <PlayersContext.Provider value={{playersList}}>
       <Manage />
-    </PlayersListContext.Provider>
+    </PlayersContext.Provider>
   )
 }
 

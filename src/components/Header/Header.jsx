@@ -4,7 +4,7 @@ import './header.scss';
 
 import ToggledMenu from './ToggledMenu';
 
-import { HeaderContext } from '../../store/PlayersListContext';
+import { HeaderContext } from '../../store/Context/SunriseContext';
 
 function Header() {
 

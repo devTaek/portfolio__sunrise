@@ -1,7 +1,7 @@
 import React,{useContext, useState} from 'react';
 import './match.scss';
 
-import { MatchListContext } from '../../store/PlayersListContext';
+import { MatchListContext } from '../../store/Context/SunriseContext';
 
 const Match = () => {
   const {matchList} = useContext(MatchListContext);

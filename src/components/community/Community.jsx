@@ -1,7 +1,7 @@
 import {useContext, useState} from 'react';
 import './community.scss';
 
-import {CommunityContext} from '../../store/PlayersListContext';
+import {CommunityContext} from '../../store/Context/SunriseContext';
 
 import DisplayCountSelector from './DisplayCountSelector';
 import PostList from './PostList';
@@ -22,21 +22,21 @@ const Community = () => {
         <title className="title">
           <h1>COMMUNITY</h1>
         </title>
-        <DisplayCountSelector 
-          setCurrentPage={setCurrentPage} 
-          setPostsPerPage={setPostsPerPage}
-        />
         <div className="communityBox">
           <div className="container">
-             <PostList list={currentPosts}/>
+            <DisplayCountSelector 
+              setCurrentPage={setCurrentPage} 
+              setPostsPerPage={setPostsPerPage}
+            />
+            <PostList list={currentPosts}/>
+            <Pagination 
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              postsPerPage={postsPerPage}
+              postsNum={communityList.length}
+            />
           </div>
         </div>
-          <Pagination 
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            postsPerPage={postsPerPage}
-            postsNum={communityList.length}
-          />
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
 import React from "react";
 import Match from '../../components/Match/Match';
 
-import {MatchListContext} from '../../store/PlayersListContext';
+import {MatchListContext} from '../../store/Context/SunriseContext';
 
 const MatchContainer = () => {
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Community from '../../components/Community/Community';
 
-import { CommunityContext } from "../../store/PlayersListContext";
+import { CommunityContext } from "../../store/Context/SunriseContext";
 
 const CommunityContainer = () => {
   

@@ -1,7 +1,7 @@
 import React from "react";
 import Players from "../../components/Players/Players";
 
-import { PlayersListContext } from "../../store/PlayersListContext";
+import { PlayersContext } from "../../store/Context/SunriseContext";
 
 const PlayersContainer = () => {
   const playersList = [
@@ -216,7 +216,7 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 120,
+          A: 130,
           fullMark: 150,
         },
         {
@@ -609,9 +609,9 @@ const PlayersContainer = () => {
   ];
 
   return (
-    <PlayersListContext.Provider value={{ playersList }}>
+    <PlayersContext.Provider value={{ playersList }}>
       <Players />
-    </PlayersListContext.Provider>
+    </PlayersContext.Provider>
   );
 };
 
