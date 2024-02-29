@@ -16,32 +16,32 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 120,
+          A: 92,
           fullMark: 150,
         },
         {
           subject: "기본기",
-          A: 90,
+          A: 63,
           fullMark: 150,
         },
         {
           subject: "판단력",
-          A: 70,
+          A: 50,
           fullMark: 150,
         },
         {
           subject: "공간능력",
-          A: 80,
+          A: 56,
           fullMark: 150,
         },
         {
           subject: "정확성",
-          A: 105,
+          A: 87,
           fullMark: 150,
         },
         {
           subject: "침착성",
-          A: 80,
+          A: 60,
           fullMark: 150,
         },
       ],
@@ -56,12 +56,12 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 120,
+          A: 110,
           fullMark: 150,
         },
         {
           subject: "기본기",
-          A: 98,
+          A: 88,
           fullMark: 150,
         },
         {
@@ -71,17 +71,17 @@ const PlayersContainer = () => {
         },
         {
           subject: "공간능력",
-          A: 99,
+          A: 73,
           fullMark: 150,
         },
         {
           subject: "정확성",
-          A: 85,
+          A: 69,
           fullMark: 150,
         },
         {
           subject: "침착성",
-          A: 65,
+          A: 80,
           fullMark: 150,
         },
       ],
@@ -96,22 +96,22 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 120,
+          A: 100,
           fullMark: 150,
         },
         {
           subject: "기본기",
-          A: 98,
+          A: 104,
           fullMark: 150,
         },
         {
           subject: "판단력",
-          A: 86,
+          A: 81,
           fullMark: 150,
         },
         {
           subject: "공간능력",
-          A: 99,
+          A: 103,
           fullMark: 150,
         },
         {
@@ -121,7 +121,7 @@ const PlayersContainer = () => {
         },
         {
           subject: "침착성",
-          A: 65,
+          A: 89,
           fullMark: 150,
         },
       ],
@@ -136,17 +136,17 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 120,
+          A: 119,
           fullMark: 150,
         },
         {
           subject: "기본기",
-          A: 98,
+          A: 102,
           fullMark: 150,
         },
         {
           subject: "판단력",
-          A: 86,
+          A: 108,
           fullMark: 150,
         },
         {
@@ -156,7 +156,7 @@ const PlayersContainer = () => {
         },
         {
           subject: "정확성",
-          A: 85,
+          A: 95,
           fullMark: 150,
         },
         {
@@ -176,32 +176,32 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 120,
+          A: 110,
           fullMark: 150,
         },
         {
           subject: "기본기",
-          A: 98,
+          A: 102,
           fullMark: 150,
         },
         {
           subject: "판단력",
-          A: 86,
+          A: 98,
           fullMark: 150,
         },
         {
           subject: "공간능력",
-          A: 99,
+          A: 109,
           fullMark: 150,
         },
         {
           subject: "정확성",
-          A: 85,
+          A: 79,
           fullMark: 150,
         },
         {
           subject: "침착성",
-          A: 65,
+          A: 95,
           fullMark: 150,
         },
       ],
@@ -216,32 +216,32 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 130,
+          A: 72,
           fullMark: 150,
         },
         {
           subject: "기본기",
-          A: 98,
+          A: 105,
           fullMark: 150,
         },
         {
           subject: "판단력",
-          A: 86,
+          A: 112,
           fullMark: 150,
         },
         {
           subject: "공간능력",
-          A: 99,
+          A: 109,
           fullMark: 150,
         },
         {
           subject: "정확성",
-          A: 85,
+          A: 92,
           ullMark: 150,
         },
         {
           subject: "침착성",
-          A: 65,
+          A: 107,
           ullMark: 150,
         },
       ],
@@ -256,32 +256,32 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 120,
+          A: 118,
           fullMark: 150,
         },
         {
           subject: "기본기",
-          A: 98,
+          A: 111,
           fullMark: 150,
         },
         {
           subject: "판단력",
-          A: 86,
+          A: 105,
           fullMark: 150,
         },
         {
           subject: "공간능력",
-          A: 99,
+          A: 109,
           fullMark: 150,
         },
         {
           subject: "정확성",
-          A: 85,
+          A: 92,
           fullMark: 150,
         },
         {
           subject: "침착성",
-          A: 65,
+          A: 101,
           fullMark: 150,
         },
       ],
@@ -296,32 +296,32 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 120,
+          A: 116,
           fullMark: 150,
         },
         {
           subject: "기본기",
-          A: 98,
+          A: 116,
           fullMark: 150,
         },
         {
           subject: "판단력",
-          A: 86,
+          A: 115,
           fullMark: 150,
         },
         {
           subject: "공간능력",
-          A: 99,
+          A: 113,
           fullMark: 150,
         },
         {
           subject: "정확성",
-          A: 85,
+          A: 113,
           fullMark: 150,
         },
         {
           subject: "침착성",
-          A: 65,
+          A: 119,
           fullMark: 150,
         },
       ],
@@ -336,32 +336,32 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 120,
+          A: 110,
           fullMark: 150,
         },
         {
           subject: "기본기",
-          A: 98,
+          A: 113,
           fullMark: 150,
         },
         {
           subject: "판단력",
-          A: 86,
+          A: 110,
           fullMark: 150,
         },
         {
           subject: "공간능력",
-          A: 99,
+          A: 117,
           fullMark: 150,
         },
         {
           subject: "정확성",
-          A: 85,
+          A: 102,
           fullMark: 150,
         },
         {
           subject: "침착성",
-          A: 65,
+          A: 118,
           fullMark: 150,
         },
       ],
@@ -376,27 +376,27 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 120,
+          A: 82,
           fullMark: 150,
         },
         {
           subject: "기본기",
-          A: 98,
+          A: 71,
           fullMark: 150,
         },
         {
           subject: "판단력",
-          A: 86,
+          A: 66,
           fullMark: 150,
         },
         {
           subject: "공간능력",
-          A: 99,
+          A: 59,
           fullMark: 150,
         },
         {
           subject: "정확성",
-          A: 85,
+          A: 75,
           fullMark: 150,
         },
         {
@@ -416,32 +416,32 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 120,
+          A: 113,
           fullMark: 150,
         },
         {
           subject: "기본기",
-          A: 98,
+          A: 118,
           fullMark: 150,
         },
         {
           subject: "판단력",
-          A: 86,
+          A: 106,
           fullMark: 150,
         },
         {
           subject: "공간능력",
-          A: 99,
+          A: 106,
           fullMark: 150,
         },
         {
           subject: "정확성",
-          A: 85,
+          A: 101,
           fullMark: 150,
         },
         {
           subject: "침착성",
-          A: 65,
+          A: 102,
           fullMark: 150,
         },
       ],
@@ -456,32 +456,32 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 120,
+          A: 101,
           fullMark: 150,
         },
         {
           subject: "기본기",
-          A: 98,
+          A: 104,
           fullMark: 150,
         },
         {
           subject: "판단력",
-          A: 86,
+          A: 94,
           fullMark: 150,
         },
         {
           subject: "공간능력",
-          A: 99,
+          A: 96,
           fullMark: 150,
         },
         {
           subject: "정확성",
-          A: 85,
+          A: 93,
           fullMark: 150,
         },
         {
           subject: "침착성",
-          A: 65,
+          A: 105,
           fullMark: 150,
         },
       ],
@@ -501,27 +501,27 @@ const PlayersContainer = () => {
         },
         {
           subject: "기본기",
-          A: 98,
+          A: 120,
           fullMark: 150,
         },
         {
           subject: "판단력",
-          A: 86,
+          A: 120,
           fullMark: 150,
         },
         {
           subject: "공간능력",
-          A: 99,
+          A: 120,
           fullMark: 150,
         },
         {
           subject: "정확성",
-          A: 85,
+          A: 120,
           fullMark: 150,
         },
         {
           subject: "침착성",
-          A: 65,
+          A: 120,
           fullMark: 150,
         },
       ],
@@ -536,32 +536,32 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 120,
+          A: 82,
           fullMark: 150,
         },
         {
           subject: "기본기",
-          A: 98,
+          A: 75,
           fullMark: 150,
         },
         {
           subject: "판단력",
-          A: 86,
+          A: 53,
           fullMark: 150,
         },
         {
           subject: "공간능력",
-          A: 99,
+          A: 61,
           fullMark: 150,
         },
         {
           subject: "정확성",
-          A: 85,
+          A: 70,
           fullMark: 150,
         },
         {
           subject: "침착성",
-          A: 65,
+          A: 41,
           fullMark: 150,
         },
       ],
@@ -576,32 +576,32 @@ const PlayersContainer = () => {
       stats: [
         {
           subject: "체력",
-          A: 120,
+          A: 100,
           fullMark: 150,
         },
         {
           subject: "기본기",
-          A: 98,
+          A: 103,
           fullMark: 150,
         },
         {
           subject: "판단력",
-          A: 86,
+          A: 111,
           fullMark: 150,
         },
         {
           subject: "공간능력",
-          A: 99,
+          A: 114,
           fullMark: 150,
         },
         {
           subject: "정확성",
-          A: 85,
+          A: 118,
           fullMark: 150,
         },
         {
           subject: "침착성",
-          A: 65,
+          A: 97,
           fullMark: 150,
         },
       ],
