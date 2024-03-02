@@ -99,7 +99,7 @@ const Players = () => {
     <div id='players'>
       <div className="container">
         <title className="title">
-          <h1 ref={now}>Players</h1>
+          <h1>Players</h1>
         </title>
         <div className="playerBox">
           <div className="container">

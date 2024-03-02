@@ -427,7 +427,6 @@ const ManageContainer = () => {
       ]
     }
   ]
-  console.log(playersList)
   return (
     <PlayersContext.Provider value={{playersList}}>
       <Manage />
