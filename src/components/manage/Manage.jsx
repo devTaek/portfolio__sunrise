@@ -42,18 +42,20 @@ const Manage = () => {
               </div>
               <div className='total-money-box'> {/* 클래스명 수정필요 */}
                 <div className='received-money'>
-                  <div>회비수익</div>
-                  <div>100,000₩</div>
+                  <div className='money-category'>회비수익</div>
+                  <strong className='amount'>100,000₩</strong>
                 </div>
                 <div className='expense-money'>
-                  <span>회비지출</span>
-                  <div>62000₩</div>
+                  <div className='money-category'>회비지출</div>
+                  <strong className='amount'>62000₩</strong>
                 </div>
-                <div className='bank-balance'>
-                  <span>회비잔액</span>
-                  <div>560,000₩</div>
+                <div className='total-amount'>
+                  <div className='money-category'>회비잔액</div>
+                  <strong className='amount'>560,000₩</strong>
                 </div>
               </div>
+              
+              {/* 수익/지출 카테고리 */}
               <div className="option">
                 {options.map((item,id)=>(
                   <li 
