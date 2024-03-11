@@ -1,0 +1,45 @@
+{
+  "playersList":[
+    {
+      "id": 1,
+      "name": "김지강",
+      "age": 29,
+      "height": "186cm",
+      "img": "slide_17.jpg",
+      "position": "CB",
+      "stats": [
+        {
+          "subject": "체력",
+          "A": 92,
+          "fullMark": 150
+        },
+        {
+          "subject": "기본기",
+          "A": 63,
+          "fullMark": 150
+        },
+        {
+          "subject": "판단력",
+          "A": 50,
+          "fullMark": 150
+        },
+        {
+          "subject": "공간능력",
+          "A": 56,
+          "fullMark": 150
+        },
+        {
+          "subject": "정확성",
+          "A": 87,
+          "fullMark": 150
+        },
+        {
+          "subject": "침착성",
+          "A": 60,
+          "fullMark": 150
+        }
+      ]
+    }
+  ]
+}
+

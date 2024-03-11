@@ -1,16 +1,17 @@
 import React,{useContext, useState, useRef} from 'react'
 import { PlayersContext } from '../../store/Context/SunriseContext'
-
 import './manage.scss'
+import Modal from './Modal'
 
 const Manage = () => {
 
   const options = ['수익', '지출'];
-  const now = useRef();
-
+  const {now} = useRef();
+  const {dialog} = useRef();
   const {playersList} = useContext(PlayersContext);
   const [filteredMonth, setFilteredMonth] = useState(1);
   const [filteredYear, setFilteredYear] = useState(2024);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const onClickPrevMonth = () => {
     setFilteredMonth(filteredMonth-1);
@@ -26,7 +27,18 @@ const Manage = () => {
       setFilteredYear(filteredYear + 1);
     }
   }
+  const closeSelectedModal= () => {
+    setIsModalOpen(false);
+  }
+  const addExpenseInfo = ()=> {
+    setIsModalOpen(true);
+  }
   return (
+    <>
+    {isModalOpen && <Modal
+      ref={dialog}
+      closeSelectedModal={closeSelectedModal}
+    />}
     <div id='manage'>
       <div className="container">
         <title className="title">
@@ -58,13 +70,12 @@ const Manage = () => {
               {/* 수익/지출 카테고리 */}
               <div className="option">
                 {options.map((item,id)=>(
-                  <li 
+                  <li
                     ref={now}
                     key={id} 
                     onClick={
                       ()=>{
                         now.current = item
-                        console.log(item)
                       }
                     } 
                   >
@@ -91,12 +102,13 @@ const Manage = () => {
                       </li>
                     ))}
               </ul>
-              <button>수입/지출 입력</button>
+              <button onClick={addExpenseInfo}>수입/지출 입력</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+    </>
   )
 }
 
