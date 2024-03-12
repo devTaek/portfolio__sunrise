@@ -1,4 +1,4 @@
-import React,{useContext, useState, useRef} from 'react'
+import React,{useContext, useEffect, useState, useRef} from 'react'
 import { PlayersContext } from '../../store/Context/SunriseContext'
 import './manage.scss'
 import Modal from './Modal'
@@ -12,6 +12,15 @@ const Manage = () => {
   const [filteredMonth, setFilteredMonth] = useState(1);
   const [filteredYear, setFilteredYear] = useState(2024);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [formFields, setFormFields] = useState([
+    {
+      type: '',
+      detail: '',
+      amount: '',
+      date: ''
+    }
+  ])
 
   const onClickPrevMonth = () => {
     setFilteredMonth(filteredMonth-1);
@@ -27,17 +36,33 @@ const Manage = () => {
       setFilteredYear(filteredYear + 1);
     }
   }
+
   const closeSelectedModal= () => {
     setIsModalOpen(false);
   }
   const addExpenseInfo = ()=> {
     setIsModalOpen(true);
   }
+  const onChangeInfo = (e) => {
+    setFormFields({
+      ...formFields,
+      [e.target.name]: e.target.value
+    });
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    closeSelectedModal();
+    console.log(formFields);
+  }
   return (
     <>
     {isModalOpen && <Modal
       ref={dialog}
       closeSelectedModal={closeSelectedModal}
+      formFields={formFields}
+      setFormFields={setFormFields}
+      onChangeInfo={onChangeInfo}
+      handleSubmit={handleSubmit}
     />}
     <div id='manage'>
       <div className="container">
@@ -73,19 +98,20 @@ const Manage = () => {
                   <li
                     ref={now}
                     key={id} 
-                    onClick={
-                      ()=>{
-                        now.current = item
-                      }
-                    } 
+                    // 수익/지출 데이터 입력후 생성
+                    // onClick={
+                    //   ()=>{
+                    //     now.current = item
+                    //   }
+                    // } 
                   >
                       {item}
                   </li>
                 ))}
               </div>
               <div className="category">
-                <div>수익경로</div>
-                <div>수익상세</div>
+                <div>구분</div>
+                <div>내역</div>
                 <div>금액</div>
                 <div>날짜</div>
               </div>
