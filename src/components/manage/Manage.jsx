@@ -8,19 +8,25 @@ const Manage = () => {
   const options = ['수익', '지출'];
   const {now} = useRef();
   const {dialog} = useRef();
-  const {playersList} = useContext(PlayersContext);
   const [filteredMonth, setFilteredMonth] = useState(1);
   const [filteredYear, setFilteredYear] = useState(2024);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [formFields, setFormFields] = useState([
+
+  const [formFields, setFormFields] = useState(
     {
       type: '',
       detail: '',
       amount: '',
-      date: ''
+      extra_info: ''
     }
-  ])
+  )
+  // const [sequance, setSequance] = useState(null)
+
+
+  useEffect(() => {
+    // console.log('formFields:', formFields);
+  }, [formFields]); // formFields가 업데이트 될 때마다 실행
 
   const onClickPrevMonth = () => {
     setFilteredMonth(filteredMonth-1);
@@ -37,33 +43,28 @@ const Manage = () => {
     }
   }
 
-  const closeSelectedModal= () => {
+  const onCloseModal= () => {
     setIsModalOpen(false);
   }
   const addExpenseInfo = ()=> {
     setIsModalOpen(true);
   }
-  const onChangeInfo = (e) => {
-    setFormFields({
-      ...formFields,
-      [e.target.name]: e.target.value
-    });
-  }
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    closeSelectedModal();
-    console.log(formFields);
+
+  const onSubmit = (e, formFields) => {
+    console.log('Submitted Data:', formFields);
+    onCloseModal();
   }
   return (
     <>
+
     {isModalOpen && <Modal
       ref={dialog}
-      closeSelectedModal={closeSelectedModal}
+      onCloseModal={onCloseModal}
+      onSubmit={onSubmit}
       formFields={formFields}
       setFormFields={setFormFields}
-      onChangeInfo={onChangeInfo}
-      handleSubmit={handleSubmit}
     />}
+
     <div id='manage'>
       <div className="container">
         <title className="title">
@@ -91,7 +92,6 @@ const Manage = () => {
                   <strong className='amount'>560,000₩</strong>
                 </div>
               </div>
-              
               {/* 수익/지출 카테고리 */}
               <div className="option">
                 {options.map((item,id)=>(
@@ -109,24 +109,27 @@ const Manage = () => {
                   </li>
                 ))}
               </div>
-              <div className="category">
-                <div>구분</div>
-                <div>내역</div>
-                <div>금액</div>
-                <div>날짜</div>
-              </div>
+              <ul className="category">
+                <li>구분</li>
+                <li>상세</li>
+                <li>금액</li>
+                <li>비고</li>
+              </ul>
               <ul className="list">
-                    {playersList.map((item, id) => (
-                      <li key={item.id}>
-                          <div className='player-month-name'>
-                            <img src="./img/Player1 2.png" alt="" />
-                            <span>{item.name}</span>
-                          </div>
-                          <div className='player-month-money'>20,000</div>
-                          <div className='player-month-date'>24.01.01</div>
-                          <div className='player-month-money-check'><span>납부완료</span></div>
-                      </li>
-                    ))}
+                <li>
+                  <div className='type'>
+                    {formFields.type}
+                  </div>
+                  <div className='detail'>
+                    {formFields.detail}
+                  </div>
+                  <div style={{color:`white`}} className='amount'>
+                    {formFields.amount}
+                  </div>
+                  <div className='extra_info'>
+                    {formFields.extra_info}
+                  </div>
+                </li>
               </ul>
               <button onClick={addExpenseInfo}>수입/지출 입력</button>
             </div>

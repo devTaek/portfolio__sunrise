@@ -7,9 +7,9 @@ const SelectedComponent = styled.div`
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 1096px;
+  width: 60%;
   margin: 0 auto;
-  background: #0D0F19;  //#0D0F19
+  background: #0D0F19;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,7 +39,8 @@ width: 24px;
 height: 24px;
 border: none;
 border-radius: 20px;
-background: gray;
+background: white;
+color: black;
 font-weight: bold;
 `;
 const Modal = ({selectedPlayer,closeSelectedModal}) => {

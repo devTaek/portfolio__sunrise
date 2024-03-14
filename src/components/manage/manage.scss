@@ -186,12 +186,12 @@
             align-items: center;
             align-self: stretch;
             justify-content: space-between;
+            padding: 48px 30px;
             border-bottom: 3px solid #8A95A3;
-            padding: 48px 40;
             @media all and (max-width: 767px) {
               display: none;
             }
-            div {
+            >li {
               // row3 하고 다시한번 체크
               width: 160px;
               text-align: center;
@@ -210,7 +210,7 @@
             @media all and (max-width: 525px) {
               margin-top: 24px;
             }
-            li {
+            >li {
               width: 100%;
               height: 90px;
               display: flex;
@@ -229,8 +229,11 @@
                 padding: 24px 0;
               }
               div {
+                width: 160px;
                 transition: all 0.7s;
                 text-align: center;
+                color: white;
+                //margin: auto 20px;
                 @media all and (max-width: 767px) {
                   width: 256px;
                 }
@@ -239,33 +242,6 @@
                 }
                 @media all and (max-width: 376px) {
                   width: 150px;
-                }
-              }
-              .player-month-name {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 9px;
-                img {
-                  border-radius: 100px;
-                  background: rgba(255, 255, 255, 0.12);
-                }
-              }
-              .player-month-money {
-                text-align: center;
-              }
-              .player-month-date {
-                text-align: center;
-              }
-              .player-month-money-check {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                span {
-                  border: 1px solid #D6B534;
-                  border-radius: 50px;
-                  padding: 6px 10px;
-                  background: rgba(214, 181, 52, 0.08);
                 }
               }
             }

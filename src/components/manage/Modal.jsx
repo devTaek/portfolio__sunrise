@@ -7,10 +7,11 @@ const SelectedComponent = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 60%;
-  height: 50%;
   margin: 0 auto;
-  background: #0D0F19;  //#0D0F19
-  text-align: center;
+  background: #0D0F19;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 3px solid white;
   border-radius: 20px;
   padding: 20px;
@@ -52,14 +53,29 @@ font-weight: bold;
 `;
 const Modal = forwardRef( function Modal (
   {
-    closeSelectedModal,
-    onChangeInfo,
-    handleSubmit,
-    formFields
+    onCloseModal,
+    onSubmit,
+    formFields,
+    setFormFields
   }, 
   ref
 ) {
   const dialog = useRef();
+
+  
+  const onChangeInfo = (e) => {
+    const {name, value} = e.target;
+    console.log(formFields);
+    setFormFields((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(e,formFields);
+    onCloseModal();
+  }
   useImperativeHandle(ref, () => {
     return{
       open() {
@@ -69,31 +85,39 @@ const Modal = forwardRef( function Modal (
   });
   return createPortal (
     <SelectedComponent ref={dialog}>
-      <Button  onClick={closeSelectedModal}>X</Button>
+      <Button  onClick={onCloseModal}>X</Button>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="type">구분</label>
-          <select name={formFields.type} id="type" onChange={onChangeInfo}>
-            <option defaultValue="type" hidden>구분</option>
-            <option value="plus">수익</option>
-            <option value="minus">지출</option>
+        <label>
+          구분
+          <select name="type" id="type" onChange={onChangeInfo}>
+            <option defaultValue="type_option" hidden>구분</option>
+            <option value="입금">입금</option>
+            <option value="출금">출금</option>
           </select>
-        <label htmlFor="detail">내역</label>
-          <select name={formFields.detail} id="detail" onChange={onChangeInfo}>
+        </label>
+        <label>
+          내역
+          <select name="detail" id="detail" onChange={onChangeInfo}>
             {/* 수익 */}
-            <option defaultValue="detail" hidden>내역</option>
-            <option value="absence">결석</option>
-            <option value="late">지각</option>
-            <option value="fee">회비</option>
+            <option defaultValue="detail_option" hidden>내역</option>
+            <option value="회비">회비</option>
+            <option value="결석">결석</option>
+            <option value="지각">지각</option>
             {/* 지출 */}
-            <option value="stadium">구장</option>
-            <option value="beverage">물</option>
-            <option value="equipment">장비</option>
+            <option value="구장대여">구장</option>
+            <option value="음료">물</option>
+            <option value="장비">장비</option>
           </select>
-        <label htmlFor="amount">금액</label>
-          <input type="number" placeholder='얼마나왔냐' onChange={onChangeInfo} />
-        <label htmlFor="extra-info">비고</label>
-          <textarea name="extra-info" id="extra-info" cols="50" rows="3" placeholder='할말더있어?' onChange={onChangeInfo}></textarea>
-        <input type="submit" value="등록"/>
+        </label>
+        <label>
+          금액
+          <input type="number" name='amount' placeholder='얼마나왔냐' onChange={onChangeInfo} />
+        </label>
+        <label>
+          비고
+          <textarea name="extra_info" id="extra_info" cols="50" rows="3" placeholder='할말더있어?' onChange={onChangeInfo}></textarea>
+        </label>
+        <button type="submit">등록</button>
       </form>
     </SelectedComponent>,
     document.getElementById('modal')
