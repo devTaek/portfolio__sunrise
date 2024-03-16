@@ -30,7 +30,7 @@ border-radius: 20px;
 background: gray;
 font-weight: bold;
 `;
-const Modal = ({selectedPlayer,closeSelectedModal}) => {
+const Modal = ({isSelectedContent,closeSelectedModal}) => {
   return(
     <SelectedComponent>
       <Button onClick={closeSelectedModal}>X</Button>

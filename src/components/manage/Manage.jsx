@@ -1,5 +1,4 @@
-import React,{useContext, useEffect, useState, useRef} from 'react'
-import { PlayersContext } from '../../store/Context/SunriseContext'
+import React,{useEffect, useState, useRef} from 'react'
 import './manage.scss'
 import Modal from './Modal'
 
@@ -49,7 +48,6 @@ const Manage = () => {
   const addExpenseInfo = ()=> {
     setIsModalOpen(true);
   }
-
   const onSubmit = (e, formFields) => {
     console.log('Submitted Data:', formFields);
     onCloseModal();
@@ -103,7 +101,7 @@ const Manage = () => {
                     //   ()=>{
                     //     now.current = item
                     //   }
-                    // } 
+                    // }
                   >
                       {item}
                   </li>

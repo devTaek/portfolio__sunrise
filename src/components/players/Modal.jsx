@@ -43,13 +43,13 @@ background: white;
 color: black;
 font-weight: bold;
 `;
-const Modal = ({selectedPlayer,closeSelectedModal}) => {
+const Modal = ({isSelectedContent,closeSelectedModal}) => {
   
   return(
     <SelectedComponent onClick={closeSelectedModal}>
       <Button onClick={closeSelectedModal}>X</Button>
-      <PlayerInfo selectedPlayer={selectedPlayer}></PlayerInfo>
-      <Chart selectedPlayer={selectedPlayer}/>
+      <PlayerInfo isSelectedContent={isSelectedContent}></PlayerInfo>
+      <Chart isSelectedContent={isSelectedContent}/>
     </SelectedComponent>
   )
 }

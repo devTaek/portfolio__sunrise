@@ -3,9 +3,9 @@ import './players.scss';
 
 import { PlayersContext } from '../../store/Context/SunriseContext';
 
-import DisplayCountSelector from './DisplayCountSelector';
+import DisplayCountSelector from '../Common/DisplayCountSelector';
 import PostList from './PostList';
-import Pagination from './Pagination';
+import Pagination from '../Common/Pagination';
 
 
 const Players = () => {

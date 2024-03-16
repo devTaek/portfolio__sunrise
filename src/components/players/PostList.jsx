@@ -5,10 +5,10 @@ import Modal from './Modal';
 
 function PostList({list}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPlayer, setSelectedPlayer] = useState(null);
+  const [isSelectedContent, setIsSelectedContent] = useState(null);
 
-  const onShowModal = (player) => {
-    setSelectedPlayer(player);
+  const onShowModal = (item) => {
+    setIsSelectedContent(item);
     setIsModalOpen(true);
   }
   const closeSelectedModal= () => {
@@ -24,7 +24,9 @@ function PostList({list}) {
             </div>
           </li>
         ))}
-        {isModalOpen && (<Modal selectedPlayer={selectedPlayer} closeSelectedModal={closeSelectedModal} />)}
+        {isModalOpen && (<Modal
+          isSelectedContent={isSelectedContent}
+          closeSelectedModal={closeSelectedModal} />)}
       </ul>
   )
 }

@@ -49,23 +49,23 @@ const Button = styled.button`
   return (
     <div className="pagination">
       <PaginationContainre>
-      <Button onClick={goToPrevPage} disabled={currentPage === 1}>
-        ◀️
-      </Button>
-
-      {pageList.map((page) => (
-        <Button
-          key={page}
-          onClick={() => setCurrentPage(page)}
-          className={currentPage === page ? "active" : ""}
-        >
-          {page}
+        <Button onClick={goToPrevPage} disabled={currentPage === 1}>
+          ◀️
         </Button>
-      ))}
 
-      <Button onClick={goToNextPage} disabled={currentPage === pageList.length}>
-        ▶️
-      </Button>
+        {pageList.map((page) => (
+          <Button
+            key={page}
+            onClick={() => setCurrentPage(page)}
+            className={currentPage === page ? "active" : ""}
+          >
+            {page}
+          </Button>
+        ))}
+
+        <Button onClick={goToNextPage} disabled={currentPage === pageList.length}>
+          ▶️
+        </Button>
       </PaginationContainre>
     </div>
   );

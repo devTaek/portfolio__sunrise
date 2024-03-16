@@ -4,7 +4,7 @@ import {
 } from 'recharts';
 
 
-const Chart = ({selectedPlayer}) => {
+const Chart = ({isSelectedContent}) => {
   
   return (
     <ResponsiveContainer width="70%" height={400}>
@@ -14,12 +14,12 @@ const Chart = ({selectedPlayer}) => {
         outerRadius="78%"
         width={500}
         height={701}
-        data={selectedPlayer.stats}
+        data={isSelectedContent.stats}
       >
         <PolarGrid />
         <PolarAngleAxis dataKey="subject"  tick={{ fill: 'white', fontSize: 18}} />
         <PolarRadiusAxis display="none"/> {/* 옆에 막대기 없는거 */}
-        <Radar name={selectedPlayer.name} dataKey="A" stroke="red" fill="black" fillOpacity={0.6} />
+        <Radar name={isSelectedContent.name} dataKey="A" stroke="red" fill="black" fillOpacity={0.6} />
       </RadarChart>
     </ResponsiveContainer>
   );
