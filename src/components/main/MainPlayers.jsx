@@ -1,12 +1,12 @@
 import React, {useContext, useState} from 'react';
 import './mainPlayers.scss';
-import { PlayersContext } from '../../store/Context/SunriseContext';
+import { PlayersContext } from "../../store/Context/SunriseContext";
 
 
 
 
 const MainPlayers= () => {
-  const {playerList} = useContext(PlayersContext);
+  const {playersList} = useContext(PlayersContext);
   const [state, setState] = useState({
     cnt: 0
   });
@@ -42,8 +42,8 @@ const MainPlayers= () => {
         <div className="gap">
           <button onClick={prevBtn} className='prev-btn'><img src="./img/pc-prev-btn.png" alt="" /></button>
           <div ref={slideWrap} className="main-players-box">
-              {playerList.map((item,id) => (
-                <li key={item.id}>
+              {playersList.map((item,id) => (
+                <li key={id}>
                   <img src="./img/4254b1223bdb-dybala21-copia.png" alt="" />
                   <span>{item.name}</span>
                 </li>

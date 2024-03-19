@@ -11,7 +11,7 @@ body {
   font-family: 'Pretendard', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url('../public/img/bg-1-main.png') no-repeat center/cover fixed;
+
   /* opacity: 0.8; */
 
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
