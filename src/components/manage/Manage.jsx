@@ -11,7 +11,7 @@ const Manage = () => {
   const [filteredYear, setFilteredYear] = useState(2024);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-
+  const [manageData, setManageData] = useState([]);
   const [formFields, setFormFields] = useState(
     {
       type: '',
@@ -22,10 +22,25 @@ const Manage = () => {
   )
   // const [sequance, setSequance] = useState(null)
 
-
   useEffect(() => {
-    // console.log('formFields:', formFields);
-  }, [formFields]); // formFields가 업데이트 될 때마다 실행
+    // 서버에서 데이터를 가져오는 함수
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/api/manageList');
+        if (!response.ok) {
+          throw new Error('Failed to fetch data from server');
+        }
+        const data = await response.json();
+        setManageData(data); // 서버에서 받은 데이터를 상태에 저장
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    
+    // fetchData 함수 호출하여 데이터 가져오기
+    fetchData();
+  }, []); // 컴포넌트가 처음 렌더링될 때만 실행
+  
 
   const onClickPrevMonth = () => {
     setFilteredMonth(filteredMonth-1);
@@ -49,6 +64,15 @@ const Manage = () => {
     setIsModalOpen(true);
   }
   const onSubmit = (e, formFields) => {
+    e.preventDefault();
+    const newData = {
+      type: formFields.type,
+      detail: formFields.detail,
+      amount: formFields.amount,
+      extra_info: formFields.extra_info,
+      date: new Date()  // 현재 날짜 추가
+    };
+    setManageData(prevData => [...prevData, newData]);
     console.log('Submitted Data:', formFields);
     onCloseModal();
   }
@@ -68,7 +92,7 @@ const Manage = () => {
         <title className="title">
           <h1>MANAGE</h1>
         </title>
-        <div className="manageBox">
+        <main className="manageBox">
           <div className="container">
             <div className="gap">
               <div className="selected-month">
@@ -114,25 +138,28 @@ const Manage = () => {
                 <li>비고</li>
               </ul>
               <ul className="list">
-                <li>
+                {manageData.map((item,id)=>(
+                  <li key={id}>
                   <div className='type'>
-                    {formFields.type}
+                    {item.type}
                   </div>
                   <div className='detail'>
-                    {formFields.detail}
+                    {item.detail}
                   </div>
                   <div style={{color:`white`}} className='amount'>
-                    {formFields.amount}
+                    {item.amount}
                   </div>
                   <div className='extra_info'>
-                    {formFields.extra_info}
+                    {item.extra_info}
                   </div>
-                </li>
+                  </li>
+                ))
+              }
               </ul>
               <button onClick={addExpenseInfo}>수입/지출 입력</button>
             </div>
           </div>
-        </div>
+        </main>
       </div>
     </div>
     </>
