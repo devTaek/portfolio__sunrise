@@ -2,24 +2,24 @@ import React from "react";
 import './Main.scss'
 
 
-import MainPlayers from "./MainPlayers";
-// import MainMatch from './MainMatch';
-// import MainManage from './MainManage';
-// import MainCommunity from './MainCommunity';
+import MainPlayers from "./sub/MainPlayers";
+import MainMatch from './sub/MainMatch';
+import MainManage from './sub/MainManage';
+import MainCommunity from './sub/MainCommunity';
 
 const Main = () => {
   return (
     <main id='main'>
       <div className="container">
         <header className="title">
-          <h3>Welcome to the sunrise soccer team</h3>
+          <h1>Welcome to the sunrise soccer team</h1>
         </header>
         <div className="main_box">
           <div className="container">
-            <article className="players">1</article>
-            <article className="match">2</article>
-            <article className="manage">3</article>
-            <article className="community">4</article>
+            <MainPlayers />
+            <MainMatch />
+            <MainManage />
+            <MainCommunity />
           </div>
         </div>
       </div>
