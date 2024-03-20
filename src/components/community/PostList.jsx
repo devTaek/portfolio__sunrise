@@ -1,15 +1,14 @@
 import React, {useState} from 'react'
-import Modal from './Modal';
+import Modal from '../Community/Modal';
 
 
 
 function PostList({list}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPlayer, setSelectedPlayer] = useState(null);
+  const [isSelectedContent, setIsSelectedContent] = useState(null);
 
-
-  const onShowModal = (community) => {
-    setSelectedPlayer(community);
+  const onShowModal = (item) => {
+    setIsSelectedContent(item);
     setIsModalOpen(true);
   }
   const closeSelectedModal= () => {
@@ -22,11 +21,12 @@ function PostList({list}) {
             <img src={item.img} alt="" />
             <div className="text">
               <div className="name">{item.name}</div>
-              <div className="source">{item.source}</div>
             </div>
           </li>
         ))}
-        {isModalOpen && (<Modal selectedPlayer={selectedPlayer} closeSelectedModal={closeSelectedModal} />)}
+        {isModalOpen && (<Modal
+          isSelectedContent={isSelectedContent}
+          closeSelectedModal={closeSelectedModal} />)}
       </ul>
   )
 }
