@@ -2,6 +2,7 @@ import React,{useContext, useState} from 'react';
 import './match.scss';
 
 import { MatchListContext } from '../../store/Context/SunriseContext';
+import Title from '../Common/Title';
 
 const Match = () => {
   const {matchList} = useContext(MatchListContext);
@@ -26,9 +27,7 @@ const Match = () => {
   return (
     <div id='match'>
       <div className="container">
-        <title className="title">
-          <h1>MATCH</h1>
-        </title>
+        <Title title="Match" />
         <div className="matchBox">
           <div className="container">
             <div className="gap">

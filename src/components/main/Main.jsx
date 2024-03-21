@@ -1,19 +1,21 @@
 import React from "react";
 import './Main.scss'
 
+import Title from "../Common/Title"
+import {
+  MainPlayers,
+  MainMatch, 
+  MainManage,
+  MainCommunity
+} from "./sub";
 
-import MainPlayers from "./sub/MainPlayers";
-import MainMatch from './sub/MainMatch';
-import MainManage from './sub/MainManage';
-import MainCommunity from './sub/MainCommunity';
 
-const Main = () => {
+const Main = ({playersList}) => {
+  console.log(playersList)
   return (
     <main id='main'>
       <div className="container">
-        <header className="title">
-          <h1>Welcome to the sunrise soccer team</h1>
-        </header>
+        <Title title="Welcome to the sunrise scoccer team"/>
         <div className="main_box">
           <div className="container">
             <MainPlayers />

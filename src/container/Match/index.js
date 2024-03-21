@@ -1,3 +1,3 @@
-import Match from "./MatchContainer";
+import MatchContainer from "./MatchContainer";
 
-export default Match;
+export default MatchContainer;

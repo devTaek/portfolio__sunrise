@@ -1,6 +1,7 @@
 import React,{useEffect, useState, useRef} from 'react'
 import './manage.scss'
 import Modal from './Modal'
+import Title from '../Common/Title';
 
 const Manage = () => {
 
@@ -41,6 +42,8 @@ const Manage = () => {
     fetchData();
   }, []); // 컴포넌트가 처음 렌더링될 때만 실행
   
+
+
 
   const onClickPrevMonth = () => {
     setFilteredMonth(filteredMonth-1);
@@ -89,9 +92,7 @@ const Manage = () => {
 
     <div id='manage'>
       <div className="container">
-        <title className="title">
-          <h1>MANAGE</h1>
-        </title>
+        <Title title='Manage'/>
         <main className="manageBox">
           <div className="container">
             <div className="gap">

@@ -3,6 +3,7 @@ import './players.scss';
 
 import { PlayersContext } from '../../store/Context/SunriseContext';
 
+import Title from '../Common/Title';
 import DisplayCountSelector from '../Common/DisplayCountSelector';
 import PostList from './PostList';
 import Pagination from '../Common/Pagination';
@@ -98,9 +99,7 @@ const Players = () => {
   return (
     <div id='players'>
       <div className="container">
-        <title className="title">
-          <h1>Players</h1>
-        </title>
+        <Title title='Players' />
         <div className="playerBox">
           <div className="container">
             <div className='search-box'>

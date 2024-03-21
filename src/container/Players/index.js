@@ -1,3 +1,3 @@
-import Players from "./PlayersContainer";
+import PlayersContainer from "./PlayersContainer";
 
-export default Players;
+export default PlayersContainer;
