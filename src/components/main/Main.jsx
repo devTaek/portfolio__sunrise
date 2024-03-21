@@ -1,7 +1,7 @@
 import React from "react";
 import './Main.scss'
 
-import Title from "../Common/Title"
+import Title from "../common/Title"
 import {
   MainPlayers,
   MainMatch, 

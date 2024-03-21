@@ -1,7 +1,7 @@
 import React,{useEffect, useState, useRef} from 'react'
 import './manage.scss'
 import Modal from './Modal'
-import Title from '../Common/Title';
+import Title from '../common/Title';
 
 const Manage = () => {
 

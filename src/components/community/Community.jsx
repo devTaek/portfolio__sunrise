@@ -3,9 +3,9 @@ import './community.scss';
 
 import {CommunityContext} from '../../store/Context/SunriseContext';
 
-import DisplayCountSelector from '../Common/DisplayCountSelector';
+import DisplayCountSelector from '../common/DisplayCountSelector';
 import PostList from './PostList';
-import Pagination from '../Common/Pagination';
+import Pagination from '../common/Pagination';
 
 const Community = () => {
   const {communityList} = useContext(CommunityContext);
