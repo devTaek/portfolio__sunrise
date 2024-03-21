@@ -1,0 +1,16 @@
+{
+  "manageList": [
+    {
+      "type": "회비",
+      "detail": "정태균",
+      "amount": 20000,
+      "extra_info": "3월"
+    },
+    {
+      "type": "결석",
+      "detail": "홍성윤",
+      "amount": 100000,
+      "extra_info": "17"
+    }
+  ]
+}
