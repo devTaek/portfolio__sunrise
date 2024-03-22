@@ -35,7 +35,9 @@ function Header() {
       <div className="container">
         <div className="gap">
           <div className="logo">
-            <Link to="/"><img src='./img/pc-logo.png' alt="" /></Link>
+            <Link to="/">
+              <img src='./img/pc-logo.png' alt="" />
+            </Link>
           </div>
           <ul className="header__menu">
             {headerMenu.map((item,key)=>(

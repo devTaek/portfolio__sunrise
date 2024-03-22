@@ -2,13 +2,14 @@
   position: fixed;
   background: transparent;
   width: 100%;
-  top: 0;
   left: 0;
+  padding-top: 20px;
   z-index: 99;
   font-family: 'Your Font', Pretendard;
+  background: linear-gradient(180deg, #0D0F19 0%, rgba(0, 0, 0, 0.01) 80%);
   .container {
     width: 100%;
-    height: 116px;
+    height: 72px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,16 +31,22 @@
         justify-content: space-between;
       }
       .logo {
+        width: 184px;
+        @media all and (max-width: 976px) {
+          width: 80px;
+        }
+        @media all and (max-width : 767px) {
+          width: 10%;
+        }
         a {
-          width: 184px;
-          @media all and (max-width: 976px) {
-            width: 150px;
-          }
+          width: 64px;
+          height: 64px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           img {
             width: 4rem;
             @media all and (max-width: 767px) {
-              margin-left: 10px;
-              width: 40%;
             }
           }
         }
@@ -47,34 +54,35 @@
       .header__menu {
         display: flex;
         align-items: center;
-        justify-content: right;
+        justify-content: center;
         @media all and (max-width: 767px) {
           display: none;
         }
+        li {
+          width: 160px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @media all and (max-width: 976px) {
+          }
+        }
         a {
-          width: 80px;
-          margin: 30px;
           color: white;
           text-align: center;
           text-decoration: none;
           font-size: 18px;
           font-weight: 700;
           font-family: Pretendard;
-          transition: all 0.7s;
-          @media all and (max-width: 976px) {
-            margin: 0.7rem;
-          }
         }
       }
       .sns__menu {
         width: 184px;
         display: flex;
         align-items: center;
-        justify-content: right;
+        justify-content: center;
         transition: all 0.7s;
-
         @media all and (max-width: 976px) {
-          width: 150px;
+          width: 80px;
         }
         @media all and (max-width : 767px) {
           display: none;
