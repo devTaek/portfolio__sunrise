@@ -7,8 +7,9 @@ app.use(cors());
 app.use(express.json());   // for parsing application/json
 app.use(express.urlencoded({ extended: true }));   // for parsing application/x-www-form-urlencoded
 
-const { manageList } = require('./data/manageList.json');
 const { playersList } = require('./data/playersList.json');
+const { matchList } = require('./data/matchList.json');
+const { manageList } = require('./data/manageList.json');
 
 app.get('/api/manageList', (req, res) => {
 
@@ -24,6 +25,10 @@ app.post('/api/manageList', (req, res) => {
 app.get('/api/member', (req, res) => {
   res.json(playersList);
 })
+app.get('/api/match', (req, res) => {
+  res.json(matchList);
+})
+
 
 app.listen(3001, () => {
   console.log('app started on port 3001');

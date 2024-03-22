@@ -10,19 +10,16 @@ import {
 } from "./sub";
 
 
-const Main = ({playersList}) => {
-  console.log(playersList)
+const Main = () => {
   return (
     <main id='main'>
       <div className="container">
         <Title title="Welcome to the sunrise scoccer team"/>
         <div className="main_box">
-          <div className="container">
-            <MainPlayers />
-            <MainMatch />
-            <MainManage />
-            <MainCommunity />
-          </div>
+          <MainMatch />
+          <MainPlayers />
+          <MainManage />
+          <MainCommunity />
         </div>
       </div>
     </main>

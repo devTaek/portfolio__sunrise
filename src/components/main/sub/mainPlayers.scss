@@ -1,3 +1,19 @@
-#main_players {
-  
+.main_players {
+  width: 100%;
+  margin: 240px 0;
+  .gap {
+    width: 100%;
+    overflow: hidden;
+    ul {
+      display: flex;
+      overflow: hidden;
+      li {
+        img {
+          width: 410px;
+          height: 450px;
+        }
+      }
+    }
+  }
 }
+
