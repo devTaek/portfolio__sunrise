@@ -27,7 +27,7 @@ const Manage = () => {
     // 서버에서 데이터를 가져오는 함수
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/manageList');
+        const response = await fetch('http://localhost:3001/api/manageList');
         if (!response.ok) {
           throw new Error('Failed to fetch data from server');
         }

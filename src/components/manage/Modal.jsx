@@ -91,8 +91,12 @@ const Modal = forwardRef( function Modal (
           구분
           <select name="type" id="type" onChange={onChangeInfo}>
             <option defaultValue="type_option" hidden>구분</option>
-            <option value="입금">입금</option>
-            <option value="출금">출금</option>
+            <option value="입금">회비</option>
+            <option value="지각">지각</option>
+            <option value="결석">결석</option>
+            <option value="구장">구장</option>
+            <option value="음료">음료</option>
+            <option value="장비">장비</option>
           </select>
         </label>
         <label>
@@ -100,13 +104,13 @@ const Modal = forwardRef( function Modal (
           <select name="detail" id="detail" onChange={onChangeInfo}>
             {/* 수익 */}
             <option defaultValue="detail_option" hidden>내역</option>
-            <option value="회비">회비</option>
-            <option value="결석">결석</option>
-            <option value="지각">지각</option>
+            <option value="회비"></option> {/* playersList 삽입 */}
+            <option value="결석"></option> {/* playersList 삽입 */}
+            <option value="지각"></option> {/* playersList 삽입 */}
             {/* 지출 */}
-            <option value="구장대여">구장</option>
+            <option value="구장대여">구장</option> {/* input 박스삽입 */}
             <option value="음료">물</option>
-            <option value="장비">장비</option>
+            <option value="장비">장비</option> {/* input 박스삽입 */}
           </select>
         </label>
         <label>

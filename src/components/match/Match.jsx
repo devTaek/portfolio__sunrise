@@ -44,11 +44,11 @@ const Match = () => {
               <span style={{textAlign: `right`}}>경기결과</span>
             </div>
             <ul>
-              {matchList && matchList.map((matchList, id)=>(
-                  <li className="row3" key={matchList.id}>
+              {matchList && matchList.map((item, id)=>(
+                  <li className="row3" key={item.id}>
                     <div className="left">
-                      <div className="matchDate">{matchList.when} {matchList.time}</div>
-                      <div className="matchPlace">{matchList.where}</div>
+                      <div className="matchDate">{item.when} {item.time}</div>
+                      <div className="matchPlace">{item.where}</div>
                     </div>
                     <div className="center">
                       <div className="col-gap">
