@@ -56,7 +56,7 @@ const MatchContainer = () => {
     },
     {
       id: 5,
-      date: new Date(2024, 2, 22),
+      //date: new Date(2024,0,29),
       where: '마루공원 2면',
       time: '08:00',
       home: 'Sunrise',

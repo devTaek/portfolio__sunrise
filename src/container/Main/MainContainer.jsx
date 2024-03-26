@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import Main from '../../components/Main/Main';
 import {fetchData} from '../common/utils/fetchData'
 
-import {PlayersContext} from '../../store/Context/SunriseContext';
+import {PlayersContext, MatchListContext} from '../../store/Context/SunriseContext';
 
 // main에 들어가는 데이터들,,
 const MainContainer = () => {
@@ -13,8 +13,10 @@ const MainContainer = () => {
     fetchData('match', setMatchList)
   },[])
   return(
-    <PlayersContext.Provider value={{playersList,setPlayersList, matchList,setMatchList}}>
+    <PlayersContext.Provider value={{playersList,setPlayersList}}>
+      <MatchListContext.Provider value={{matchList, setMatchList}}>
         <Main />
+      </MatchListContext.Provider>
     </PlayersContext.Provider>
   )
 }

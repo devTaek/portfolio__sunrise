@@ -39,7 +39,7 @@ color: white;
   }
 }
 `;
-const MainSubTitle = ({title,to,date}) => {
+const MainSubTitle = ({title,to,date,onPrevBtn,onNextBtn}) => {
   return (
     <MainSubTitleBox>
       <div className='main_players_sub_title'>
@@ -47,9 +47,9 @@ const MainSubTitle = ({title,to,date}) => {
         <Link to={to} style={{paddingLeft: `10px`}}>+view more</Link>
       </div>
       <div className='sequence_btn'>
-        <button><img style={{transform: `rotate(180deg)`}}src="./img/nextBtn.svg" alt="" /></button>
+        <button onClick={onPrevBtn}><img style={{transform: `rotate(180deg)`}}src="./img/nextBtn.svg" alt="" /></button>
         {date}
-        <button><img src="./img/nextBtn.svg" alt="" /></button>
+        <button onClick={onNextBtn}><img src="./img/nextBtn.svg" alt="" /></button>
       </div>
     </MainSubTitleBox>
   )

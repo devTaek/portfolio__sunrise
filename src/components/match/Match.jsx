@@ -52,16 +52,16 @@ const Match = () => {
                     </div>
                     <div className="center">
                       <div className="col-gap">
-                        <span className='homeTeam'>{matchList.home}</span>
-                        <i><img src={matchList.home_logo} alt="" /></i>
-                        <span>{matchList.home_score}</span>    {/* 더 높은 점수가 노란 글씨 입도록! */}
+                        <span className='homeTeam'>{item.home}</span>
+                        <i><img src={item.home_logo} alt="" /></i>
+                        <span>{item.home_score}</span>    {/* 더 높은 점수가 노란 글씨 입도록! */}
                         <span>VS</span>
-                        <span>{matchList.away_score}</span>
-                        <i><img src={matchList.away_logo} alt="" /></i>
-                        <span className='awayTeam'>{matchList.away}</span>
+                        <span>{item.away_score}</span>
+                        <i><img src={item.away_logo} alt="" /></i>
+                        <span className='awayTeam'>{item.away}</span>
                       </div>
                     </div>
-                    <div className="right">{matchList.home_score>matchList.away_score ? '승' : '패'}</div>
+                    <div className="right">{item.home_score>matchList.away_score ? '승' : '패'}</div>
                   </li>
                 ))}
               </ul>
