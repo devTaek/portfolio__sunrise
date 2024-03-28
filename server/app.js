@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));   // for parsing application/x-
 const { playersList } = require('./data/playersList.json');
 const { matchList } = require('./data/matchList.json');
 const { manageList } = require('./data/manageList.json');
+const { communityList } = require('./data/communityList.json');
 
 app.get('/api/manageList', (req, res) => {
 
@@ -28,10 +29,11 @@ app.get('/api/member', (req, res) => {
 app.get('/api/match', (req, res) => {
   res.json(matchList);
 })
+app.get('/api/community', (req, res) => {
+  res.json(communityList);
+})
 
 
 app.listen(3001, () => {
   console.log('app started on port 3001');
 });
-
-console.log(manageList);
