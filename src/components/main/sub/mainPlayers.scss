@@ -1,12 +1,19 @@
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 7))}
+}
 .main_players {
   width: 100%;
   margin: 240px 0;
-  .gap {
+  >.gap {
     width: 100%;
     overflow: hidden;
-    ul {
+    >ul {
       display: flex;
       overflow: hidden;
+      animation: scroll 90s linear infinite;
+		  display: flex;
+		  width: calc(250px * 14);
       li {
         img {
           width: 410px;

@@ -1,13 +1,11 @@
-import React,{useContext, useState} from 'react'
+import {useContext} from 'react'
 import { PlayersContext } from '../../../store/Context/SunriseContext'
 import MainSubTitle from '../common/MainSubTitle';
 import './mainPlayers.scss';
 
 
-function MainPlayers() {
+const MainPlayers = () => {
   const {playersList} = useContext(PlayersContext);
-  const [cnt, setCnt] = useState(0);
-
 
   return (
     <div className="main_players">
