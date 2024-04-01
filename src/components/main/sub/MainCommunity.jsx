@@ -1,10 +1,11 @@
 import {useContext} from 'react'
 import {CommunityContext} from '../../../store/Context/SunriseContext'
 import MainSubTitle from '../common/MainSubTitle'
-
+import './mainCommunity.scss';
 
 const MainCommunity = () => {
   const {communityList} = useContext(CommunityContext);
+
   return (
     <div className="main_community">
       <div className="gap">
@@ -15,7 +16,8 @@ const MainCommunity = () => {
         <ul>
           {communityList.map((item, id)=> (
             <li key={id}>
-              <div style={{color: `white`}}>{item.name}</div>
+              <img src={item.img} alt="" />
+              <div className='notice_title'>{item.name}</div>
             </li>
           ))}
         </ul>

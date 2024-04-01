@@ -1,0 +1,21 @@
+.main_community {
+  width: 100%;
+  max-width: 1280px;
+  margin: 240px auto;
+  .gap {
+    ul {
+      display: flex;
+      flex-flow: wrap;
+      li {
+        margin: 20px;
+        img {
+          height: 400px;
+        }
+        .notice_title {
+          color: white;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
