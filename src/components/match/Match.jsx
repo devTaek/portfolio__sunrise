@@ -3,13 +3,14 @@ import './match.scss';
 
 import { MatchListContext } from '../../store/Context/SunriseContext';
 import Title from '../common/Title';
+import MatchFilter from './sub/MatchFilter';
+import MatchList from './sub/MatchList';
 
 const Match = () => {
   const {matchList} = useContext(MatchListContext);
 
-  const [filteredMonth, setFilteredMonth] = useState(1);
-  const [filteredYear, setFilteredYear] = useState(2024);
-
+  const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
+  const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
   const onClickPrevMonth = () => {
     setFilteredMonth(filteredMonth-1);
     if(filteredMonth <= 1) {
@@ -24,6 +25,17 @@ const Match = () => {
       setFilteredYear(filteredYear + 1);
     }
   }
+  const dropDownChangeHandler = (filteredMonth) => {
+    setFilteredMonth(filteredMonth)
+  }
+  
+  const filteredMatches = matchList.filter((match)=>{
+    const matchDate = new Date(match.date)
+    const matchYear = matchDate.getFullYear()
+    const matchMonth = matchDate.getMonth() + 1
+    return filteredYear === matchYear && filteredMonth === matchMonth;
+  })
+
   return (
     <div id='match'>
       <div className="container">
@@ -31,40 +43,19 @@ const Match = () => {
         <div className="matchBox">
           <div className="container">
             <div className="gap">
-            <div className="row1">
-              <button onClick={onClickPrevMonth}><img style={{transform: `rotate(180deg)`}} src="./img/nextBtn.svg"  alt="" /></button>
-              <div className="dateBox">
-              {filteredYear}.{filteredMonth}
-              </div>
-              <button onClick={onClickNextMonth}><img src="./img/nextBtn.svg"  alt="" /></button>
-            </div>
+              <MatchFilter
+                filteredMonth={filteredMonth}
+                filteredYear={filteredYear}
+                onClickPrevMonth={onClickPrevMonth}
+                onClickNextMonth={onClickNextMonth}
+              />
+            
             <div className="row2">
               <span style={{textAlign: `left`}}>경기일정</span>
               <span>스코어</span>
               <span style={{textAlign: `right`}}>경기결과</span>
             </div>
-            <ul>
-              {matchList && matchList.map((item, id)=>(
-                  <li className="row3" key={item.id}>
-                    <div className="left">
-                      <div className="matchDate">{item.when} {item.time}</div>
-                      <div className="matchPlace">{item.where}</div>
-                    </div>
-                    <div className="center">
-                      <div className="col-gap">
-                        <span className='homeTeam'>{item.home}</span>
-                        <i><img src={item.home_logo} alt="" /></i>
-                        <span>{item.home_score}</span>    {/* 더 높은 점수가 노란 글씨 입도록! */}
-                        <span>VS</span>
-                        <span>{item.away_score}</span>
-                        <i><img src={item.away_logo} alt="" /></i>
-                        <span className='awayTeam'>{item.away}</span>
-                      </div>
-                    </div>
-                    <div className="right">{item.home_score>matchList.away_score ? '승' : '패'}</div>
-                  </li>
-                ))}
-              </ul>
+            <MatchList filteredMatches={filteredMatches} />
             </div>
           </div>
         </div>
