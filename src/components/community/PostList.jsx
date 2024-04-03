@@ -17,7 +17,7 @@ function PostList({list}) {
   return (
       <ul>
         {list.map((item,id) => (
-          <li onClick={()=>onShowModal(item)} key={item.id}>
+          <li onClick={()=>onShowModal(item)} key={id}>
             <img src={item.img} alt="" />
             <div className="text">
               <div className="name">{item.name}</div>

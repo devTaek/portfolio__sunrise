@@ -40,13 +40,13 @@ function Header() {
             </Link>
           </div>
           <ul className="header__menu">
-            {headerMenu.map((item,key)=>(
-              <li key={item.id}><Link to={item.address}>{item.name}</Link></li>
+            {headerMenu.map((item,id)=>(
+              <li key={id}><Link to={item.address}>{item.name}</Link></li>
             ))}
           </ul>
           <div className="sns__menu">
-            {snsMenu.map((item, key)=>(
-              <li key={item.id}><Link to="#"><img src={item.img} alt="" /></Link></li>
+            {snsMenu.map((item,id)=>(
+              <li key={id}><Link to="#"><img src={item.img} alt="" /></Link></li>
             ))}
           </div>
           <div className="toggle">

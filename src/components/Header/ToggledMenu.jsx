@@ -11,8 +11,8 @@ function ToggledMenu({headerMenu, snsMenu, isToggled, setIsToggled}) {
     <div className="toggle_menu">
       <div className='toggle-headerMenu'>
         <ul>
-          {headerMenu.map((item, key) => (
-            <li key={item.id}>
+          {headerMenu.map((item, id) => (
+            <li key={id}>
               <Link onClick={menuClickAndClose} to={item.address}>{item.name}</Link>
             </li>
         ))}
@@ -20,8 +20,8 @@ function ToggledMenu({headerMenu, snsMenu, isToggled, setIsToggled}) {
       </div>
       <div className='toggle-snsMenu'>
         <ul>
-        {snsMenu.map((item,key) => (
-            <li key={item.id}><img src={item.img} alt="" /></li>
+        {snsMenu.map((item,id) => (
+            <li key={id}><img src={item.img} alt="" /></li>
         ))}
         </ul>
       </div>

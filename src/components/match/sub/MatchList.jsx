@@ -4,7 +4,7 @@ const MatchList = ({filteredMatches}) => {
   return (
     <ul>
       {filteredMatches.map((item, id)=>(
-          <li className="row3" key={item.id}>
+          <li className="row3" key={id}>
             <div className="left">
               <div className="matchDate">{item.date} {item.time}</div>
               <div className="matchPlace">{item.where}</div>

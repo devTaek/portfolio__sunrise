@@ -35,7 +35,7 @@ const MainMatch= () => {
               width: `100%`
             }}>
               <div className="home_team"><img src={`./img/${item.home_logo}`} alt="" />{item.home}</div>
-              <div className='score_box'>{item.home_score} - 1</div>
+              <div className='score_box'>{item.home_score} - {item.away_score}</div>
               <div className="away_team"><img src={`./img/${item.away_logo}`} alt="" />{item.away}</div>
             </li>
             ))}
