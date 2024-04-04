@@ -1,18 +1,14 @@
-import React,{useEffect, useState, useRef} from 'react'
+import React,{useEffect, useState, useRef, useContext} from 'react'
 import './manage.scss'
 import Modal from './Modal'
 import Title from '../common/Title';
+import { PlayersContext } from '../../store/Context/SunriseContext';
 
-const Manage = () => {
-
-  const options = ['수익', '지출'];
-  const {now} = useRef();
+const Manage = ({manageList, setManageList}) => {
+  const {playersList} = useContext(PlayersContext);
   const {dialog} = useRef();
-  const [filteredMonth, setFilteredMonth] = useState(1);
-  const [filteredYear, setFilteredYear] = useState(2024);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [manageData, setManageData] = useState([]);
   const [formFields, setFormFields] = useState(
     {
       type: '',
@@ -21,29 +17,11 @@ const Manage = () => {
       extra_info: ''
     }
   )
-  // const [sequance, setSequance] = useState(null)
 
-  useEffect(() => {
-    // 서버에서 데이터를 가져오는 함수
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:3001/api/manageList');
-        if (!response.ok) {
-          throw new Error('Failed to fetch data from server');
-        }
-        const data = await response.json();
-        setManageData(data); // 서버에서 받은 데이터를 상태에 저장
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    
-    // fetchData 함수 호출하여 데이터 가져오기
-    fetchData();
-  }, []); // 컴포넌트가 처음 렌더링될 때만 실행
-  
+  const [filteredMonth, setFilteredMonth] = useState(1);
+  const [filteredYear, setFilteredYear] = useState(2024);
 
-
+  const options = ['수익', '지출'];
 
   const onClickPrevMonth = () => {
     setFilteredMonth(filteredMonth-1);
@@ -73,10 +51,11 @@ const Manage = () => {
       detail: formFields.detail,
       amount: formFields.amount,
       extra_info: formFields.extra_info,
-      date: new Date()  // 현재 날짜 추가
+      date: new Date(),  // 현재 날짜 추가
     };
-    setManageData(prevData => [...prevData, newData]);
+    setManageList(prevData => [...prevData, newData]);
     console.log('Submitted Data:', formFields);
+    console.log('date:', newData.date);
     onCloseModal();
   }
   return (
@@ -119,7 +98,6 @@ const Manage = () => {
               <div className="option">
                 {options.map((item,id)=>(
                   <li
-                    ref={now}
                     key={id} 
                     // 수익/지출 데이터 입력후 생성
                     // onClick={
@@ -134,12 +112,12 @@ const Manage = () => {
               </div>
               <ul className="category">
                 <li>구분</li>
-                <li>상세</li>
+                <li>내역</li>
                 <li>금액</li>
                 <li>비고</li>
               </ul>
               <ul className="list">
-                {manageData.map((item,id)=>(
+                {manageList.map((item,id)=>(
                   <li key={id}>
                   <div className='type'>
                     {item.type}
