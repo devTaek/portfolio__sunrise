@@ -25,9 +25,7 @@ const Match = () => {
       setFilteredYear(filteredYear + 1);
     }
   }
-  const dropDownChangeHandler = (filteredMonth) => {
-    setFilteredMonth(filteredMonth)
-  }
+
   
   const filteredMatches = matchList.filter((match)=>{
     const matchDate = new Date(match.date)
@@ -55,6 +53,7 @@ const Match = () => {
               <span>스코어</span>
               <span style={{textAlign: `right`}}>경기결과</span>
             </div>
+            {/* state값과 동일 이름 */}
             <MatchList filteredMatches={filteredMatches} />
             </div>
           </div>

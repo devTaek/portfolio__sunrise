@@ -3,13 +3,33 @@
   max-width: 1280px;
   margin: 240px auto;
   .gap {
+    padding: 0 40px;
+    .main_players_sub_title {
+      a {
+        @media all and (max-width: 767px) {
+          display: none;
+        }
+      }
+    }
+    .sequence_btn {
+      button {
+        width: 20px;
+        height: 20px;
+      }
+    }
     ul {
       display: flex;
       flex-flow: wrap;
+      align-items: center;
+      justify-content: center;
       li {
         margin: 20px;
         img {
+          width: 100%;
           height: 400px;
+          @media all and (max-width: 767px) {
+            height: 100%;
+          }
         }
         .notice_title {
           color: white;
