@@ -18,8 +18,8 @@ const Manage = ({manageList, setManageList}) => {
     }
   )
 
-  const [filteredMonth, setFilteredMonth] = useState(1);
-  const [filteredYear, setFilteredYear] = useState(2024);
+  const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
+  const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
 
   const options = ['수익', '지출'];
 

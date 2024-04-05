@@ -1,6 +1,8 @@
-import React, { forwardRef, useRef, useImperativeHandle } from 'react'
+import React, { forwardRef, useRef, useImperativeHandle, useContext, useState } from 'react'
 import { createPortal } from 'react-dom';
+import { PlayersContext } from '../../store/Context/SunriseContext';
 import styled from 'styled-components';
+
 const SelectedComponent = styled.div`
   position: fixed;
   top: 55%;
@@ -62,20 +64,36 @@ const Modal = forwardRef( function Modal (
 ) {
   const dialog = useRef();
 
+  const [detailType, setDetailType] = useState([]);
+
+  // playersList 불러오기
+  const {playersList} = useContext(PlayersContext);
+  const playGround = [{name:'천마'}, {name:'마루'}, {name:'종운'}]  
+
   
   const onChangeInfo = (e) => {
     const {name, value} = e.target;
-    console.log(formFields);
     setFormFields((prevState) => ({
       ...prevState,
       [name]: value,
     }));
+  }
+  const selectedType = (e) => {
+    const name = e.target.value;
+    if(['회비', '지각', '결석'].includes(name)) {
+      // 변경된 option
+      setDetailType(playersList)
+    } else if(name === '구장') {
+      setDetailType(playGround)
+    }
   }
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(e,formFields);
     onCloseModal();
   }
+
+
   useImperativeHandle(ref, () => {
     return{
       open() {
@@ -86,12 +104,13 @@ const Modal = forwardRef( function Modal (
   return createPortal (
     <SelectedComponent ref={dialog}>
       <Button  onClick={onCloseModal}>X</Button>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} onChange={onChangeInfo}>
         <label>
           구분
-          <select name="type" id="type" onChange={onChangeInfo}>
+          <select name="type" id="type" onChange={selectedType}>
             <option defaultValue="type_option" hidden>구분</option>
-            <option value="입금">회비</option>
+            {/* date 삽입  */}
+            <option value="회비">회비</option>
             <option value="지각">지각</option>
             <option value="결석">결석</option>
             <option value="구장">구장</option>
@@ -101,25 +120,19 @@ const Modal = forwardRef( function Modal (
         </label>
         <label>
           내역
-          <select name="detail" id="detail" onChange={onChangeInfo}>
-            {/* 수익 */}
-            <option defaultValue="detail_option" hidden>내역</option>
-            <option value="회비"></option> {/* playersList 삽입 */}
-            <option value="결석"></option> {/* playersList 삽입 */}
-            <option value="지각"></option> {/* playersList 삽입 */}
-            {/* 지출 */}
-            <option value="구장대여">구장</option> {/* input 박스삽입 */}
-            <option value="음료">물</option>
-            <option value="장비">장비</option> {/* input 박스삽입 */}
+          <select name="detail" id="detail">
+            {detailType && detailType.map((item,id)=>(
+              <option key={id} value={detailType[id].name}>{detailType[id].name}</option>
+            ))}
           </select>
         </label>
         <label>
           금액
-          <input type="number" name='amount' placeholder='얼마나왔냐' onChange={onChangeInfo} />
+          <input type="number" name='amount' placeholder='얼마나왔냐'/>
         </label>
         <label>
           비고
-          <textarea name="extra_info" id="extra_info" cols="50" rows="3" placeholder='할말더있어?' onChange={onChangeInfo}></textarea>
+          <textarea name="extra_info" id="extra_info" cols="50" rows="3" placeholder='할말더있어?'></textarea>
         </label>
         <button type="submit">등록</button>
       </form>
