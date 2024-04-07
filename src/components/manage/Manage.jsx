@@ -3,6 +3,8 @@ import './manage.scss'
 import Modal from './Modal'
 import Title from '../common/Title';
 import { PlayersContext } from '../../store/Context/SunriseContext';
+import DateFilter from './sub/DateFilter';
+import ManageList from './sub/ManageList'
 
 const Manage = ({manageList, setManageList}) => {
   const {playersList} = useContext(PlayersContext);
@@ -38,6 +40,13 @@ const Manage = ({manageList, setManageList}) => {
     }
   }
 
+  const filteredMatches = manageList.filter((manage) => {
+    const manageDate = new Date(manage.date);
+    const manageYear = manageDate.getFullYear();
+    const manageMonth = manageDate.getMonth() + 1;
+    return filteredYear === manageYear && filteredMonth === manageMonth;
+  })
+  console.log(filteredMatches)
   const onCloseModal= () => {
     setIsModalOpen(false);
   }
@@ -75,11 +84,12 @@ const Manage = ({manageList, setManageList}) => {
         <main className="manageBox">
           <div className="container">
             <div className="gap">
-              <div className="selected-month">
-                <button onClick={onClickPrevMonth}><img style={{transform: `rotate(180deg)`}} src="./img/nextBtn.svg"  alt="" /></button>
-                <div  className="dateBox">2024.{filteredMonth}</div>
-                <button onClick={onClickNextMonth}><img src="./img/nextBtn.svg"  alt="" /></button>
-              </div>
+              <DateFilter 
+                filteredMonth={filteredMonth}
+                filteredYear={filteredYear}
+                onClickPrevMonth={onClickPrevMonth}
+                onClickNextMonth={onClickNextMonth}
+              />
               <div className='total-money-box'> {/* 클래스명 수정필요 */}
                 <div className='received-money'>
                   <div className='money-category'>회비수익</div>
@@ -116,25 +126,7 @@ const Manage = ({manageList, setManageList}) => {
                 <li>금액</li>
                 <li>비고</li>
               </ul>
-              <ul className="list">
-                {manageList.map((item,id)=>(
-                  <li key={id}>
-                  <div className='type'>
-                    {item.type}
-                  </div>
-                  <div className='detail'>
-                    {item.detail}
-                  </div>
-                  <div style={{color:`white`}} className='amount'>
-                    {item.amount}
-                  </div>
-                  <div className='extra_info'>
-                    {item.extra_info}
-                  </div>
-                  </li>
-                ))
-              }
-              </ul>
+              <ManageList filteredMatches={filteredMatches}/>
               <button onClick={addExpenseInfo}>수입/지출 입력</button>
             </div>
           </div>

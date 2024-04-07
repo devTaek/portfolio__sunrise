@@ -4,13 +4,29 @@
       "type": "회비",
       "detail": "정태균",
       "amount": 20000,
-      "extra_info": "3월"
+      "extra_info": "3월",
+      "date": "2024-01-03"
     },
     {
-      "type": "결석",
-      "detail": "홍성윤",
-      "amount": 100000,
-      "extra_info": "17"
+      "type": "회비",
+      "detail": "송충석",
+      "amount": 20000,
+      "extra_info": "17",
+      "date": "2024-02-22"
+    },
+    {
+      "type": "회비",
+      "detail": "이혁",
+      "amount": 20000,
+      "extra_info": "17",
+      "date": "2024-03-22"
+    },
+    {
+      "type": "회비",
+      "detail": "백재우",
+      "amount": 20000,
+      "extra_info": "17",
+      "date": "2024-04-22"
     }
   ]
 }
