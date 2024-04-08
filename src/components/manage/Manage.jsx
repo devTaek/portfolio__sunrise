@@ -1,13 +1,11 @@
-import React,{useEffect, useState, useRef, useContext} from 'react'
+import React,{useState, useRef} from 'react'
 import './manage.scss'
 import Modal from './Modal'
 import Title from '../common/Title';
-import { PlayersContext } from '../../store/Context/SunriseContext';
 import DateFilter from './sub/DateFilter';
 import ManageList from './sub/ManageList'
 
 const Manage = ({manageList, setManageList}) => {
-  const {playersList} = useContext(PlayersContext);
   const {dialog} = useRef();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -46,7 +44,6 @@ const Manage = ({manageList, setManageList}) => {
     const manageMonth = manageDate.getMonth() + 1;
     return filteredYear === manageYear && filteredMonth === manageMonth;
   })
-  console.log(filteredMatches)
   const onCloseModal= () => {
     setIsModalOpen(false);
   }

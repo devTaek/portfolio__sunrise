@@ -104,7 +104,7 @@ const Modal = forwardRef( function Modal (
   return createPortal (
     <SelectedComponent ref={dialog}>
       <Button  onClick={onCloseModal}>X</Button>
-      <form onSubmit={handleSubmit} onChange={onChangeInfo}>
+      <form className='manage_input' onSubmit={handleSubmit} onChange={onChangeInfo}>
         <label>
           구분
           <select name="type" id="type" onChange={selectedType}>

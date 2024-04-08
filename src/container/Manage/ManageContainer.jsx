@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import Manage from '../../components/Manage/Manage';
 import {PlayersContext} from '../../store/Context/SunriseContext';
 import { fetchData } from '../common/utils/fetchData';
