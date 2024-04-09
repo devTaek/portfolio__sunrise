@@ -1,4 +1,4 @@
-import React,{useState, useRef} from 'react'
+import React,{useState, useRef, useEffect} from 'react'
 import './manage.scss'
 import Modal from './Modal'
 import Title from '../common/Title';
@@ -21,7 +21,12 @@ const Manage = ({manageList, setManageList}) => {
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
   const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
 
+  const [selectedOption, setSelectedOption] = useState();
   const options = ['수익', '지출'];
+  const selectOption = (e) => {
+    const selectText = e.target.innerText;
+    setSelectedOption(selectText)
+  }
 
   const onClickPrevMonth = () => {
     setFilteredMonth(filteredMonth-1);
@@ -60,13 +65,12 @@ const Manage = ({manageList, setManageList}) => {
       date: new Date(),  // 현재 날짜 추가
     };
     setManageList(prevData => [...prevData, newData]);
-    console.log('Submitted Data:', formFields);
-    console.log('date:', newData.date);
+    // console.log('Submitted Data:', formFields);
+    // console.log('date:', newData.date);
     onCloseModal();
   }
   return (
     <>
-
     {isModalOpen && <Modal
       ref={dialog}
       onCloseModal={onCloseModal}
@@ -105,13 +109,8 @@ const Manage = ({manageList, setManageList}) => {
               <div className="option">
                 {options.map((item,id)=>(
                   <li
-                    key={id} 
-                    // 수익/지출 데이터 입력후 생성
-                    // onClick={
-                    //   ()=>{
-                    //     now.current = item
-                    //   }
-                    // }
+                    key={id}
+                    onClick={selectOption}
                   >
                       {item}
                   </li>
@@ -123,7 +122,11 @@ const Manage = ({manageList, setManageList}) => {
                 <li>금액</li>
                 <li>비고</li>
               </ul>
-              <ManageList filteredMatches={filteredMatches}/>
+              <ManageList 
+                filteredMatches={filteredMatches}
+                selectedOption={selectedOption}
+                setSelectedOption={setSelectedOption}
+              />
               <button onClick={addExpenseInfo}>수입/지출 입력</button>
             </div>
           </div>
