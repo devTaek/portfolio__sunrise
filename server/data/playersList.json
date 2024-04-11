@@ -415,6 +415,33 @@
           "subject": "침착성", "A": 65, "fullMark": 150
         }
       ]
+    },
+    {
+      "name": "송충석",
+      "img": "img_player1.png",
+      "age": 29,
+      "height": "180cm",
+      "position": "GK",
+      "stats": [
+        {
+          "subject": "체력", "A": 50, "fullMark": 150
+        },
+        {
+          "subject": "기본기", "A": 68, "fullMark": 150
+        },
+        {
+          "subject": "판단력", "A": 86, "fullMark": 150
+        },
+        {
+          "subject": "공간능력", "A": 99, "fullMark": 150
+        },
+        {
+          "subject": "정확성", "A": 40, "fullMark": 150
+        },
+        {
+          "subject": "침착성", "A": 55, "fullMark": 150
+        }
+      ]
     }
   ]
 }

@@ -1,31 +1,43 @@
-import { useContext } from "react"
+import { useContext,useEffect,useState } from "react"
 import { PlayersContext } from "../../../store/Context/SunriseContext"
 
-const ManageList = ({filteredMatches,selectedOption}) => {
+const ManageList = ({filteredMatches,selectedOption,sum,setSum}) => {
   const {playersList} = useContext(PlayersContext);
   
-  const callImg = () => {
-    filteredMatches.forEach((item) => {
-      playersList.forEach((player) => {
-        if(item.detail === player.name) {
-          item.img = player.img
-        }
-      })
-    })
-  }
+  const [amounts, setAmounts]= useState([])
   
+  useEffect(()=> {
+    const callImg = () => {
+      filteredMatches.forEach((item) => {
+        playersList.forEach((player) => {
+          if(item.detail === player.name) {
+            item.img = player.img
+          }
+          else {
+            return item.detail;
+          }
+        })
+      })
+    }
+    callImg();
+    const amountsList = filteredMatches.map((item)=>parseInt(item.amount))
+    setAmounts(amountsList)
+    const sum = amountsList.reduce((a,b) => (a+b), 0);
+    setSum(sum);
+  },[filteredMatches, selectedOption, setSum])
   // selectedOption, filteredMatches와의 관계
   const filteredByOption = (filteredMatches, option) => {
     if(option === '수익') {
-      return filteredMatches.filter(item => item.type ==='회비')
+      return filteredMatches.filter(item => item.type ==='회비'||item.type ==='지각'||item.type ==='결석')
+
     } else if(option === '지출') {
-      return filteredMatches.filter(item => item.type === '구장')
+      return filteredMatches.filter(item => item.type === '구장'||item.type ==='음료'||item.type ==='장비')
     } else {
       return filteredMatches
     }
   }
+
   const filteredItem = filteredByOption(filteredMatches, selectedOption)
-  callImg();
   return (
     <ul className="list">
       {filteredItem.map((item,id)=>{
@@ -35,7 +47,7 @@ const ManageList = ({filteredMatches,selectedOption}) => {
           {item.type}
         </div>
         <div className='detail'>
-          <img src={`./img/Player/${item.img}`} alt="" />
+          {item.img ? <img src={`./img/Player/${item.img}`} alt="" /> : ''}
           {item.detail}
         </div>
         <div style={{color:`white`}} className='amount'>

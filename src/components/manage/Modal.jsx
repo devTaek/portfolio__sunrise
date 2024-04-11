@@ -80,10 +80,14 @@ const Modal = forwardRef( function Modal (
   }
   const selectedType = (e) => {
     const name = e.target.value;
-    if(['회비', '지각', '결석'].includes(name)) {
-      // 변경된 option
+    // if(['회비', '지각', '결석'].includes(name)) {
+    //   // 변경된 option
+    //   setDetailType(playersList)
+    // }
+    if(name === '회비' || name === '지각' || name === '결석') {
       setDetailType(playersList)
-    } else if(name === '구장') {
+    } 
+    else if(name === '구장') {
       setDetailType(playGround)
     }
   }
@@ -92,7 +96,7 @@ const Modal = forwardRef( function Modal (
     onSubmit(e,formFields);
     onCloseModal();
   }
-
+  console.log(detailType)
 
   useImperativeHandle(ref, () => {
     return{
@@ -122,7 +126,7 @@ const Modal = forwardRef( function Modal (
           내역
           <select name="detail" id="detail">
             {detailType && detailType.map((item,id)=>(
-              <option key={id} value={detailType[id].name}>{detailType[id].name}</option>
+              <option key={id} value={item.name}>{item.name}</option>
             ))}
           </select>
         </label>

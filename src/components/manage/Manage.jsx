@@ -11,13 +11,14 @@ const Manage = ({manageList, setManageList}) => {
 
   const [formFields, setFormFields] = useState(
     {
-      type: '',
-      detail: '',
+      type: '회비',
+      detail: '김지강',
       amount: '',
       extra_info: ''
     }
   )
-
+  const [sum, setSum] = useState({addition:0 , expense: 0});
+  const total = sum.addition + sum.expense;
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
   const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
 
@@ -27,7 +28,6 @@ const Manage = ({manageList, setManageList}) => {
     const selectText = e.target.innerText;
     setSelectedOption(selectText)
   }
-
   const onClickPrevMonth = () => {
     setFilteredMonth(filteredMonth-1);
     if(filteredMonth <= 1) {
@@ -65,7 +65,7 @@ const Manage = ({manageList, setManageList}) => {
       date: new Date(),  // 현재 날짜 추가
     };
     setManageList(prevData => [...prevData, newData]);
-    // console.log('Submitted Data:', formFields);
+    console.log('Submitted Data:', formFields);
     // console.log('date:', newData.date);
     onCloseModal();
   }
@@ -94,7 +94,7 @@ const Manage = ({manageList, setManageList}) => {
               <div className='total-money-box'> {/* 클래스명 수정필요 */}
                 <div className='received-money'>
                   <div className='money-category'>회비수익</div>
-                  <strong className='amount'>100,000₩</strong>
+                  <strong className='amount'>{sum}</strong>
                 </div>
                 <div className='expense-money'>
                   <div className='money-category'>회비지출</div>
@@ -102,7 +102,7 @@ const Manage = ({manageList, setManageList}) => {
                 </div>
                 <div className='total-amount'>
                   <div className='money-category'>회비잔액</div>
-                  <strong className='amount'>560,000₩</strong>
+                  <strong className='amount'>{total}</strong>
                 </div>
               </div>
               {/* 수익/지출 카테고리 */}
@@ -126,6 +126,8 @@ const Manage = ({manageList, setManageList}) => {
                 filteredMatches={filteredMatches}
                 selectedOption={selectedOption}
                 setSelectedOption={setSelectedOption}
+                sum={sum}
+                setSum={setSum}
               />
               <button onClick={addExpenseInfo}>수입/지출 입력</button>
             </div>
