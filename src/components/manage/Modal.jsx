@@ -3,56 +3,6 @@ import { createPortal } from 'react-dom';
 import { PlayersContext } from '../../store/Context/SunriseContext';
 import styled from 'styled-components';
 
-const SelectedComponent = styled.div`
-  position: fixed;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60%;
-  margin: 0 auto;
-  background: #0D0F19;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid white;
-  border-radius: 20px;
-  padding: 20px;
-  @media all and (max-width: 1360px) {
-    width: 90%;
-  }
-  @media all and (max-width: 767px) {
-    width: 90%;
-    height: 60%;
-    padding: 10px;
-    img {
-      width: 50%;
-      margin: 10px auto;
-    }
-  }
-  label {
-    display: grid;
-    color: white;
-  }
-  input[type='number']::-webkit-inner-spin-button,
-  input[type='number']::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-`;
-
-const Button = styled.button`
-z-index: 99;
-position: absolute;
-top: 10px;
-right: 10px;
-width: 24px;
-height: 24px;
-border: none;
-border-radius: 20px;
-background: white;
-color: black;
-font-weight: bold;
-`;
 const Modal = forwardRef( function Modal (
   {
     onCloseModal,
@@ -62,12 +12,13 @@ const Modal = forwardRef( function Modal (
   }, 
   ref
 ) {
+  const {playersList} = useContext(PlayersContext);
   const dialog = useRef();
 
+  // 구분
   const [detailType, setDetailType] = useState([]);
 
   // playersList 불러오기
-  const {playersList} = useContext(PlayersContext);
   const playGround = [{name:'천마'}, {name:'마루'}, {name:'종운'}]  
 
   
@@ -89,6 +40,9 @@ const Modal = forwardRef( function Modal (
     } 
     else if(name === '구장') {
       setDetailType(playGround)
+    }
+    else if(name === '음료' || name === '장비') {
+      setDetailType('')
     }
   }
   const handleSubmit = (e) => {
@@ -146,3 +100,56 @@ const Modal = forwardRef( function Modal (
 })
 
 export default Modal
+
+
+
+const SelectedComponent = styled.div`
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  width: 60%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  background: #0D0F19;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  border-radius: 20px;
+  padding: 20px;
+  @media all and (max-width: 1360px) {
+    width: 90%;
+  }
+  @media all and (max-width: 767px) {
+    width: 90%;
+    height: 60%;
+    padding: 10px;
+    img {
+      width: 50%;
+      margin: 10px auto;
+    }
+  }
+  label {
+    display: grid;
+    color: white;
+  }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+`;
+
+const Button = styled.button`
+z-index: 99;
+position: absolute;
+top: 10px;
+right: 10px;
+width: 24px;
+height: 24px;
+border: none;
+border-radius: 20px;
+background: white;
+color: black;
+font-weight: bold;
+`;

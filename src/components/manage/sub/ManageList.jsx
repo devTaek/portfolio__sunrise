@@ -1,43 +1,54 @@
 import { useContext,useEffect,useState } from "react"
 import { PlayersContext } from "../../../store/Context/SunriseContext"
 
-const ManageList = ({filteredMatches,selectedOption,sum,setSum}) => {
+const ManageList = ({ filteredManages,selectedOption,setAmounts }) => {
   const {playersList} = useContext(PlayersContext);
-  
-  const [amounts, setAmounts]= useState([])
-  
+  const incomeCondition = item => item.type === '회비'|| item.type ==='지각' || item.type === '결석'
+  const expenseCondition = item => item.type === '구장'|| item.type ==='음료' || item.type === '장비'
+ 
   useEffect(()=> {
     const callImg = () => {
-      filteredMatches.forEach((item) => {
+      filteredManages.forEach((item) => {
         playersList.forEach((player) => {
           if(item.detail === player.name) {
             item.img = player.img
-          }
-          else {
-            return item.detail;
           }
         })
       })
     }
     callImg();
-    const amountsList = filteredMatches.map((item)=>parseInt(item.amount))
-    setAmounts(amountsList)
-    const sum = amountsList.reduce((a,b) => (a+b), 0);
-    setSum(sum);
-  },[filteredMatches, selectedOption, setSum])
-  // selectedOption, filteredMatches와의 관계
-  const filteredByOption = (filteredMatches, option) => {
-    if(option === '수익') {
-      return filteredMatches.filter(item => item.type ==='회비'||item.type ==='지각'||item.type ==='결석')
+  },[filteredManages, selectedOption, playersList])
 
+
+
+  // 수익, 지출 조건
+  const filteredByOption = (filteredManages, option) => {
+    if(option === '수익') {
+      return filteredManages.filter(incomeCondition)
     } else if(option === '지출') {
-      return filteredMatches.filter(item => item.type === '구장'||item.type ==='음료'||item.type ==='장비')
+      return filteredManages.filter(expenseCondition)
     } else {
-      return filteredMatches
+      return filteredManages
     }
   }
 
-  const filteredItem = filteredByOption(filteredMatches, selectedOption)
+  const filteredItem = filteredByOption(filteredManages, selectedOption)
+  
+  const incomeArray = filteredManages.filter(incomeCondition).map(item => item.amount)
+  const expenseArray = filteredManages.filter(expenseCondition).map(item => item.amount)
+
+    // 수입,지출 합산
+  const totalIncome = incomeArray.reduce((acc, cur) => acc + parseFloat(cur), 0);
+  const totalExpense = expenseArray.reduce((acc, cur) => acc + parseFloat(cur), 0);
+  console.log("totalIncome: ", totalIncome)
+  useEffect(() => {
+    setAmounts((prevAmounts) => ({
+      ...prevAmounts,
+      income: totalIncome,
+      expense: totalExpense,
+    }));
+  }, [totalIncome, totalExpense, setAmounts]);
+
   return (
     <ul className="list">
       {filteredItem.map((item,id)=>{
@@ -58,9 +69,36 @@ const ManageList = ({filteredMatches,selectedOption,sum,setSum}) => {
         </div>
         </li>
       )})}
-      
     </ul>
   )
 }
 
 export default ManageList
+
+
+  // useEffect(()=>{
+  //   // 총액수 구하기
+  //   const amountsList = filteredManages.map((item)=>parseInt(item.amount))
+  //   setAmounts((prevAmounts)=>({
+  //     ...prevAmounts,
+  //     income: amountsList
+  //   }))
+  // },[filteredManages, setAmounts])
+
+
+  // 수익,지출 계산 함수
+  // const calculateIncomeAndExpense = (filteredManages) => {
+  //   let incomeTotal = 0;
+  //   let expenseTotal = 0;
+
+  //   // 수익, 지출 구분하여 합산
+  //   filteredManages.forEach((item)=>{
+  //     if(item.type === '회비' || item.type === '지각' || item.type === '결석') {
+  //       incomeTotal += parseInt(item.amount)
+  //     } else if(item => item.type === '구장'|| item.type === '음료'|| item.type === '장비') {
+  //       expenseTotal += parseInt(item.amount)
+  //     }
+  //   })
+  //   setAmounts( {income: incomeTotal, expense: expenseTotal} );
+
+  // 새로운 값을 상태로 업데이트

@@ -1,4 +1,4 @@
-import React,{useState, useRef, useEffect} from 'react'
+import React,{useState, useRef} from 'react'
 import './manage.scss'
 import Modal from './Modal'
 import Title from '../common/Title';
@@ -7,6 +7,7 @@ import ManageList from './sub/ManageList'
 
 const Manage = ({manageList, setManageList}) => {
   const {dialog} = useRef();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [formFields, setFormFields] = useState(
@@ -17,17 +18,17 @@ const Manage = ({manageList, setManageList}) => {
       extra_info: ''
     }
   )
-  const [sum, setSum] = useState({addition:0 , expense: 0});
-  const total = sum.addition + sum.expense;
+
+ // 액수 총합
+  const [amounts, setAmounts]= useState({
+    income: 0,
+    expense: 0
+  })
+  console.log("amounts.expense : ",amounts.expense)
+
+
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
   const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
-
-  const [selectedOption, setSelectedOption] = useState();
-  const options = ['수익', '지출'];
-  const selectOption = (e) => {
-    const selectText = e.target.innerText;
-    setSelectedOption(selectText)
-  }
   const onClickPrevMonth = () => {
     setFilteredMonth(filteredMonth-1);
     if(filteredMonth <= 1) {
@@ -42,8 +43,17 @@ const Manage = ({manageList, setManageList}) => {
       setFilteredYear(filteredYear + 1);
     }
   }
+  
 
-  const filteredMatches = manageList.filter((manage) => {
+  const options = ['수익', '지출'];
+  const [selectedOption, setSelectedOption] = useState();
+  const selectOption = (e) => {
+    const selectText = e.target.innerText;
+    setSelectedOption(selectText)
+  }
+
+
+  const filteredManages = manageList.filter((manage) => {
     const manageDate = new Date(manage.date);
     const manageYear = manageDate.getFullYear();
     const manageMonth = manageDate.getMonth() + 1;
@@ -65,7 +75,7 @@ const Manage = ({manageList, setManageList}) => {
       date: new Date(),  // 현재 날짜 추가
     };
     setManageList(prevData => [...prevData, newData]);
-    console.log('Submitted Data:', formFields);
+    // console.log('Submitted Data:', formFields);
     // console.log('date:', newData.date);
     onCloseModal();
   }
@@ -94,15 +104,16 @@ const Manage = ({manageList, setManageList}) => {
               <div className='total-money-box'> {/* 클래스명 수정필요 */}
                 <div className='received-money'>
                   <div className='money-category'>회비수익</div>
-                  <strong className='amount'>{sum}</strong>
+                  {/* 서버에서 결과값 가져오자 */}
+                  <strong className='amount'>{amounts.income}</strong>
                 </div>
                 <div className='expense-money'>
                   <div className='money-category'>회비지출</div>
-                  <strong className='amount'>62000₩</strong>
+                  <strong className='amount'>{amounts.expense}</strong>
                 </div>
                 <div className='total-amount'>
                   <div className='money-category'>회비잔액</div>
-                  <strong className='amount'>{total}</strong>
+                  <strong className='amount'>{amounts.income - amounts.expense}</strong>
                 </div>
               </div>
               {/* 수익/지출 카테고리 */}
@@ -123,11 +134,10 @@ const Manage = ({manageList, setManageList}) => {
                 <li>비고</li>
               </ul>
               <ManageList 
-                filteredMatches={filteredMatches}
+                filteredManages={filteredManages}
                 selectedOption={selectedOption}
                 setSelectedOption={setSelectedOption}
-                sum={sum}
-                setSum={setSum}
+                setAmounts={setAmounts}
               />
               <button onClick={addExpenseInfo}>수입/지출 입력</button>
             </div>
