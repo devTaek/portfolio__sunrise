@@ -1,0 +1,66 @@
+.main_manage {
+  width: 100%;
+  max-width: 1280px;
+  margin: 240px auto;
+  .gap {
+    .manageBox {
+      display: flex;
+      flex-flow: wrap;
+      align-items: center;
+      justify-content: center;
+      .manageBox_title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        span {
+          height: 67px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 18px;
+        }
+        img {
+          width: 26px;
+          height: 26px;
+          background: url(../../../../public/img/greenBg.png); // color: #2DBE85(초록) FC3044(빨강)
+        }
+      }
+      .amount {
+        width: 100%;
+        height: 10%;
+        background: linear-gradient(180deg, #12131e 1%, rgba(0, 0, 0, 0.01) 100%);
+      }
+      .category {
+        display: flex;
+        padding: 0 40px;
+        margin: 0 20px;
+        align-items: center;
+        justify-content: space-between;
+        border-block: 1px solid #8A95A3;
+        li {
+          width: 120px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 60px;
+          font-size: 15px;
+        }
+      }
+      .category_list {
+        padding: 0 40px;
+        margin: 0 20px;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 15px;
+          div {
+            width: 100%;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

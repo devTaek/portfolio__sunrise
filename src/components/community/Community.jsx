@@ -3,6 +3,7 @@ import './community.scss';
 
 import {CommunityContext} from '../../store/Context/SunriseContext';
 
+import Title from '../common/Title';
 import DisplayCountSelector from '../common/DisplayCountSelector';
 import PostList from './PostList';
 import Pagination from '../common/Pagination';
@@ -19,9 +20,7 @@ const Community = () => {
   return (
     <div id='community'>
       <div className="container">
-        <title className="title">
-          <h1>COMMUNITY</h1>
-        </title>
+        <Title title='Community'/>
         <div className="communityBox">
           <div className="container">
             <DisplayCountSelector 
