@@ -22,6 +22,7 @@ const MainMatch= () => {
         <MainSubTitle
           title='MATCH'
           to='/match'
+          showBtns={true}
           onNextBtn={onNextBtn}
           onPrevBtn={onPrevBtn}
         />

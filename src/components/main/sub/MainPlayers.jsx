@@ -1,4 +1,4 @@
-import {useContext} from 'react'
+import {useContext, useState} from 'react'
 import { PlayersContext } from '../../../store/Context/SunriseContext'
 import MainSubTitle from '../common/MainSubTitle';
 import './mainPlayers.scss';
@@ -13,6 +13,7 @@ const MainPlayers = () => {
         <MainSubTitle 
           title='PLAYERS'
           to='/players'
+          showBtns={false}
         />
         <ul>
           {playersList.map((item,id)=>(

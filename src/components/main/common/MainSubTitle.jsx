@@ -39,18 +39,20 @@ color: white;
   }
 }
 `;
-const MainSubTitle = ({title,to,date,onPrevBtn,onNextBtn}) => {
+const MainSubTitle = ({title,to,showBtns,date,onPrevBtn,onNextBtn}) => {
   return (
     <MainSubTitleBox>
       <div className='main_players_sub_title'>
         <h3>{title}</h3>
         <Link to={to} style={{paddingLeft: `10px`}}>+view more</Link>
       </div>
-      <div className='sequence_btn'>
-        <button onClick={onPrevBtn}><img style={{transform: `rotate(180deg)`}}src="./img/nextBtn.svg" alt="" /></button>
-        {date}
-        <button onClick={onNextBtn}><img src="./img/nextBtn.svg" alt="" /></button>
-      </div>
+      {showBtns && (
+        <div className='sequence_btn'>
+          <button onClick={onPrevBtn}><img style={{transform: `rotate(180deg)`}}src="./img/nextBtn.svg" alt="" /></button>
+            {date}
+          <button onClick={onNextBtn}><img src="./img/nextBtn.svg" alt="" /></button>
+        </div>
+      )}
     </MainSubTitleBox>
   )
 }
