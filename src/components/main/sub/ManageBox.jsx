@@ -1,29 +1,27 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { ManageListContext } from '../../../store/Context/SunriseContext'
+// import { ManageListContext } from '../../../store/Context/SunriseContext'
+import { PlayersContext } from '../../../store/Context/SunriseContext'
 import ManageList from '../../Manage/sub/ManageList'
 
 
 const ManageBox = ({boxTitle}) => {
-  const {manageList} = useContext(ManageListContext)
+  // const {manageList} = useContext(ManageListContext)
+  const {playersList} = useContext(PlayersContext)
   return (
     <ManageBoxContainer>
       <div className="manageBox_title">
         <span>{boxTitle}</span>
-        <img src="./img/income-icon.png" alt=""/>
       </div>
-      <div className="amount">100,000₩</div>
       <ul className="category">
-        <li>구분</li>
-        <li>내역</li>
-        <li>금액</li>
+        <li>이름</li>
+        <li>납부</li>
       </ul>
       <ul className='category_list'>
-        {manageList.map((item,id)=>(
+        {playersList.map((item,id)=>(
           <li key={id}>
-            <div>{item.type}</div>
-            <div>{item.detail}</div>
-            <div>{item.amount}</div>
+            <div>{item.name}</div>
+            <div>✅</div>
           </li>
         ))}
       </ul>
@@ -34,8 +32,7 @@ const ManageBox = ({boxTitle}) => {
 export default ManageBox
 
 const ManageBoxContainer = styled.div`
-  width: 620px;
-  height: 508px;
+  width: 600px;
   margin: 0 10px;
   background-color: #18182C;
   border-radius: 40px;

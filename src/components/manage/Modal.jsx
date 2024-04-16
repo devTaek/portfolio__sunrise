@@ -50,7 +50,7 @@ const Modal = forwardRef( function Modal (
     onSubmit(e,formFields);
     onCloseModal();
   }
-  console.log(detailType)
+  // console.log(detailType)
 
   useImperativeHandle(ref, () => {
     return{

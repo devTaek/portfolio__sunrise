@@ -24,7 +24,6 @@ const Manage = ({manageList, setManageList}) => {
     income: 0,
     expense: 0
   })
-  console.log("amounts.expense : ",amounts.expense)
 
 
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
@@ -133,7 +132,7 @@ const Manage = ({manageList, setManageList}) => {
                 <li>금액</li>
                 <li>비고</li>
               </ul>
-              <ManageList 
+              <ManageList
                 filteredManages={filteredManages}
                 selectedOption={selectedOption}
                 setSelectedOption={setSelectedOption}

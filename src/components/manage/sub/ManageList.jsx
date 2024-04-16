@@ -40,7 +40,6 @@ const ManageList = ({ filteredManages,selectedOption,setAmounts }) => {
     // 수입,지출 합산
   const totalIncome = incomeArray.reduce((acc, cur) => acc + parseFloat(cur), 0);
   const totalExpense = expenseArray.reduce((acc, cur) => acc + parseFloat(cur), 0);
-  console.log("totalIncome: ", totalIncome)
   useEffect(() => {
     setAmounts((prevAmounts) => ({
       ...prevAmounts,
