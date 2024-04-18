@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 // import { ManageListContext } from '../../../store/Context/SunriseContext'
 import { PlayersContext } from '../../../store/Context/SunriseContext'
-import ManageList from '../../Manage/sub/ManageList'
 
 
 const ManageBox = ({boxTitle}) => {

@@ -5,7 +5,8 @@ import './mainMatch.scss'
 
 const MainMatch= () => {
   const {matchList} = useContext(MatchListContext);
-  const [currentIndex, setCurrentIndex] = useState(0);  // 현재 인덱스상태
+  const [currentIndex, setCurrentIndex] = useState(0);
+  /* 
   const onNextBtn = () => {
     if(currentIndex < matchList.length - 1) {
       setCurrentIndex(prevIndex => prevIndex + 1); // 다음 항목으로 이동
@@ -15,7 +16,9 @@ const MainMatch= () => {
     if(currentIndex > 0) {
       setCurrentIndex(prevIndex => prevIndex - 1)
     }
-  }
+  } */
+  const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
+  const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
   return (
     <div className="main_match">
       <div className="gap">
@@ -23,8 +26,10 @@ const MainMatch= () => {
           title='MATCH'
           to='/match'
           showBtns={true}
-          onNextBtn={onNextBtn}
-          onPrevBtn={onPrevBtn}
+          filteredMonth={filteredMonth}
+          filteredYear={filteredYear}
+          setFilteredMonth={setFilteredMonth}
+          setFilteredYear={setFilteredYear}
         />
         <ul style={{
           transform: `translateX(-${currentIndex * (100 / matchList.length)}%)`,
