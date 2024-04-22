@@ -25,7 +25,6 @@ const MainSubTitle = ({
       setFilteredYear(filteredYear + 1);
     }
   }
-  console.log(filteredMonth)
   return (
     <MainSubTitleBox>
       <div className='main_players_sub_title'>

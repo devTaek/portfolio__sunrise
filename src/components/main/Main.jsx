@@ -2,12 +2,11 @@ import React from "react";
 import './Main.scss'
 
 import Title from "../common/Title"
-import {
-  MainPlayers,
-  MainMatch, 
-  MainManage,
-  MainCommunity
-} from "./sub";
+
+import MainPlayers from "./players/MainPlayers";
+import MainMatch from "./match/MainMatch";
+import MainManage from "./manage/MainManage";
+import MainCommunity from "./community/MainCommunity";
 
 
 const Main = () => {

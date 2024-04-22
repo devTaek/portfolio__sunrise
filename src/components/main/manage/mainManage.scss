@@ -3,16 +3,16 @@
   max-width: 1280px;
   margin: 240px auto;
   .gap {
-    .manageBox {
+    .fee_box {
       display: flex;
       flex-flow: wrap;
       align-items: center;
       justify-content: center;
-      gap: 20px;
       .manageBox_title {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        height: 67px;
         padding: 0 40px;
         span {
           height: 67px;
@@ -24,13 +24,17 @@
         img {
           width: 26px;
           height: 26px;
-          background: url(../../../../public/img/greenBg.png); // color: #2DBE85(초록) FC3044(빨강)
         }
       }
       .amount {
         width: 100%;
-        height: 10%;
+        height: 121px;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        padding-right: 40px;
         background: linear-gradient(180deg, #12131e 1%, rgba(0, 0, 0, 0.01) 100%);
+        font-size: 34px;
       }
       .category {
         display: flex;
@@ -46,48 +50,24 @@
           justify-content: center;
           height: 60px;
           font-size: 15px;
+          color: #8A95A3;
         }
       }
       .category_list {
-        align-items: center;
-        justify-content: center;
         padding: 0 40px;
         margin: 0 20px;
-        li {
-          height: 30px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          font-size: 20px;
-          div {
-            width: 120px;
-            text-align: center;
-          }
-        }
-      }
-      .manageBox_amount {
-        display: grid;
+        display: display;
         align-items: center;
         justify-content: center;
-        height: 100%;
-        .manageAmountBox_title {
+        li {
           display: flex;
-          align-items: center;
           justify-content: space-between;
-          padding: 0 40px;
+          padding: 24px 0;
           span {
-            height: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 18px;
+            width: 120px;
+            text-align: center;
+            font-size: 16px;
           }
-        }
-        i {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
         }
       }
     }
