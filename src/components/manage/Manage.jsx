@@ -2,7 +2,7 @@ import React,{useState, useRef} from 'react'
 import './manage.scss'
 import Modal from './Modal'
 import Title from '../common/Title';
-import DateFilter from './sub/DateFilter';
+import DateFilter from '../common/DateFilter';
 import ManageList from './sub/ManageList'
 
 const Manage = ({manageList, setManageList}) => {
@@ -28,6 +28,7 @@ const Manage = ({manageList, setManageList}) => {
 
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
   const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
+  
   const onClickPrevMonth = () => {
     setFilteredMonth(filteredMonth-1);
     if(filteredMonth <= 1) {
@@ -58,6 +59,7 @@ const Manage = ({manageList, setManageList}) => {
     const manageMonth = manageDate.getMonth() + 1;
     return filteredYear === manageYear && filteredMonth === manageMonth;
   })
+
   const onCloseModal= () => {
     setIsModalOpen(false);
   }

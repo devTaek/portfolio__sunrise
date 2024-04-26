@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom";
+import DateFilter from '../../common/DateFilter'
 
 const MainSubTitle = ({
   title,
@@ -10,21 +11,10 @@ const MainSubTitle = ({
   setFilteredMonth,
   filteredYear,
   setFilteredYear,
+  onClickPrevMonth,
+  onClickNextMonth
 }) => {
-  const onClickPrevMonth = () => {
-    setFilteredMonth(filteredMonth-1);
-    if(filteredMonth <= 1) {
-      setFilteredMonth(12);
-      setFilteredYear(filteredYear - 1);
-    }
-  }
-  const onClickNextMonth = () => {
-    setFilteredMonth(filteredMonth+1);
-    if(filteredMonth >= 12) {
-      setFilteredMonth(1);
-      setFilteredYear(filteredYear + 1);
-    }
-  }
+  
   return (
     <MainSubTitleBox>
       <div className='main_players_sub_title'>
@@ -33,12 +23,12 @@ const MainSubTitle = ({
       </div>
       {showBtns && (
         <div className='sequence_btn'>
-          <button onClick={onClickPrevMonth}><img style={{transform: `rotate(180deg)`}}src="./img/nextBtn.svg" alt="" /></button>
-          <div className="dateBox">
-            {filteredYear}
-            {filteredMonth}
-          </div>
-          <button onClick={onClickNextMonth}><img src="./img/nextBtn.svg" alt="" /></button>
+          <DateFilter 
+            filteredMonth={filteredMonth}
+            filteredYear={filteredYear}
+            onClickPrevMonth={onClickPrevMonth}
+            onClickNextMonth={onClickNextMonth}
+          />
         </div>
       )}
     </MainSubTitleBox>

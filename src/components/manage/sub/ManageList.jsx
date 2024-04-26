@@ -19,6 +19,8 @@ const ManageList = ({ filteredManages,selectedOption,setAmounts }) => {
     callImg();
   },[filteredManages, selectedOption, playersList])
 
+  // Manage페이지에서는 수입과 지출을 버튼을 통해 나누어서 제작
+  // MainManage페이지에서는 수입은 수입, 지출은 지출만 보일수 있게 제작
 
 
   // 수익, 지출 조건
