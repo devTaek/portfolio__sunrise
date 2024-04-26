@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import Main from '../../components/Main/Main';
+import Main from '../../components/main/Main';
 import {fetchData} from '../common/utils/fetchData'
 
 import {PlayersContext, MatchListContext, ManageListContext, CommunityContext} from '../../store/Context/SunriseContext';

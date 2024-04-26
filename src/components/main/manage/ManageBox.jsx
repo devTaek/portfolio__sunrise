@@ -2,7 +2,6 @@ import { useContext,useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { PlayersContext } from "../../../store/Context/SunriseContext"
 import { ManageListContext } from '../../../store/Context/SunriseContext'
-import ManageList from '../../Manage/sub/ManageList'
 
 
 const ManageBox = ({boxTitle, img, option, filteredManages}) => {

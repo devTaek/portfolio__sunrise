@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import Modal from '../Community/Modal';
+import Modal from '../community/Modal';
 
 
 

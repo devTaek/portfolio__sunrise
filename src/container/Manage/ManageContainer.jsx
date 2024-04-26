@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Manage from '../../components/Manage/Manage';
+import Manage from '../../components/manage/Manage';
 import {PlayersContext} from '../../store/Context/SunriseContext';
 import { fetchData } from '../common/utils/fetchData';
 

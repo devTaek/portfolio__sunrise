@@ -1,5 +1,5 @@
 import React from "react";
-import Players from "../../components/Players/Players";
+import Players from "../../components/players/Players";
 
 import { PlayersContext } from "../../store/Context/SunriseContext";
 

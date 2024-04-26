@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Match from '../../components/Match/Match';
+import Match from '../../components/match/Match';
 import {fetchData} from '../common/utils/fetchData'
 
 import {MatchListContext} from '../../store/Context/SunriseContext';
