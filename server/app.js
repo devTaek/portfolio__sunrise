@@ -9,7 +9,7 @@ app.use(express.json());   // for parsing application/json
 app.use(express.urlencoded({ extended: true }));   // for parsing application/x-www-form-urlencoded
 
 app.use(express.static(path.join(__dirname, '../build')));
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
