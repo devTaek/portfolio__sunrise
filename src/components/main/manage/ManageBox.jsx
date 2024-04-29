@@ -6,7 +6,6 @@ import { ManageListContext } from '../../../store/Context/SunriseContext'
 
 const ManageBox = ({boxTitle, img, option, filteredManages}) => {
   const {playersList} = useContext(PlayersContext);
-  const {manageList} = useContext(ManageListContext);
 
   const [amounts, setAmounts] = useState(0);
 
