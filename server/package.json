@@ -1,10 +1,13 @@
 {
-  "name": "app",
+  "name": "sunrise",
   "version": "1.0.0",
   "main": "app.js",
+  "bin": {
+    "sunrise": "bin/www.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node ./bin/www.js"
   },
   "author": "",
   "license": "ISC",

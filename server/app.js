@@ -8,10 +8,11 @@ app.use(cors());
 app.use(express.json());   // for parsing application/json
 app.use(express.urlencoded({ extended: true }));   // for parsing application/x-www-form-urlencoded
 
-app.use(express.static(path.join(__dirname, '../build')));
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build', 'index.html'));
-});
+const frontendBuildPath = path.join(__dirname, '../build');
+app.use(express.static(frontendBuildPath));
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../build', 'index.html'));
+// });
 
 const { playersList } = require('./data/playersList.json');
 const { matchList } = require('./data/matchList.json');
@@ -43,6 +44,5 @@ app.get('/api/community', (req, res) => {
   res.json(communityList);
 })
 
-app.listen(3001, () => {
-  console.log('app started on port 3001');
-});
+
+module.exports = app;

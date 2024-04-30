@@ -1,5 +1,16 @@
 import styled from "styled-components";
 
+const Modal = ({isSelectedContent,closeSelectedModal}) => {
+  return(
+    <SelectedComponent>
+      
+      <Button onClick={closeSelectedModal}>X</Button>
+    </SelectedComponent>
+  )
+}
+
+export default Modal;
+
 const SelectedComponent = styled.div`
   position: fixed;
   top: 55%;
@@ -30,12 +41,3 @@ border-radius: 20px;
 background: gray;
 font-weight: bold;
 `;
-const Modal = ({isSelectedContent,closeSelectedModal}) => {
-  return(
-    <SelectedComponent>
-      <Button onClick={closeSelectedModal}>X</Button>
-    </SelectedComponent>
-  )
-}
-
-export default Modal;
