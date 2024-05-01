@@ -7,7 +7,6 @@ import ManageBox from './ManageBox';
 import { ManageListContext } from '../../../store/Context/SunriseContext';
 
 const MainManage = () => {
-  let money = {income:20000, expense: 400};
   const {manageList} = useContext(ManageListContext);
 
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);

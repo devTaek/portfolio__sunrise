@@ -1,4 +1,4 @@
-import { useContext,useEffect,useState } from "react"
+import { useContext,useEffect } from "react"
 import { PlayersContext } from "../../../store/Context/SunriseContext"
 
 const ManageList = ({ filteredManages,selectedOption,setAmounts }) => {

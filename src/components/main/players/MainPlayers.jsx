@@ -1,4 +1,4 @@
-import {useContext, useState} from 'react'
+import {useContext} from 'react'
 import { PlayersContext } from '../../../store/Context/SunriseContext'
 import MainSubTitle from '../common/MainSubTitle';
 import './mainPlayers.scss';
