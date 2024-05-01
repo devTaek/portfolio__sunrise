@@ -1,6 +1,6 @@
 export async function fetchData(page, setData) {
   try {
-    const response = await fetch(`http://3.36.131.237:3001/api/${page}`)
+    const response = await fetch(`http://3.38.89.25:3001/api/${page}`)
     if(!response.ok) {
       throw new Error('Failed to fetch data from server');
     }
