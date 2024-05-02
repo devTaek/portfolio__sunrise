@@ -2,6 +2,7 @@
   "name": "sunrise",
   "version": "1.0.0",
   "main": "app.js",
+  "proxy": "http://localhost:5000",
   "bin": {
     "sunrise": "bin/www.js"
   },
