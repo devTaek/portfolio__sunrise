@@ -4,14 +4,18 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 
+// const PATH = '../client/build';
+
+app.set("port", process.env.PORT || 5000);
+
 app.use(cors());
 app.use(express.json());   // for parsing application/json
 app.use(express.urlencoded({ extended: true }));   // for parsing application/x-www-form-urlencoded
 
-const frontendBuildPath = path.join(__dirname, '../build');
-app.use(express.static(frontendBuildPath));
+// const frontendBuildPath = path.join(__dirname, PATH);
+app.use(express.static(path.join(__dirname, "../client/build")));
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build', 'index.html'));
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 const { playersList } = require('./data/playersList.json');
@@ -44,5 +48,7 @@ app.get('/api/community', (req, res) => {
   res.json(communityList);
 })
 
-
+app.listen(app.get("port"), () => {
+  console.log(app.get("port"), "번 포트에서 대기중..");
+});
 module.exports = app;
