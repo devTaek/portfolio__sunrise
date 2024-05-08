@@ -5,7 +5,6 @@ import { CommunityContext } from "../../store/Context/SunriseContext";
 import { fetchData } from "../common/utils/fetchData";
 
 const CommunityContainer = () => {
-  
   const [communityList, setCommunityList] = useState([]);
 
   useEffect(()=> {

@@ -2,13 +2,12 @@
   "name": "sunrise",
   "version": "1.0.0",
   "main": "app.js",
-  "proxy": "http://localhost:5000",
   "bin": {
     "sunrise": "bin/www.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app"
+    "start": "nodemon bin/www.js"
   },
   "author": "",
   "license": "ISC",

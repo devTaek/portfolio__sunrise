@@ -1,32 +1,26 @@
-import React, {useState} from 'react'
-import Modal from '../community/Modal';
+import React from 'react'
+import Notice from './Notice';
 
-
-
-function PostList({list}) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isSelectedContent, setIsSelectedContent] = useState(null);
-
-  const onShowModal = (item) => {
-    setIsSelectedContent(item);
-    setIsModalOpen(true);
-  }
-  const closeSelectedModal= () => {
-    setIsModalOpen(false);
-  }
+function PostList({
+  list,
+  selectedOption,
+  }) {
+ 
   return (
-      <ul>
-        {list.map((item,id) => (
-          <li onClick={()=>onShowModal(item)} key={id}>
+    <ul>
+        {selectedOption === '공지사항' && <Notice />}
+        {selectedOption === '갤러리' && list.map((item,id) => (
+          <li key={id}>
             <img src={item.img} alt="" />
             <div className="text">
               <div className="name">{item.name}</div>
             </div>
           </li>
         ))}
-        {isModalOpen && (<Modal
-          isSelectedContent={isSelectedContent}
-          closeSelectedModal={closeSelectedModal} />)}
+        {selectedOption === '건의사항' && (
+          <li>건의사항</li>
+        )
+        }
       </ul>
   )
 }

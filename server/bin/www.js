@@ -1,6 +1,6 @@
-// const app = require("../app");
-// const PORT = 5000;
+const app = require("../app");
+const PORT = 3001;
 
-// app.listen(PORT, () => {
-//   console.log("server works on port : " + PORT)
-// })
+app.listen(PORT, () => {
+  console.log("server works on port : " + PORT)
+})

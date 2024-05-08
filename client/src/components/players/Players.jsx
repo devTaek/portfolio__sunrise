@@ -1,4 +1,4 @@
-import {useContext, useState, useRef} from 'react';
+import {useContext, useState} from 'react';
 import './players.scss';
 
 import { PlayersContext } from '../../store/Context/SunriseContext';
@@ -10,7 +10,6 @@ import Pagination from '../common/Pagination';
 
 
 const Players = () => {
-  const now = useRef();
 
   const {playersList} = useContext(PlayersContext);
   const [currentPage, setCurrentPage] = useState(1);
@@ -106,11 +105,9 @@ const Players = () => {
               <div className="option">
                 {options.map((item,id)=>(
                   <li 
-                    ref={now}
                     key={id} 
                     onClick={
                       ()=>{
-                        now.current = item
                         onSortedByOption(item)
                       }
                     } 

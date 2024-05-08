@@ -14,14 +14,16 @@
         max-width: 1280px;
         margin: 0 auto;
         .search-box {
+          position: relative;
           width: 100%;
           display: flex;
           align-items: center;
           justify-content: space-between;
           margin-bottom: 10px;
           .option {
-            width: 80%;
+            width: 100%;
             display: flex;
+            justify-content: center;
             :hover {
               background-color: rgba(255, 255, 255, 0.08);
               color: #f5f5f5;
@@ -38,10 +40,13 @@
             }
           }
           .displayCountBox {
-            width: 20%;
+            position: absolute;
+            right: 0;
             height: 100%;
             margin: 0 auto;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: right;
             background-color: #0D0F19;
             color: white;
             font-size: 30px;
