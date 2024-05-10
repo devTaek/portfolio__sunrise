@@ -4,21 +4,21 @@
       "type": "회비",
       "detail": "정태균",
       "amount": 20000,
-      "extra_info": "4월",
+      "extra_info": "1월",
       "date": "2024-01-03"
     },
     {
       "type": "회비",
       "detail": "송충석",
       "amount": 20000,
-      "extra_info": "4월",
+      "extra_info": "2월",
       "date": "2024-02-22"
     },
     {
       "type": "회비",
       "detail": "이혁",
       "amount": 20000,
-      "extra_info": "4월",
+      "extra_info": "3월",
       "date": "2024-03-22"
     },
     {
@@ -39,8 +39,36 @@
       "type": "회비",
       "detail": "서정훈",
       "amount": 20000,
-      "extra_info": "4월",
-      "date": "2024-04-22"
+      "extra_info": "5월",
+      "date": "2024-05-22"
+    },
+    {
+      "type": "회비",
+      "detail": "정태균",
+      "amount": 20000,
+      "extra_info": "5월",
+      "date": "2024-05-22"
+    },
+    {
+      "type": "회비",
+      "detail": "이경부",
+      "amount": 20000,
+      "extra_info": "5월",
+      "date": "2024-05-22"
+    },
+    {
+      "type": "회비",
+      "detail": "이혁",
+      "amount": 20000,
+      "extra_info": "5월",
+      "date": "2024-05-22"
+    },
+    {
+      "type": "지출",
+      "detail": "천마",
+      "amount": 120000,
+      "extra_info": "5월",
+      "date": "2024-05-22"
     }
   ]
 }

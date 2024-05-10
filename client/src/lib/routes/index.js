@@ -1,4 +1,4 @@
-import {Main, Players, Match, Manage, Community} from '../../Page/index';
+import {Main, Players, Match, Manage, Community, CommunityBoard} from '../../Page/index';
 
 const routes = [
   {
@@ -27,7 +27,12 @@ const routes = [
     path: "/community",
     element: <Community />,
     exact: true,
-  }
+  },
+  {
+    path: "/community/board/:id",
+    element: <CommunityBoard />,
+    exact: true,
+  },
 ]
 
 export default routes

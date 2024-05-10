@@ -17,6 +17,7 @@ const { playersList } = require('./data/playersList.json');
 const { matchList } = require('./data/matchList.json');
 const { manageList } = require('./data/manageList.json');
 const { communityList } = require('./data/communityList.json');
+const { galleryList } = require('./data/galleryList.json');
 
 
 app.get('/api/member', (req, res) => {
@@ -39,6 +40,10 @@ app.post('/api/manageList', (req, res) => {
 
 app.get('/api/community', (req, res) => {
   res.json(communityList);
+})
+
+app.get('/api/galleryList', (req, res) => {
+  res.json(galleryList);
 })
 
 module.exports = app;

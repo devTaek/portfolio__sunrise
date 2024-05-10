@@ -75,6 +75,9 @@ const Manage = ({manageList, setManageList}) => {
       extra_info: formFields.extra_info,
       date: new Date(),  // 현재 날짜 추가
     };
+
+    // 현재 프론트에서만 데이터 입력함.
+    // 서버와 API를 통해서 저장하고 빼내고가 필요!!!!!!!!!!!!
     setManageList(prevData => [...prevData, newData]);
     // console.log('Submitted Data:', formFields);
     // console.log('date:', newData.date);

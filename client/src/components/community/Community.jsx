@@ -1,26 +1,22 @@
 import {useContext, useEffect, useState} from 'react';
 import './community.scss';
 
-import {CommunityContext} from '../../store/Context/SunriseContext';
-
+import {CommunityContext, GalleryContext} from '../../store/Context/SunriseContext';
 import Title from '../common/Title';
-import DisplayCountSelector from '../common/DisplayCountSelector';
-import PostList from './PostList';
-import Pagination from '../common/Pagination';
+import Notice from './sub/Notice';
+
+import Gallery from './sub/Gallery';
+import Suggetsion from './sub/Suggetsion';
 
 const Community = () => {
   const {communityList} = useContext(CommunityContext);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(3);
+  const {galleryList} = useContext(GalleryContext)
   const [selectedOption, setSelectedOption] = useState('공지사항');
-  
-
   const options = [
     '공지사항',
     '갤러리',
     '건의사항',
   ]
-  
   const selectOption = (e) => {
     const selectText = e.target.innerText;
     setSelectedOption(selectText)
@@ -36,9 +32,12 @@ const Community = () => {
     }
   },[selectedOption])
 
-  const firstPostIndex = (currentPage - 1) * postsPerPage;
-  const lastPostIndex = firstPostIndex + postsPerPage;
-  const currentPosts = communityList.slice(firstPostIndex, lastPostIndex);
+  useEffect(() => {
+    if(selectedOption === '건의사항') {
+      alert('수리중..');
+    }
+  }, [selectedOption])  
+  
   return (
     <div id='community'>
       <div className="container">
@@ -56,21 +55,13 @@ const Community = () => {
                   </li>
                 ))}
               </div>
-              <DisplayCountSelector 
-                setCurrentPage={setCurrentPage} 
-                setPostsPerPage={setPostsPerPage}
-              />
+              
             </div>
-            <PostList 
-              list={currentPosts}
-              selectedOption={selectedOption}
-            />
-            <Pagination 
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              postsPerPage={postsPerPage}
-              postsNum={currentPosts.length}
-            />
+              <ul>
+                {selectedOption === '공지사항' && <Notice communityList={communityList}/>}
+                {selectedOption === '갤러리' && <Gallery galleryList={galleryList} />}
+                {selectedOption === '건의사항' && <Suggetsion />}
+              </ul>
           </div>
         </div>
       </div>
