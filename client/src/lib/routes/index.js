@@ -24,14 +24,16 @@ const routes = [
   }
   ,
   {
-    path: "/community",
+    path: "/community/*",
     element: <Community />,
     exact: true,
-  },
-  {
-    path: "/community/board/:id",
-    element: <CommunityBoard />,
-    exact: true,
+    children: [
+      {
+        path: "/board",
+        element: <CommunityBoard />,
+        exact: true,
+      },
+    ],
   },
 ]
 

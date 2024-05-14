@@ -6,7 +6,6 @@ const Gallery = ({galleryList}) => {
   console.log(galleryList)
   return (
     <GalleryContainer>
-      <BoardTilte title='갤러리' />
       <ul>
         {galleryList.map((item, id)=> (
           <li key={id}>

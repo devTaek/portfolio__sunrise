@@ -1,16 +1,21 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { Link, Outlet } from 'react-router-dom'
 import './notice.scss'
-import BoardTilte from '../../common/BoardTilte';
+import Board from './Board';
 
-
-
-const Notice = ({communityList}) => {
+const Notice = ({communityList,match}) => {
+  // const [thisBoard, setThisBoard] = useState(false);
   const changeInputBox = (e) => {
     const text = e.target.value;
   }
+
+  // const onDetailBoard = () => {
+  //   setThisBoard(true)
+  // }
+  
   return (
     <section className="board">
-        <BoardTilte title='공지사항'/>
+
 
         {/* board seach area */}
         <div id="board-search">
@@ -27,7 +32,7 @@ const Notice = ({communityList}) => {
         </div>
         
         {/* board list area */}
-          <div id="board-list">
+        <div id="board-list">
             <div className="container">
               <table className="board-table">
                 <thead>
@@ -39,16 +44,17 @@ const Notice = ({communityList}) => {
                 </thead>
               <tbody>
                 {communityList.map((item, id) => (
-                  <tr key={item.id}>
+                  <tr /* onClick={onDetailBoard} */ key={item.id}>
                     <td>{item.id}</td>
-                    <th><Link to={`/community/board/${item.id}`}>{item.title}</Link></th>
+                    <th>{item.title}</th>
                     <td>{item.createDate}</td>
                   </tr>
-                ))}
+                ))
+                }
                 </tbody>
               </table>
             </div>
-          </div>
+        </div>
     </section>
   )
 }

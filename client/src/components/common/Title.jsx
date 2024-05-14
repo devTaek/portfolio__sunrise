@@ -10,7 +10,7 @@ const TitleContainer = styled.header`
   h1 {
     color: #fff;
       font-family: Pretendard;
-      font-size: 40px;
+      font-size: 64px;
       font-weight: 700;
       display: flex;
       align-items: center;

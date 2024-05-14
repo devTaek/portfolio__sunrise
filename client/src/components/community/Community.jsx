@@ -1,8 +1,9 @@
 import {useContext, useEffect, useState} from 'react';
 import './community.scss';
-
 import {CommunityContext, GalleryContext} from '../../store/Context/SunriseContext';
+
 import Title from '../common/Title';
+import BoardTilte from '../common/BoardTilte';
 import Notice from './sub/Notice';
 
 import Gallery from './sub/Gallery';
@@ -12,6 +13,12 @@ const Community = () => {
   const {communityList} = useContext(CommunityContext);
   const {galleryList} = useContext(GalleryContext)
   const [selectedOption, setSelectedOption] = useState('공지사항');
+  // const location = useLocation();
+  // console.log(location);
+  // useEffect(() => {
+  //   console.log(location)
+  // }, [location])
+
   const options = [
     '공지사항',
     '갤러리',
@@ -21,16 +28,6 @@ const Community = () => {
     const selectText = e.target.innerText;
     setSelectedOption(selectText)
   }
-
-  useEffect((e)=> {
-    if(selectedOption === '공지사항') {
-      setSelectedOption(selectedOption)
-    } else if(selectedOption === '갤러리') {
-      setSelectedOption(selectedOption)
-    } else if(selectedOption === '건의사항') {
-      setSelectedOption(selectedOption)
-    }
-  },[selectedOption])
 
   useEffect(() => {
     if(selectedOption === '건의사항') {
@@ -45,20 +42,22 @@ const Community = () => {
         <div className="communityBox">
           <div className="container">
             <div className="search-box">
-              <div className="option">
-                {options.map((item,id)=>(
-                  <li 
-                    key={id} 
-                    onClick={selectOption} 
-                  >
-                      {item}
-                  </li>
-                ))}
-              </div>
-              
+                <div className="option">
+                  {options.map((item,id)=>(
+                    <li 
+                      key={id} 
+                      onClick={selectOption} 
+                    >
+                        {item}
+                    </li>
+                  ))}
+                </div>
             </div>
+            <BoardTilte title={selectedOption}/>
               <ul>
-                {selectedOption === '공지사항' && <Notice communityList={communityList}/>}
+                {selectedOption === '공지사항' && 
+                  <Notice communityList={communityList}></Notice>
+                }
                 {selectedOption === '갤러리' && <Gallery galleryList={galleryList} />}
                 {selectedOption === '건의사항' && <Suggetsion />}
               </ul>
