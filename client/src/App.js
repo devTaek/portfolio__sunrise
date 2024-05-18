@@ -1,10 +1,10 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Board from "./components/community/sub/Board";
 
 import routes from "./lib/routes/index";
-import { Community } from "./Page";
+import { CommunityBoard } from "./Page";
+
 function App() {
   return (
     <div className="App">
@@ -13,6 +13,7 @@ function App() {
           {routes.map(({ element, path }, id) => (
             <Route key={id} path={path} element={element} />
           ))}
+          <Route exact path="/community/board/:id" element={<CommunityBoard />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -39,7 +39,7 @@ const Community = () => {
     <div id='community'>
       <div className="container">
         <Title title='Community'/>
-        <div className="communityBox">
+        <div className="community-box">
           <div className="container">
             <div className="search-box">
                 <div className="option">
@@ -54,13 +54,11 @@ const Community = () => {
                 </div>
             </div>
             <BoardTilte title={selectedOption}/>
-              <ul>
-                {selectedOption === '공지사항' && 
-                  <Notice communityList={communityList}></Notice>
-                }
-                {selectedOption === '갤러리' && <Gallery galleryList={galleryList} />}
-                {selectedOption === '건의사항' && <Suggetsion />}
-              </ul>
+            <ul>
+              {selectedOption === '공지사항' && <Notice communityList={communityList} />}
+              {selectedOption === '갤러리' && <Gallery galleryList={galleryList} />}
+              {selectedOption === '건의사항' && <Suggetsion />}
+            </ul>
           </div>
         </div>
       </div>

@@ -46,4 +46,16 @@ app.get('/api/galleryList', (req, res) => {
   res.json(galleryList);
 })
 
+// app.get('/board/:id', (req, res) => {
+//   const params =  req.paramas;
+//   const { id } = params;
+//   const board = {
+//     id: id,
+//     title: "타이틀",
+//     content: "app.js의 컨텐츠",
+//   }
+//   res.send(board);
+//   console.log(params)
+// })
+
 module.exports = app;

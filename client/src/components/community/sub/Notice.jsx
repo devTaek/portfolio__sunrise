@@ -1,24 +1,23 @@
 import { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './notice.scss'
 import Board from './Board';
 
-const Notice = ({communityList,match}) => {
-  // const [thisBoard, setThisBoard] = useState(false);
+const Notice = ({communityList}) => {
+  const [thisBoard, setThisBoard] = useState(false);
   const changeInputBox = (e) => {
     const text = e.target.value;
   }
 
-  // const onDetailBoard = () => {
-  //   setThisBoard(true)
-  // }
-  
+  const onDetailBoard = () => {
+    setThisBoard(!thisBoard)
+  }
   return (
-    <section className="board">
-
-
+    <section className="notice">
         {/* board seach area */}
-        <div id="board-search">
+       
+            <>
+          {/* <div id="board-search">
           <div className="container">
             <div className="search-window">
               <form onSubmit={changeInputBox}>
@@ -29,10 +28,10 @@ const Notice = ({communityList,match}) => {
               </form>
             </div>
           </div>
-        </div>
+        </div> */}
         
         {/* board list area */}
-        <div id="board-list">
+          <div id="board-list">
             <div className="container">
               <table className="board-table">
                 <thead>
@@ -43,18 +42,24 @@ const Notice = ({communityList,match}) => {
                   </tr>
                 </thead>
               <tbody>
-                {communityList.map((item, id) => (
-                  <tr /* onClick={onDetailBoard} */ key={item.id}>
-                    <td>{item.id}</td>
-                    <th>{item.title}</th>
-                    <td>{item.createDate}</td>
-                  </tr>
-                ))
+                {
+                  communityList.map((item, id) => (
+                    <tr key={item.id}>
+                      <td>{item.id}</td>
+                      <th>
+                        <Link to={`/community/board/${item.id}`}>
+                          {item.title}
+                        </Link>
+                      </th>
+                      <td>{item.createDate}</td>
+                    </tr>
+                    ))
                 }
                 </tbody>
               </table>
             </div>
         </div>
+        </>
     </section>
   )
 }

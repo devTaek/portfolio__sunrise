@@ -5,7 +5,7 @@
   .container {
     width: 100%;
     padding:0;
-    .communityBox {
+    .community-box {
       width: 100%;
       padding: 130px 0;
       background: #0D0F19;
@@ -19,7 +19,7 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 10px;
+          margin-bottom: 60px;
           .option {
             width: 100%;
             display: flex;
@@ -39,17 +39,7 @@
               color: #8A95A3;
             }
           }
-          .displayCountBox {
-            position: absolute;
-            right: 0;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: right;
-            background-color: #0D0F19;
-            color: white;
-            font-size: 30px;
-          }
+          
         }
         ul {
           width: 100%;

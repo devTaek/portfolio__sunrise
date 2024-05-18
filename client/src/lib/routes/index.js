@@ -29,11 +29,10 @@ const routes = [
     exact: true,
     children: [
       {
-        path: "/board",
+        path: "/board/:id",
         element: <CommunityBoard />,
-        exact: true,
-      },
-    ],
+      }
+    ]
   },
 ]
 
