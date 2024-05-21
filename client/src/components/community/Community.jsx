@@ -18,16 +18,17 @@ const Community = () => {
   // useEffect(() => {
   //   console.log(location)
   // }, [location])
-
   const options = [
     '공지사항',
     '갤러리',
     '건의사항',
   ]
+
   const selectOption = (e) => {
     const selectText = e.target.innerText;
     setSelectedOption(selectText)
   }
+  console.log(selectedOption)
 
   useEffect(() => {
     if(selectedOption === '건의사항') {

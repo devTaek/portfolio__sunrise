@@ -4,14 +4,11 @@ import './notice.scss'
 import Board from './Board';
 
 const Notice = ({communityList}) => {
-  const [thisBoard, setThisBoard] = useState(false);
   const changeInputBox = (e) => {
     const text = e.target.value;
   }
 
-  const onDetailBoard = () => {
-    setThisBoard(!thisBoard)
-  }
+
   return (
     <section className="notice">
         {/* board seach area */}

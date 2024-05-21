@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import BoardTilte from '../../common/BoardTilte'
 
 const Gallery = ({galleryList}) => {
-  console.log(galleryList)
   return (
     <GalleryContainer>
       <ul>

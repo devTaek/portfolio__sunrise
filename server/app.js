@@ -19,7 +19,6 @@ const { manageList } = require('./data/manageList.json');
 const { communityList } = require('./data/communityList.json');
 const { galleryList } = require('./data/galleryList.json');
 
-
 app.get('/api/member', (req, res) => {
   res.json(playersList);
 })
@@ -46,16 +45,14 @@ app.get('/api/galleryList', (req, res) => {
   res.json(galleryList);
 })
 
-// app.get('/board/:id', (req, res) => {
-//   const params =  req.paramas;
-//   const { id } = params;
-//   const board = {
-//     id: id,
-//     title: "타이틀",
-//     content: "app.js의 컨텐츠",
-//   }
-//   res.send(board);
-//   console.log(params)
-// })
 
+app.get('/api/community/board/:id', (req, res) => {
+  const {id} =  req.params;
+  const board = communityList.find(item => item.id === parseInt(id));
+  if(board) {
+    res.json([board]);
+  } else {
+    res.status(404).json({message: 'Board not found'});
+  }
+})
 module.exports = app;

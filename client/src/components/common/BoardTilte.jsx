@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const BoardTilteContainer = styled.header`
   h3 {
-    font-size: 40px;
+    font-size: 42px;
     color: #fff;
     font-weight: 700;
     text-align: center;

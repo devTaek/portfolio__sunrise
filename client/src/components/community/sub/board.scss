@@ -9,7 +9,8 @@
       width: 100%;
       padding: 130px 0;
       background: #0D0F19;
-      .container {
+      >.container {
+        position: relative;
         width: 100%;
         max-width: 1280px;
         margin: 0 auto;
@@ -41,26 +42,45 @@
           }
           
         }
-        ul {
+        table {
           width: 100%;
-          display: flex;
-          flex-flow: wrap;
-          align-items: center;
-          justify-content: space-evenly;
+          margin: 100px 0;
+          color: white;
+          tr {
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+            display: flex;
+            align-items:start;
+            th {
+              width: 30%;
+              font-weight: 700;
+            }
+            td {
+              width: 70%;
+              height: 100%;
+            }
+          }
         }
-        .pagination {
-          width: 100%;
-          height: 100%;
-          background-color: #0D0F19;
-          padding: 60px;
+        .pageOption {
+          position: absolute;
+          right: 0;
           display: flex;
           align-items: center;
           justify-content: center;
-          .active {
-            font-weight: 900;
-          }
-          .article-modal {
-            background-color: red;
+          button {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            margin: 5px;
+            :hover {
+              background-color: rgba(255, 255, 255, 0.08);
+              color: #f5f5f5;
+              cursor: pointer;
+            }
           }
         }
       }

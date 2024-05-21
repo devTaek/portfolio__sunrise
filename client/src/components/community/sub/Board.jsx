@@ -1,24 +1,23 @@
 import { useState, useEffect } from 'react';
-import { useParams, useMatch,useNavigate, Link} from 'react-router-dom';
+import { useParams, useMatch,useNavigate, Link, useLocation} from 'react-router-dom';
 import './board.scss';
 import { fetchData } from '../../../container/common/utils/fetchData';
 import Title from '../../common/Title';
 import Community from '../Community';
 import BoardTilte from '../../common/BoardTilte';
 
-const Board = ({match, setThisBoard,communityList}) => {
+const Board = () => {
   const [selectedOption, setSelectedOption] = useState('공지사항');
+  const [board, setBoard] = useState([])
 
-  const [board, setBoard] = useState(null)
-  const id = useParams();
+  const {id} = useParams();
+
   const navigate = useNavigate();
-  const goBackBtn = () => navigate('/community');
+  const goBackBtn = () => navigate(`/community`);
+  const prevPageBtn = () => navigate(`/community/board/${parseInt(id) - 1}`)
+  const nextPageBtn = () => navigate(`/community/board/${parseInt(id) + 1}`)
   
-  console.log(id)
 
-  const goBackBoard = () => {
-    setThisBoard(false);
-  }
   const options = [
     '공지사항',
     '갤러리',
@@ -28,6 +27,12 @@ const Board = ({match, setThisBoard,communityList}) => {
     const selectText = e.target.innerText;
     setSelectedOption(selectText)
   }
+
+  useEffect(() => {
+    fetchData(`community/board/${id}`, setBoard)
+  }, [id])
+  console.log(board)
+
   return(
     <section id="board">
       <div className="container">
@@ -35,21 +40,38 @@ const Board = ({match, setThisBoard,communityList}) => {
         <div className="community-box">
           <div className="container">
             <div className="search-box">
-              <div className="option">
+              {/* <div className="option">
                 {options.map((item,id)=>(
                   <li key={id} onClick={selectOption}>{item}</li>
                 ))}
-              </div>
+              </div> */}
             </div>
             <BoardTilte title={selectedOption} />
-            <button onClick={()=>{navigate(-1)}}>뒤로가기</button>
-            <table>
-              <thead>
-                <tr>
-                  <th>{id.id}</th>
-                </tr>
-              </thead>
-            </table>
+            {board.map((item, id) => (
+              <table key={id}>
+                <thead>
+                  <tr>
+                    <th>제목</th>
+                    <td>{item.title}</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>내용</th>
+                    <td>{item.content}</td>
+                  </tr>
+                  <tr>
+                    <th>등록일</th>
+                    <td>{item.createDate}</td>
+                  </tr>
+                </tbody>
+                <div className="pageOption">
+                  <button onClick={prevPageBtn}>이전글</button>
+                  <button onClick={goBackBtn}>목록</button>
+                  <button onClick={nextPageBtn}>다음글</button>
+                </div>
+              </table>
+            ))}
           </div>
         </div>
       </div>
