@@ -14,6 +14,7 @@ const Board = () => {
 
   const navigate = useNavigate();
   const goBackBtn = () => navigate(`/community`);
+  // communityList의 id값 넘어서지 않기.
   const prevPageBtn = () => navigate(`/community/board/${parseInt(id) - 1}`)
   const nextPageBtn = () => navigate(`/community/board/${parseInt(id) + 1}`)
   

@@ -3,7 +3,7 @@ import './match.scss';
 
 import { MatchListContext } from '../../store/Context/SunriseContext';
 import Title from '../common/Title';
-import MatchFilter from './sub/MatchFilter';
+import DateFilter from '../common/DateFilter';
 import MatchList from './sub/MatchList';
 
 const Match = () => {
@@ -11,14 +11,14 @@ const Match = () => {
 
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
   const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
-  const onClickPrevMonth = () => {
+  const prevMonthBtn = () => {
     setFilteredMonth(filteredMonth-1);
     if(filteredMonth <= 1) {
       setFilteredMonth(12);
       setFilteredYear(filteredYear - 1);
     }
   }
-  const onClickNextMonth = () => {
+  const nextMonthBtn = () => {
     setFilteredMonth(filteredMonth+1);
     if(filteredMonth >= 12) {
       setFilteredMonth(1);
@@ -41,11 +41,11 @@ const Match = () => {
         <div className="matchBox">
           <div className="container">
             <div className="gap">
-              <MatchFilter
+              <DateFilter
                 filteredMonth={filteredMonth}
                 filteredYear={filteredYear}
-                onClickPrevMonth={onClickPrevMonth}
-                onClickNextMonth={onClickNextMonth}
+                prevMonthBtn={prevMonthBtn}
+                nextMonthBtn={nextMonthBtn}
               />
             
             <div className="row2">

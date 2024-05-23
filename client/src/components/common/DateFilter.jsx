@@ -1,14 +1,14 @@
 import React from 'react'
 
-const DateFilter = (props) => {
+const DateFilter = ({prevMonthBtn, filteredYear, filteredMonth, nextMonthBtn}) => {
   return (
-    <div className="selected-month">
-      <button onClick={props.onClickPrevMonth}><img style={{transform: `rotate(180deg)`}} src="./img/nextBtn.svg" alt="" /></button>
+    <div className="date-filter">
+      <button onClick={prevMonthBtn}><img style={{transform: `rotate(180deg)`}} src="./img/nextBtn.svg" alt="" /></button>
       <div className="dateBox">
-        {props.filteredYear}.
-        {props.filteredMonth}
+        {filteredYear}.
+        {filteredMonth}
       </div>
-      <button onClick={props.onClickNextMonth}><img src="./img/nextBtn.svg" alt="" /></button>
+      <button onClick={nextMonthBtn}><img src="./img/nextBtn.svg" alt="" /></button>
     </div>
   )
 }

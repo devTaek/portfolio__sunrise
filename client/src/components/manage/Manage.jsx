@@ -7,7 +7,6 @@ import ManageList from './sub/ManageList'
 
 const Manage = ({manageList, setManageList}) => {
   const {dialog} = useRef();
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [formFields, setFormFields] = useState(
@@ -19,53 +18,54 @@ const Manage = ({manageList, setManageList}) => {
     }
   )
 
- // 액수 총합
+   // 액수 총합
   const [amounts, setAmounts]= useState({
     income: 0,
     expense: 0
   })
+  
 
 
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
   const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
   
-  const onClickPrevMonth = () => {
+  const prevMonthBtn = () => {
     setFilteredMonth(filteredMonth-1);
     if(filteredMonth <= 1) {
       setFilteredMonth(12);
       setFilteredYear(filteredYear - 1);
     }
   }
-  const onClickNextMonth = () => {
+  const nextMonthBtn = () => {
     setFilteredMonth(filteredMonth+1);
     if(filteredMonth >= 12) {
       setFilteredMonth(1);
       setFilteredYear(filteredYear + 1);
     }
   }
-  
-
-  const options = ['수익', '지출'];
-  const [selectedOption, setSelectedOption] = useState();
-  const selectOption = (e) => {
-    const selectText = e.target.innerText;
-    setSelectedOption(selectText)
-  }
 
 
-  const filteredManages = manageList.filter((manage) => {
+
+
+
+  /* manageList와 현재의 월별 비교 */
+  /* match와 같은 함수(중복) */
+  const dateMatchingList = manageList.filter((manage) => {
     const manageDate = new Date(manage.date);
     const manageYear = manageDate.getFullYear();
     const manageMonth = manageDate.getMonth() + 1;
     return filteredYear === manageYear && filteredMonth === manageMonth;
   })
 
+  /* 모달 입력 */
   const onCloseModal= () => {
     setIsModalOpen(false);
   }
+
   const addExpenseInfo = ()=> {
     setIsModalOpen(true);
   }
+
   const onSubmit = (e, formFields) => {
     e.preventDefault();
     const newData = {
@@ -94,17 +94,18 @@ const Manage = ({manageList, setManageList}) => {
     />}
 
     <div id='manage'>
-      <div className="container">
         <Title title='Manage'/>
         <main className="manageBox">
           <div className="container">
             <div className="gap">
+
               <DateFilter 
                 filteredMonth={filteredMonth}
                 filteredYear={filteredYear}
-                onClickPrevMonth={onClickPrevMonth}
-                onClickNextMonth={onClickNextMonth}
+                prevMonthBtn={prevMonthBtn}
+                nextMonthBtn={nextMonthBtn}
               />
+
               <div className='total-money-box'> {/* 클래스명 수정필요 */}
                 <div className='received-money'>
                   <div className='money-category'>회비수익</div>
@@ -120,37 +121,28 @@ const Manage = ({manageList, setManageList}) => {
                   <strong className='amount'>{amounts.income - amounts.expense}</strong>
                 </div>
               </div>
-              {/* 수익/지출 카테고리 */}
-              <div className="option">
-                {options.map((item,id)=>(
-                  <li
-                    key={id}
-                    onClick={selectOption}
-                  >
-                      {item}
-                  </li>
-                ))}
-              </div>
-              <ul className="category">
-                <li>구분</li>
-                <li>내역</li>
-                <li>금액</li>
-                <li>비고</li>
-              </ul>
-              <ManageList
-                filteredManages={filteredManages}
-                selectedOption={selectedOption}
-                setSelectedOption={setSelectedOption}
-                setAmounts={setAmounts}
-              />
+
+              {/* 리스트 목록 */}
+              <ManageList dateMatchingList={dateMatchingList} />
+
+              {/* 모달창 열고닫기만 하는기능. */}
               <button onClick={addExpenseInfo}>수입/지출 입력</button>
             </div>
           </div>
         </main>
-      </div>
     </div>
     </>
   )
 }
 
 export default Manage;
+
+
+/** 렌더링 횟수 구하기
+const [renderCount, setRenderCount] = useState(0);
+
+  useEffect(() => {
+    setRenderCount(prevCount => prevCount + 1);
+    console.log(`Manage component rendered ${renderCount + 1} times`);
+  },[]);
+ */

@@ -14,6 +14,7 @@ const ManageContainer = () => {
   }, [])
   return (
     <PlayersContext.Provider value={{playersList, setPlayersList}}>
+      {/* manageList를 context가 아닌 props로 내림 */}
       <Manage manageList={manageList} setManageList={setManageList} />
     </PlayersContext.Provider>
   )

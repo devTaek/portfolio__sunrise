@@ -3,18 +3,10 @@ import { createPortal } from 'react-dom';
 import { PlayersContext } from '../../store/Context/SunriseContext';
 import styled from 'styled-components';
 
-const Modal = forwardRef( function Modal (
-  {
-    onCloseModal,
-    onSubmit,
-    formFields,
-    setFormFields
-  }, 
-  ref
-) {
+const Modal = forwardRef( function Modal ({ onCloseModal,onSubmit,formFields,setFormFields }, ref) {
   const {playersList} = useContext(PlayersContext);
   const dialog = useRef();
-
+  
   // 구분
   const [detailType, setDetailType] = useState([]);
 
@@ -46,6 +38,7 @@ const Modal = forwardRef( function Modal (
     }
   }
   const handleSubmit = (e) => {
+    // 기본 동작 방지: 폼이 제출될 때 페이지 새로고침을 방지하려면 e.preventDefault()를 사용
     e.preventDefault();
     onSubmit(e,formFields);
     onCloseModal();
@@ -62,7 +55,7 @@ const Modal = forwardRef( function Modal (
   return createPortal (
     <SelectedComponent ref={dialog}>
       <Button  onClick={onCloseModal}>X</Button>
-      <form className='manage_input' onSubmit={handleSubmit} onChange={onChangeInfo}>
+      <form className='manage-form' onSubmit={handleSubmit} onChange={onChangeInfo}>
         <label>
           구분
           <select name="type" id="type" onChange={selectedType}>
@@ -90,7 +83,7 @@ const Modal = forwardRef( function Modal (
         </label>
         <label>
           비고
-          <textarea name="extra_info" id="extra_info" cols="50" rows="3" placeholder='할말더있어?'></textarea>
+          <textarea name="extra_info" id="extra_info" cols="60" rows="3" placeholder='할말더있어?'></textarea>
         </label>
         <button type="submit">등록</button>
       </form>
