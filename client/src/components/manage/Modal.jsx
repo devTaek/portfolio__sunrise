@@ -1,18 +1,33 @@
-import React, { forwardRef, useRef, useImperativeHandle, useContext, useState } from 'react'
+import React, { forwardRef, useRef, useImperativeHandle, useState } from 'react'
 import { createPortal } from 'react-dom';
-import { PlayersContext } from '../../store/Context/SunriseContext';
 import styled from 'styled-components';
+import axios from 'axios';
 
-const Modal = forwardRef( function Modal ({ onCloseModal,onSubmit,formFields,setFormFields }, ref) {
-  const {playersList} = useContext(PlayersContext);
+const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }, ref) {
   const dialog = useRef();
-  
   // 구분
   const [detailType, setDetailType] = useState([]);
 
-  // playersList 불러오기
-  const playGround = [{name:'천마'}, {name:'마루'}, {name:'종운'}]  
+  const playGround = [{name:'천마'}, {name:'마루'}, {name:'종운'}];
 
+  // 모달 데이터
+  const [formFields, setFormFields] = useState(
+    {
+      type: '',
+      detail: '김지강',
+      amount: 0,
+      extra_info: '',
+    }
+  )
+  // formFields 초기화
+  const resetFormFields = () => {
+    setFormFields({
+      type: '',
+      detail: '김지강',
+      amount: 0,
+      extra_info: '',
+    });
+  };
   
   const onChangeInfo = (e) => {
     const {name, value} = e.target;
@@ -21,30 +36,51 @@ const Modal = forwardRef( function Modal ({ onCloseModal,onSubmit,formFields,set
       [name]: value,
     }));
   }
+  
+  // type에 따른 detail 항목 변화
   const selectedType = (e) => {
     const name = e.target.value;
-    // if(['회비', '지각', '결석'].includes(name)) {
-    //   // 변경된 option
-    //   setDetailType(playersList)
-    // }
-    if(name === '회비' || name === '지각' || name === '결석') {
+    if(['회비', '지각', '결석'].includes(name)) {
+      // 변경된 option
       setDetailType(playersList)
-    } 
+    }
     else if(name === '구장') {
       setDetailType(playGround)
     }
     else if(name === '음료' || name === '장비') {
-      setDetailType('')
+      setDetailType(null)
     }
   }
-  const handleSubmit = (e) => {
+
+  // 서버 POST
+  const formSubmit = (e) => {
     // 기본 동작 방지: 폼이 제출될 때 페이지 새로고침을 방지하려면 e.preventDefault()를 사용
     e.preventDefault();
-    onSubmit(e,formFields);
-    onCloseModal();
-  }
-  // console.log(detailType)
+    const newData = {
+      type: formFields.type,
+      detail: formFields.detail,
+      amount: formFields.amount,
+      extra_info: formFields.extra_info,
+      date: new Date(),  // 현재 날짜 추가
+    }
 
+    axios
+      .post('http://localhost:3001/api/manageList', newData)
+      .then((response) => {
+        setList((prevData) => [...prevData, response.data]);
+        onCloseModal();
+        resetFormFields();
+      })
+      .catch((error) => {
+        console.error('error: ', error);
+      });
+
+    onCloseModal();
+    resetFormFields();
+  }
+
+
+  // index.html modal창 띄우기(제일 앞쪽)
   useImperativeHandle(ref, () => {
     return{
       open() {
@@ -52,15 +88,17 @@ const Modal = forwardRef( function Modal ({ onCloseModal,onSubmit,formFields,set
       }
     }
   });
+
+  console.log(formFields)
+  
   return createPortal (
     <SelectedComponent ref={dialog}>
       <Button  onClick={onCloseModal}>X</Button>
-      <form className='manage-form' onSubmit={handleSubmit} onChange={onChangeInfo}>
+      <form className='manage-form' onSubmit={formSubmit} onChange={onChangeInfo} method='post'>
         <label>
           구분
           <select name="type" id="type" onChange={selectedType}>
             <option defaultValue="type_option" hidden>구분</option>
-            {/* date 삽입  */}
             <option value="회비">회비</option>
             <option value="지각">지각</option>
             <option value="결석">결석</option>
@@ -71,11 +109,16 @@ const Modal = forwardRef( function Modal ({ onCloseModal,onSubmit,formFields,set
         </label>
         <label>
           내역
-          <select name="detail" id="detail">
-            {detailType && detailType.map((item,id)=>(
-              <option key={id} value={item.name}>{item.name}</option>
-            ))}
-          </select>
+          {
+            detailType === null ? 
+              (<input type="text" name="detail" placeholder="세부 사항 입력" />) 
+              :
+              <select name="detail" id="detail">
+                {detailType && detailType.map((item,id)=>(
+                  <option key={id} value={item.name}>{item.name}</option>
+                ))}
+              </select>
+          }
         </label>
         <label>
           금액

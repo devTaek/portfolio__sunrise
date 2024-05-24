@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 const ManageList = ({ dateMatchingList }) => {
   
-  // 전체, 수익, 지출 조건부
+  // 전체, 수익, 지출 분류
   const options = ['전체', '수익', '지출'];
   const [selectedOption, setSelectedOption] = useState('전체');
 
@@ -14,6 +14,8 @@ const ManageList = ({ dateMatchingList }) => {
   // 수익, 지출 리스트 조건부 필터링
   const [filteredList, setFilteredList] = useState(dateMatchingList);
   useEffect(() => {
+    
+    // 전체, 수익, 지출 조건부
     const incomeCondition = item => item.type === '회비'|| item.type ==='지각' || item.type === '결석'
     const expenseCondition = item => item.type === '구장'|| item.type ==='음료' || item.type === '장비'
 
@@ -24,6 +26,7 @@ const ManageList = ({ dateMatchingList }) => {
     }else if(selectedOption === '지출') {
       filtered = dateMatchingList.filter(expenseCondition)
     }
+
     setFilteredList(filtered);
   }, [options, dateMatchingList])
 

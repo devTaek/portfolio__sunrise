@@ -1,24 +1,29 @@
-import React,{useState, useRef} from 'react'
+import React,{useState, useEffect, useRef, useContext} from 'react'
 import './manage.scss'
 import Modal from './Modal'
 import Title from '../common/Title';
 import DateFilter from '../common/DateFilter';
 import ManageList from './sub/ManageList'
 
-const Manage = ({manageList, setManageList}) => {
+import { ManageListContext,PlayersContext } from '../../store/Context/SunriseContext';
+
+const Manage = () => {
+  const {manageList} = useContext(ManageListContext);
+  const {playersList} = useContext(PlayersContext);
   const {dialog} = useRef();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [formFields, setFormFields] = useState(
-    {
-      type: '회비',
-      detail: '김지강',
-      amount: '',
-      extra_info: ''
-    }
-  )
+  const [list, setList] = useState([]);
+  // manageList -> list
+  useEffect(() => {
+    setList(manageList);
+  },[manageList]);
 
-   // 액수 총합
+  
+  
+
+
+   // 액수 총합(서버GET)
   const [amounts, setAmounts]= useState({
     income: 0,
     expense: 0
@@ -26,6 +31,7 @@ const Manage = ({manageList, setManageList}) => {
   
 
 
+  /* 함수 재사용 예정 */
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
   const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
   
@@ -45,52 +51,32 @@ const Manage = ({manageList, setManageList}) => {
   }
 
 
-
-
-
-  /* manageList와 현재의 월별 비교 */
+  /* list와 현재의 월별 비교 */
   /* match와 같은 함수(중복) */
-  const dateMatchingList = manageList.filter((manage) => {
+  const dateMatchingList = list.filter((manage) => {
     const manageDate = new Date(manage.date);
     const manageYear = manageDate.getFullYear();
     const manageMonth = manageDate.getMonth() + 1;
     return filteredYear === manageYear && filteredMonth === manageMonth;
   })
 
-  /* 모달 입력 */
+  /* 모달창 닫기 */
   const onCloseModal= () => {
     setIsModalOpen(false);
   }
 
+  /* 모달창 띄우기*/
   const addExpenseInfo = ()=> {
     setIsModalOpen(true);
   }
 
-  const onSubmit = (e, formFields) => {
-    e.preventDefault();
-    const newData = {
-      type: formFields.type,
-      detail: formFields.detail,
-      amount: formFields.amount,
-      extra_info: formFields.extra_info,
-      date: new Date(),  // 현재 날짜 추가
-    };
-
-    // 현재 프론트에서만 데이터 입력함.
-    // 서버와 API를 통해서 저장하고 빼내고가 필요!!!!!!!!!!!!
-    setManageList(prevData => [...prevData, newData]);
-    // console.log('Submitted Data:', formFields);
-    // console.log('date:', newData.date);
-    onCloseModal();
-  }
   return (
     <>
     {isModalOpen && <Modal
       ref={dialog}
       onCloseModal={onCloseModal}
-      onSubmit={onSubmit}
-      formFields={formFields}
-      setFormFields={setFormFields}
+      playersList={playersList}
+      setList={setList}
     />}
 
     <div id='manage'>
