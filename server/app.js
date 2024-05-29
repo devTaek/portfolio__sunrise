@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const cors = require('cors');
+const fs = require('fs');
 
 app.use(cors());
 app.use(express.json());   // for parsing application/json
@@ -10,6 +11,7 @@ app.use(express.urlencoded({ extended: true }));   // for parsing application/x-
 // 라우팅
 const home = require("./routes/home");
 
+const filePath = './data/manageList.json';
 // const frontendBuildPath = path.join(__dirname, PATH);
 // app.use(express.static(path.join(__dirname, "../client/build")));
 // app.get('/', (req, res) => {
@@ -32,17 +34,41 @@ app.get('/api/match', (req, res) => {
   res.json(matchList);
 })
 
+const loadJSON = (filePath) => {
+  try {
+      const data = fs.readFileSync(filePath, 'utf8');
+      return JSON.parse(data);
+  } catch (err) {
+      console.error('Error reading the file:', err);
+      return { manageList: [] };
+  }
+};
 
-app.get('/api/manageList', (req, res) => {
+const saveJSON = (filePath, data) => {
+  try {
+      fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+  } catch (err) {
+      console.error('Error writing to the file:', err);
+  }
+};
+
+app.get('/api/manageList', async (req, res) => {
   res.json(manageList);
 });
+
 app.post('/api/manageList', (req, res) => {
   const newData = req.body;
-  console.log('Received new data:', newData);  // 로그 추가
-  manageList.push(newData);
-  console.log('Updated manageList:', manageList);  // 로그 추가
-  res.json(newData); // 클라이언트에 응답으로 새로 추가된 데이터를 다시 전송
+  const filePath = path.join(__dirname, 'data', 'manageList.json');
+
+  const fileData = fs.readFileSync(filePath);
+  
+  const list = JSON.parse(fileData);
+  
+  list.manageList.push(newData);
+  fs.writeFileSync(filePath, JSON.stringify(list));
+  res.json(list.manageList);
 });
+
 
 
 app.get('/api/community', (req, res) => {

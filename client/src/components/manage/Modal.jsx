@@ -64,10 +64,9 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
       date: new Date(),  // 현재 날짜 추가
     }
 
-    axios
-      .post('http://localhost:3001/api/manageList', newData)
+    axios.post('http://localhost:3001/api/manageList', newData)
       .then((response) => {
-        setList((prevData) => [...prevData, response.data]);
+        setList((prev) => [...prev, response.data]);
         onCloseModal();
         resetFormFields();
       })
@@ -89,7 +88,6 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
     }
   });
 
-  console.log(formFields)
   
   return createPortal (
     <SelectedComponent ref={dialog}>
