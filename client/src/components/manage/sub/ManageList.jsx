@@ -28,7 +28,7 @@ const ManageList = ({ dateMatchingList }) => {
     }
 
     setFilteredList(filtered);
-  }, [options, dateMatchingList])
+  }, [selectedOption, dateMatchingList])
 
 
   return (

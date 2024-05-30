@@ -1,6 +1,6 @@
 import React,{useState, useEffect, useRef, useContext} from 'react'
 import './manage.scss'
-import Modal from './Modal'
+import Modal from './sub/Modal'
 import Title from '../common/Title';
 import DateFilter from '../common/DateFilter';
 import ManageList from './sub/ManageList'
