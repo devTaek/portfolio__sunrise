@@ -18,12 +18,8 @@ const Manage = () => {
   useEffect(() => {
     setList(manageList);
   },[manageList]);
-
-  
-  
-
-
    // 액수 총합(서버GET)
+
   const [amounts, setAmounts]= useState({
     income: 0,
     expense: 0

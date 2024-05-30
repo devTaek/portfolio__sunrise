@@ -11,7 +11,8 @@ app.use(express.urlencoded({ extended: true }));   // for parsing application/x-
 // 라우팅
 const home = require("./routes/home");
 
-const filePath = './data/manageList.json';
+
+
 // const frontendBuildPath = path.join(__dirname, PATH);
 // app.use(express.static(path.join(__dirname, "../client/build")));
 // app.get('/', (req, res) => {
@@ -34,39 +35,26 @@ app.get('/api/match', (req, res) => {
   res.json(matchList);
 })
 
-const loadJSON = (filePath) => {
-  try {
-      const data = fs.readFileSync(filePath, 'utf8');
-      return JSON.parse(data);
-  } catch (err) {
-      console.error('Error reading the file:', err);
-      return { manageList: [] };
-  }
-};
 
-const saveJSON = (filePath, data) => {
-  try {
-      fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
-  } catch (err) {
-      console.error('Error writing to the file:', err);
-  }
-};
 
+const filePath = path.join(__dirname, 'data', 'manageList.json');
 app.get('/api/manageList', async (req, res) => {
-  res.json(manageList);
+  const fileData = fs.readFileSync(filePath);
+  const list = JSON.parse(fileData);
+  res.json(list.manageList);
 });
 
 app.post('/api/manageList', (req, res) => {
   const newData = req.body;
-  const filePath = path.join(__dirname, 'data', 'manageList.json');
 
   const fileData = fs.readFileSync(filePath);
   
   const list = JSON.parse(fileData);
   
   list.manageList.push(newData);
-  fs.writeFileSync(filePath, JSON.stringify(list));
-  res.json(list.manageList);
+  fs.writeFileSync(filePath, JSON.stringify(list, null, 2));
+
+  res.json(newData);  
 });
 
 
