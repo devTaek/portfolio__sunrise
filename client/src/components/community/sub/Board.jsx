@@ -66,11 +66,15 @@ const Board = () => {
                     <td>{item.createDate}</td>
                   </tr>
                 </tbody>
-                <div className="pageOption">
-                  <button onClick={prevPageBtn}>이전글</button>
-                  <button onClick={goBackBtn}>목록</button>
-                  <button onClick={nextPageBtn}>다음글</button>
-                </div>
+                <tfoot>
+                  <tr>
+                    <td className="pageOption">
+                      <button onClick={prevPageBtn}>이전글</button>
+                      <button onClick={goBackBtn}>목록</button>
+                      <button onClick={nextPageBtn}>다음글</button>
+                    </td>
+                  </tr>
+                </tfoot>
               </table>
             ))}
           </div>

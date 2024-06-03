@@ -12,9 +12,9 @@ const MainContainer = () => {
   const [communityList, setCommunityList] = useState([]);
 
   useEffect(()=> {
-    fetchData('member', setPlayersList)
-    fetchData('match', setMatchList)
-    fetchData('manageList', setManageList)
+    fetchData('players', setPlayersList)
+    fetchData('matches', setMatchList)
+    fetchData('manages', setManageList)
     fetchData('community', setCommunityList)
   },[])
   return(

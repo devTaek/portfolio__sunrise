@@ -9,7 +9,7 @@ const CommunityContainer = () => {
   const [galleryList, setGalleryList] = useState([]);
   useEffect(()=> {
     fetchData('community', setCommunityList)
-    fetchData('galleryList', setGalleryList)
+    fetchData('gallery', setGalleryList)
   }, [])
   return(
     <CommunityContext.Provider value={{communityList}}>

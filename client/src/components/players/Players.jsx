@@ -24,7 +24,6 @@ const Players = () => {
     '판단력',
     '기본기',
   ]
-
   // [...playersList].sort(()=>()) : [...playersList] sort함수는 변하기때문에 기존 함수를 복사시켜서 가져온다.
   // 그 값을 sortedByStats에 정의하고난 후,
   // setSortedByStats에 상태를 업데이트시켜준다.

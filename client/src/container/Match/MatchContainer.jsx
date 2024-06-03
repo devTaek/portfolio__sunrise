@@ -9,7 +9,7 @@ const MatchContainer = () => {
   const [matchList, setMatchList] = useState([]);
 
   useEffect(()=> {
-    fetchData('match', setMatchList)
+    fetchData('matches', setMatchList)
   },[])
 
   return (

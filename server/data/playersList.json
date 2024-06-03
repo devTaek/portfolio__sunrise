@@ -2,9 +2,9 @@
   "playersList":[
     {
       "name": "김지강",
+      "img": "img_player1.png",
       "age": 29,
       "height": "186cm",
-      "img": "img_player1.png",
       "position": "CB",
       "stats": [
         {

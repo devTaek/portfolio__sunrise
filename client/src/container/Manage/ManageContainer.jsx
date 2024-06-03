@@ -9,8 +9,8 @@ const ManageContainer = () => {
   const [playersList, setPlayersList] = useState([]);
 
   useEffect(()=> {
-    fetchData('manageList', setManageList)
-    fetchData('member', setPlayersList)
+    fetchData('manages', setManageList)
+    fetchData('players', setPlayersList)
   }, [])
   return (
     <ManageListContext.Provider value={{manageList}}>
