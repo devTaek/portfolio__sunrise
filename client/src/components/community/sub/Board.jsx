@@ -18,21 +18,9 @@ const Board = () => {
   const prevPageBtn = () => navigate(`/community/board/${parseInt(id) - 1}`)
   const nextPageBtn = () => navigate(`/community/board/${parseInt(id) + 1}`)
   
-
-  const options = [
-    '공지사항',
-    '갤러리',
-    '건의사항',
-  ]
-  const selectOption = (e) => {
-    const selectText = e.target.innerText;
-    setSelectedOption(selectText)
-  }
-
   useEffect(() => {
     fetchData(`community/board/${id}`, setBoard)
   }, [id])
-  console.log(board)
 
   return(
     <section id="board">
@@ -66,17 +54,14 @@ const Board = () => {
                     <td>{item.createDate}</td>
                   </tr>
                 </tbody>
-                <tfoot>
-                  <tr>
-                    <td className="pageOption">
-                      <button onClick={prevPageBtn}>이전글</button>
-                      <button onClick={goBackBtn}>목록</button>
-                      <button onClick={nextPageBtn}>다음글</button>
-                    </td>
-                  </tr>
-                </tfoot>
               </table>
+              
             ))}
+            <div className="pageOption">
+              <button onClick={prevPageBtn}>이전글</button>
+              <button onClick={goBackBtn}>목록</button>
+              <button onClick={nextPageBtn}>다음글</button>
+            </div>
           </div>
         </div>
       </div>

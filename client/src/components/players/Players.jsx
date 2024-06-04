@@ -1,11 +1,11 @@
-import {useContext, useState} from 'react';
+import {useContext, useState, useEffect} from 'react';
 import './players.scss';
 
 import { PlayersContext } from '../../store/Context/SunriseContext';
 
 import Title from '../common/Title';
 import DisplayCountSelector from '../common/DisplayCountSelector';
-import PostList from './PostList';
+import PostList from './sub/PostList';
 import Pagination from '../common/Pagination';
 
 
@@ -14,7 +14,7 @@ const Players = () => {
   const {playersList} = useContext(PlayersContext);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(3);
-  const [sortedByStats, setSortedByStats] = useState(playersList);
+  const [sortedByStats, setSortedByStats] = useState([]);
 
   const options = [
     '체력',
@@ -23,12 +23,18 @@ const Players = () => {
     '공간능력',
     '판단력',
     '기본기',
+    'ㄱㄴㄷ'
   ]
   // [...playersList].sort(()=>()) : [...playersList] sort함수는 변하기때문에 기존 함수를 복사시켜서 가져온다.
   // 그 값을 sortedByStats에 정의하고난 후,
   // setSortedByStats에 상태를 업데이트시켜준다.
   // setSortedByStats의 초기값으로 기존 배열 playersList로 넣어주고 난 후
   // 기존에 props로 보내주었던 playersList의 slice함수를 setSortedByStats의 slice함수로 변경시켜준다.
+
+  useEffect(() => {
+    setSortedByStats(playersList);
+  }, [playersList]);
+  
   const onSortedStaminer = () => {
     const sortedByStats = [...playersList].sort((a,b)=>b.stats[0].A-a.stats[0].A);
     setSortedByStats(sortedByStats)
@@ -83,17 +89,15 @@ const Players = () => {
         onSortedByBasic();
         break;
       default:
-        break;
+        setSortedByStats(playersList);
     }
   }
   
-  
-  
-  
-  
+  const totalDataLength = playersList.length;
   const firstPostIndex = (currentPage - 1) * postsPerPage;
   const lastPostIndex = firstPostIndex + postsPerPage;
   const currentPosts = sortedByStats.slice(firstPostIndex, lastPostIndex);
+
   return (
     <div id='players'>
       <div className="container">
@@ -116,8 +120,8 @@ const Players = () => {
                 ))}
               </div>
               <DisplayCountSelector 
-              setCurrentPage={setCurrentPage} 
-              setPostsPerPage={setPostsPerPage}
+                setCurrentPage={setCurrentPage} 
+                setPostsPerPage={setPostsPerPage}
               />
             </div>
             <PostList list={currentPosts}/>
@@ -125,7 +129,7 @@ const Players = () => {
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}
               postsPerPage={postsPerPage}
-              postsNum={currentPosts.length}
+              totalDataLength={totalDataLength}
             />
           </div>
         </div>

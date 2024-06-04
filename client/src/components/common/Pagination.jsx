@@ -21,15 +21,16 @@ const Button = styled.button`
   `;
 
   function Pagination({
-    postsNum,
+    totalDataLength,
     postsPerPage,
     setCurrentPage,
     currentPage
   }) {
-    
-
+  console.log(postsPerPage)
   const pageList = [];
-  const totalPages = Math.ceil(postsNum / postsPerPage);
+
+  // 현재 postsNum과 postsPerPage의 값이 같다.
+  const totalPages = Math.ceil(totalDataLength / postsPerPage);
   for (let i = 1; i <= totalPages; i++) {
     pageList.push(i);
   }
@@ -41,11 +42,9 @@ const Button = styled.button`
   const goToPrevPage = () => {
     setCurrentPage(currentPage - 1);
   };
-
-  
-  if (totalPages === 1) {
-    return null;
-  }
+  // if (totalPages === 1) {
+  //   return null;
+  // }
   return (
     <div className="pagination">
       <PaginationContainre>
