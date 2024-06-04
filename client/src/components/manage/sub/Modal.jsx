@@ -64,7 +64,7 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
       date: new Date().toISOString(),  // 현재 날짜 추가
     }
 
-    axios.post('http://localhost:3001/api/manageList', newData)
+    axios.post('http://localhost:3001/api/manages', newData)
       .then((response) => {
         setList((prev) => [...prev, response.data]);
         onCloseModal();
