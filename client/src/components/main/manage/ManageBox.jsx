@@ -24,7 +24,6 @@ const ManageBox = ({boxTitle, img, option, filteredManages}) => {
 
   const amountsArray = filteredItem.map((item => item.amount))
   const totalAmount = amountsArray.reduce((acc, cur) => acc + parseFloat(cur), 0);
-  console.log(totalAmount)
   useEffect(()=>{
     setAmounts(totalAmount)
   },[totalAmount])
@@ -52,7 +51,6 @@ const ManageBox = ({boxTitle, img, option, filteredManages}) => {
     callImg();
   },[filteredManages, playersList])
 
-  console.log(filteredItem);
 
   return (
     <ManageBoxContainer>

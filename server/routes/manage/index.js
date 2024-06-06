@@ -23,4 +23,33 @@ router.post('/', (req, res) => {
   res.json(newData);  
 });
 
+router.get('/amounts', async (req, res) => {
+  try {
+    const fileData = fs.readFileSync(manageFilePath);
+    const list = JSON.parse(fileData);
+  
+    const monthlyAmounts = {};
+    list.manageList.forEach(item => {
+      const date = new Date(item.date);
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const amount = parseFloat(item.amount) || 0;
+  
+      if(!monthlyAmounts[year]) {
+        monthlyAmounts[year] = {};
+      } 
+      if(!monthlyAmounts[year][month]) {
+        monthlyAmounts[year][month] = 0;
+      }
+      monthlyAmounts[year][month] += amount;
+    });
+    res.json(monthlyAmounts);
+    console.log(monthlyAmounts)
+    } catch(error) {
+      console.error('Error while calculating monthly amounts:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+    
+});
+
 module.exports = router;

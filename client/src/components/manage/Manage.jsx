@@ -6,6 +6,7 @@ import DateFilter from '../common/DateFilter';
 import ManageList from './sub/ManageList'
 
 import { ManageListContext,PlayersContext } from '../../store/Context/SunriseContext';
+import axios from 'axios';
 
 const Manage = () => {
   const {manageList} = useContext(ManageListContext);
@@ -14,18 +15,30 @@ const Manage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [list, setList] = useState([]);
+  
+  const [monthlyAmounts, setMonthlyAmounts] = useState({
+    profit: 0,
+    loss: 0
+  });
+  const [amounts, setAmounts]= useState({})
+
+
+
   // manageList -> list
   useEffect(() => {
     setList(manageList);
   },[manageList]);
+
    // 액수 총합(서버GET)
-
-  const [amounts, setAmounts]= useState({
-    income: 0,
-    expense: 0
-  })
-  
-
+  useEffect(() => {
+    axios.get('http://localhost:3001/api/manages/amounts')
+      .then(response => {
+        setAmounts(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching monthly amounts:', error)
+      })
+  },[])
 
   /* 함수 재사용 예정 */
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
@@ -92,20 +105,20 @@ const Manage = () => {
                 <div className='received-money'>
                   <div className='money-category'>회비수익</div>
                   {/* 서버에서 결과값 가져오자 */}
-                  <strong className='amount'>{amounts.income}</strong>
+                  <strong className='amount'>{monthlyAmounts.profit}</strong>
                 </div>
                 <div className='expense-money'>
                   <div className='money-category'>회비지출</div>
-                  <strong className='amount'>{amounts.expense}</strong>
+                  <strong className='amount'>{monthlyAmounts.loss}</strong>
                 </div>
                 <div className='total-amount'>
                   <div className='money-category'>회비잔액</div>
-                  <strong className='amount'>{amounts.income - amounts.expense}</strong>
+                  <strong className='amount'>총액</strong>
                 </div>
               </div>
 
               {/* 리스트 목록 */}
-              <ManageList dateMatchingList={dateMatchingList} />
+              <ManageList dateMatchingList={dateMatchingList} setMonthlyAmounts={setMonthlyAmounts}/>
 
               {/* 모달창 열고닫기만 하는기능. */}
               <button onClick={addExpenseInfo}>수입/지출 입력</button>
@@ -127,4 +140,21 @@ const [renderCount, setRenderCount] = useState(0);
     setRenderCount(prevCount => prevCount + 1);
     console.log(`Manage component rendered ${renderCount + 1} times`);
   },[]);
+ */
+
+
+  /** income, expense    
+    useEffect(() => {
+    const monthlyAmounts = dateMatchingList.reduce((acc, cur) => {
+      const amount = parseFloat(cur.amount) || 0;
+      if (cur.type === '회비' || cur.type === '지각' || cur.type === '결석') {
+        acc.income += amount;
+      } else if (cur.type === '구장' || cur.type === '음료' || cur.type === '장비') {
+        acc.expense += amount;
+      }
+      return acc;
+    }, { income: 0, expense: 0 });
+
+    setAmounts(monthlyAmounts);
+  }, [dateMatchingList])
  */

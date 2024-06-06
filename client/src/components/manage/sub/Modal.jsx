@@ -61,7 +61,7 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
       detail: formFields.detail,
       amount: formFields.amount,
       extra_info: formFields.extra_info,
-      date: new Date().toISOString(),  // 현재 날짜 추가
+      date: new Date().toISOString().split('T')[0],  // 현재 날짜 추가
     }
 
     axios.post('http://localhost:3001/api/manages', newData)
