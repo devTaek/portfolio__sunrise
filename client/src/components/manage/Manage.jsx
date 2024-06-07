@@ -16,6 +16,7 @@ const Manage = () => {
 
   const [list, setList] = useState([]);
   
+  const [prevMonthAmounts, setPrevMonthAmounts] = useState(0);
   const [monthlyAmounts, setMonthlyAmounts] = useState({
     profit: 0,
     loss: 0
@@ -24,21 +25,23 @@ const Manage = () => {
 
 
 
-  // manageList -> list
+  /* manageList -> list */
   useEffect(() => {
     setList(manageList);
   },[manageList]);
 
-   // 액수 총합(서버GET)
+  /* 액수 총합(서버GET) */
   useEffect(() => {
     axios.get('http://localhost:3001/api/manages/amounts')
       .then(response => {
         setAmounts(response.data);
+        setPrevMonthAmounts(response.data[filteredYear][filteredMonth - 1])
       })
       .catch(error => {
         console.error('Error fetching monthly amounts:', error)
       })
   },[])
+
 
   /* 함수 재사용 예정 */
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
@@ -60,14 +63,32 @@ const Manage = () => {
   }
 
 
-  /* list와 현재의 월별 비교 */
-  /* match와 같은 함수(중복) */
-  const dateMatchingList = list.filter((manage) => {
-    const manageDate = new Date(manage.date);
-    const manageYear = manageDate.getFullYear();
-    const manageMonth = manageDate.getMonth() + 1;
-    return filteredYear === manageYear && filteredMonth === manageMonth;
-  })
+  /* list와 현재의 월별 비교 및 상태관리 */
+  const [dateMatchingList, setDateMatchingList] = useState([]);
+
+  useEffect(() => {
+    const dateMatching = list.filter((manage) => {
+      const manageDate = new Date(manage.date);
+      const manageYear = manageDate.getFullYear();
+      const manageMonth = manageDate.getMonth() + 1;
+      return filteredYear === manageYear && filteredMonth === manageMonth;
+    });
+    setDateMatchingList(dateMatching);
+  }, [list, filteredYear, filteredMonth]);
+  
+  /* 당월 수익/지출 조건 + 합계 계산 */
+  useEffect(() => {
+    const profitCondition = item => item.type === '회비'|| item.type ==='지각' || item.type === '결석';
+    const lossCondition = item => item.type === '구장'|| item.type ==='음료' || item.type === '장비';
+
+    const profitAmounts = dateMatchingList.filter(profitCondition).reduce((acc, cur) => acc + parseFloat(cur.amount), 0);
+    const lossAmounts = dateMatchingList.filter(lossCondition).reduce((acc, cur) => acc + parseFloat(cur.amount), 0);
+
+    setMonthlyAmounts({profit: profitAmounts, loss: lossAmounts})
+  }, [dateMatchingList])
+
+  /* 총액 계산 (이월총액 + 당월수익 - 당월지출) */
+  const totalAmounts = prevMonthAmounts + monthlyAmounts.profit - monthlyAmounts.loss;
 
   /* 모달창 닫기 */
   const onCloseModal= () => {
@@ -113,12 +134,12 @@ const Manage = () => {
                 </div>
                 <div className='total-amount'>
                   <div className='money-category'>회비잔액</div>
-                  <strong className='amount'>총액</strong>
+                  <strong className='amount'>{totalAmounts}</strong>
                 </div>
               </div>
 
               {/* 리스트 목록 */}
-              <ManageList dateMatchingList={dateMatchingList} setMonthlyAmounts={setMonthlyAmounts}/>
+              <ManageList dateMatchingList={dateMatchingList} />
 
               {/* 모달창 열고닫기만 하는기능. */}
               <button onClick={addExpenseInfo}>수입/지출 입력</button>
