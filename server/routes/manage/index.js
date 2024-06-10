@@ -44,7 +44,6 @@ router.get('/amounts', async (req, res) => {
       monthlyAmounts[year][month] += amount;
     });
     res.json(monthlyAmounts);
-    console.log(monthlyAmounts)
     } catch(error) {
       console.error('Error while calculating monthly amounts:', error);
       res.status(500).json({ error: 'Internal server error' });

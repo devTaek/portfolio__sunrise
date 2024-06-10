@@ -35,34 +35,34 @@ const Manage = () => {
     axios.get('http://localhost:3001/api/manages/amounts')
       .then(response => {
         setAmounts(response.data);
-        setPrevMonthAmounts(response.data[filteredYear][filteredMonth - 1])
+      })
+      .then(response => {
+        setPrevMonthAmounts(response.data);
       })
       .catch(error => {
         console.error('Error fetching monthly amounts:', error)
       })
   },[])
-
-
   /* 함수 재사용 예정 */
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
   const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
   
-  const prevMonthBtn = () => {
-    setFilteredMonth(filteredMonth-1);
-    if(filteredMonth <= 1) {
-      setFilteredMonth(12);
-      setFilteredYear(filteredYear - 1);
+  // 월 이동
+  const changeMonth = (diff) => {
+    let month = filteredMonth + diff;
+    let year = filteredYear;
+    if(month < 1) {
+      month = 12;
+      year -= 1;
+    } else if (month > 12) {
+      month = 1;
+      year += 1;
     }
-  }
-  const nextMonthBtn = () => {
-    setFilteredMonth(filteredMonth+1);
-    if(filteredMonth >= 12) {
-      setFilteredMonth(1);
-      setFilteredYear(filteredYear + 1);
-    }
-  }
 
-
+    setFilteredMonth(month);
+    setFilteredYear(year);
+  }
+  
   /* list와 현재의 월별 비교 및 상태관리 */
   const [dateMatchingList, setDateMatchingList] = useState([]);
 
@@ -84,12 +84,24 @@ const Manage = () => {
     const profitAmounts = dateMatchingList.filter(profitCondition).reduce((acc, cur) => acc + parseFloat(cur.amount), 0);
     const lossAmounts = dateMatchingList.filter(lossCondition).reduce((acc, cur) => acc + parseFloat(cur.amount), 0);
 
-    setMonthlyAmounts({profit: profitAmounts, loss: lossAmounts})
+    setMonthlyAmounts({profit: profitAmounts, loss: lossAmounts});
+    console.log('amounts[filteredYear][filteredMonth] : ',amounts[filteredYear]?.[filteredMonth])
+    // month-1이 존재하지 않을수도. 인덱스인지? 몇월인지 모름.
+    // setPrevMonthAmounts(amounts[filteredYear][filteredMonth - 1]);
   }, [dateMatchingList])
 
   /* 총액 계산 (이월총액 + 당월수익 - 당월지출) */
   const totalAmounts = prevMonthAmounts + monthlyAmounts.profit - monthlyAmounts.loss;
 
+
+  console.log('amounts : ', amounts)
+
+  console.log('prevMonthAmounts : ', prevMonthAmounts);
+  console.log('monthlyAmounts.profit  : ', monthlyAmounts.profit )
+  console.log('monthlyAmounts.loss : ', monthlyAmounts.loss);
+  
+
+  
   /* 모달창 닫기 */
   const onCloseModal= () => {
     setIsModalOpen(false);
@@ -118,8 +130,7 @@ const Manage = () => {
               <DateFilter 
                 filteredMonth={filteredMonth}
                 filteredYear={filteredYear}
-                prevMonthBtn={prevMonthBtn}
-                nextMonthBtn={nextMonthBtn}
+                changeMonth={changeMonth}
               />
 
               <div className='total-money-box'> {/* 클래스명 수정필요 */}

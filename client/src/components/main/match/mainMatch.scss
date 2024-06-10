@@ -6,9 +6,40 @@
   .gap {
     width: 100%;
     overflow: hidden;
+    .date-filter {
+      display: flex;
+      gap: 10px;
+    }
     ul {
       transition: transform 0.5s ease;
+      // position: relative;
     }
+    // button {
+    //   position: absolute;
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: space-between;
+    //   width: 44px;
+    //   height: 44px;
+    //   padding: 16px;
+    //   gap: 10px;
+    //   border: 1px solid #000;
+    //   border-radius: 100px;
+    //   background: rgba(255, 255, 255, 0.10);
+    //   cursor: pointer;
+    //   img {
+    //     width: 32px;
+    //     height: 32px;
+    //     @media all and (max-width: 767px) {
+    //       width: 16px;
+    //       height: 16px;
+    //     }
+    //     @media all and (max-width: 360px) {
+    //       width: 8px;
+    //       height: 8px;
+    //     }
+    //   }
+    // }
     .main_latest_match {
       display: flex;
       height: 300px;

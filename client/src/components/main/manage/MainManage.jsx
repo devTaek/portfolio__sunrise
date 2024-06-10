@@ -24,7 +24,6 @@ const MainManage = () => {
     return filteredYear === manageYear && filteredMonth === manageMonth;
     
   })
-  console.log(filteredManages);
   
   const onClickPrevMonth = () => {
     setFilteredMonth(filteredMonth-1);

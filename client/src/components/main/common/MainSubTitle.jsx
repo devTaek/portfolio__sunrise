@@ -15,6 +15,22 @@ const MainSubTitle = ({
   onClickNextMonth
 }) => {
   
+  // 월 이동
+  const changeMonth = (diff) => {
+    let month = filteredMonth + diff;
+    let year = filteredYear;
+    if(month < 1) {
+      month = 12;
+      year -= 1;
+    } else if (month > 12) {
+      month = 1;
+      year += 1;
+    }
+
+    setFilteredMonth(month);
+    setFilteredYear(year);
+  }
+
   return (
     <MainSubTitleBox>
       <div className='main_players_sub_title'>
@@ -26,8 +42,7 @@ const MainSubTitle = ({
           <DateFilter 
             filteredMonth={filteredMonth}
             filteredYear={filteredYear}
-            onClickPrevMonth={onClickPrevMonth}
-            onClickNextMonth={onClickNextMonth}
+            changeMonth={changeMonth}
           />
         </div>
       )}
