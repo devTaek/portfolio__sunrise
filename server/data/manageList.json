@@ -3,142 +3,128 @@
     {
       "type": "회비",
       "detail": "정태균",
-      "amount": "20000",
+      "amount": "100000",
+      "extra_info": "test1",
+      "date": "2024-01-01"
+    },
+    {
+      "type": "회비",
+      "detail": "정태균",
+      "amount": "200000",
+      "extra_info": "test2",
+      "date": "2024-02-01"
+    },
+    {
+      "type": "회비",
+      "detail": "정태균",
+      "amount": "300000",
+      "extra_info": "test3",
+      "date": "2024-03-01"
+    },
+    {
+      "type": "회비",
+      "detail": "정태균",
+      "amount": "10000",
+      "extra_info": "test4",
+      "date": "2024-04-04"
+    },
+    {
+      "type": "회비",
+      "detail": "정태균",
+      "amount": "10000",
+      "extra_info": "4월",
+      "date": "2024-04-05"
+    },
+    {
+      "type": "회비",
+      "detail": "정태균",
+      "amount": "10000",
+      "extra_info": "4월",
+      "date": "2024-04-01"
+    },
+    {
+      "type": "회비",
+      "detail": "정태균",
+      "amount": "10000",
+      "extra_info": "4월",
+      "date": "2024-04-01"
+    },
+    {
+      "type": "회비",
+      "detail": "정태균",
+      "amount": "10000",
       "extra_info": "5월",
       "date": "2024-05-01"
     },
     {
       "type": "회비",
-      "detail": "서정훈",
-      "amount": "20000",
+      "detail": "정태균",
+      "amount": "10000",
       "extra_info": "5월",
-      "date": "2024-05-14"
+      "date": "2024-05-01"
     },
     {
       "type": "회비",
-      "detail": "이경부",
-      "amount": "20000",
+      "detail": "정태균",
+      "amount": "10000",
       "extra_info": "5월",
       "date": "2024-05-06"
     },
     {
       "type": "회비",
-      "detail": "이혁",
-      "amount": "20000",
+      "detail": "정태균",
+      "amount": "10000",
       "extra_info": "5월",
-      "date": "2024-05-09"
+      "date": "2024-05-04"
     },
     {
       "type": "회비",
-      "detail": "한성수",
-      "amount": "20000",
-      "extra_info": "5월",
-      "date": "2024-05-05"
-    },
-    {
-      "type": "회비",
-      "detail": "배태림",
-      "amount": "20000",
+      "detail": "정태균",
+      "amount": "10000",
       "extra_info": "5월",
       "date": "2024-05-01"
-    },
-    {
-      "type": "회비",
-      "detail": "이종명",
-      "amount": "20000",
-      "extra_info": "5월",
-      "date": "2024-05-03"
-    },
-    {
-      "type": "회비",
-      "detail": "박성우",
-      "amount": "20000",
-      "extra_info": "5월",
-      "date": "2024-05-08"
-    },
-    {
-      "type": "회비",
-      "detail": "박오수",
-      "amount": "20000",
-      "extra_info": "5월",
-      "date": "2024-05-03"
-    },
-    {
-      "type": "회비",
-      "detail": "최경민",
-      "amount": "20000",
-      "extra_info": "5월",
-      "date": "2024-05-14"
-    },
-    {
-      "type": "회비",
-      "detail": "백재우",
-      "amount": "20000",
-      "extra_info": "5월",
-      "date": "2024-05-01"
-    },
-    {
-      "type": "회비",
-      "detail": "송충석",
-      "amount": "20000",
-      "extra_info": "5월",
-      "date": "2024-05-01"
-    },
-    {
-      "type": "회비",
-      "detail": "박준호",
-      "amount": "20000",
-      "extra_info": "5월",
-      "date": "2024-05-06"
-    },
-    {
-      "type": "회비",
-      "detail": "육준호",
-      "amount": "20000",
-      "extra_info": "5월",
-      "date": "2024-05-02"
-    },
-    {
-      "type": "회비",
-      "detail": "나예석",
-      "amount": "20000",
-      "extra_info": "5월",
-      "date": "2024-05-10"
-    },
-    {
-      "type": "회비",
-      "detail": "임정현",
-      "amount": "20000",
-      "extra_info": "5월",
-      "date": "2024-05-02"
-    },
-    {
-      "type": "회비",
-      "detail": "이대현",
-      "amount": "20000",
-      "extra_info": "5월",
-      "date": "2024-05-03"
     },
     {
       "type": "구장",
-      "detail": "종운",
-      "amount": "70300",
-      "extra_info": "5월",
-      "date": "2024-05-16"
+      "detail": "천마",
+      "amount": "-10000",
+      "extra_info": "6월",
+      "date": "2024-06-10"
     },
     {
-      "type": "음료",
-      "detail": "물",
-      "amount": "1",
-      "extra_info": "test1",
-      "date": "2024-05-30T18:16:32.505Z"
+      "type": "구장",
+      "detail": "천마",
+      "amount": "-10000",
+      "extra_info": "6월",
+      "date": "2024-06-04"
     },
     {
-      "type": "지각",
-      "detail": "나예석",
-      "amount": "2",
-      "extra_info": "test2",
-      "date": "2024-05-30T18:18:12.666Z"
+      "type": "구장",
+      "detail": "천마",
+      "amount": "-10000",
+      "extra_info": "6월",
+      "date": "2024-06-14"
+    },
+    {
+      "type": "구장",
+      "detail": "천마",
+      "amount": "-10000",
+      "extra_info": "6월",
+      "date": "2024-06-16"
+    },
+    {
+      "type": "구장",
+      "detail": "천마",
+      "amount": "-10000",
+      "extra_info": "6월",
+      "date": "2024-06-11"
+    },
+    {
+      "type": "구장",
+      "detail": "천마",
+      "amount": "-10000",
+      "extra_info": "6월",
+      "date": "2024-06-10"
     }
   ]
 }

@@ -56,10 +56,16 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
   const formSubmit = (e) => {
     // 기본 동작 방지: 폼이 제출될 때 페이지 새로고침을 방지하려면 e.preventDefault()를 사용
     e.preventDefault();
+
+    let amount = parseFloat(formFields.amount);
+    if(['구장', '음료', '장비'].includes(formFields.type)) {
+      amount = -amount;
+    }
+
     const newData = {
       type: formFields.type,
       detail: formFields.detail,
-      amount: formFields.amount,
+      amount: amount,
       extra_info: formFields.extra_info,
       date: new Date().toISOString().split('T')[0],  // 현재 날짜 추가
     }

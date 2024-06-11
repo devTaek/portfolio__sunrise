@@ -15,15 +15,17 @@ const Manage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [list, setList] = useState([]);
+  const [amounts, setAmounts]= useState({})         // 각 월 총액
+  const [dateMatchingList, setDateMatchingList] = useState([]);
+  const [prevMonthAmounts, setPrevMonthAmounts] = useState(0);  // 전 월 총액
+  const [monthlyAmounts, setMonthlyAmounts] = useState({profit: 0,loss: 0});
+  const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
+  const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
+
   
-  const [prevMonthAmounts, setPrevMonthAmounts] = useState(0);
-  const [monthlyAmounts, setMonthlyAmounts] = useState({
-    profit: 0,
-    loss: 0
-  });
-  const [amounts, setAmounts]= useState({})
-
-
+    /* 총액 계산 (이월총액 + 당월수익 - 당월지출) */
+    // prevMonthAmounts는 현재 달에 대한 이월금액이므로,
+    const totalAmounts = prevMonthAmounts + monthlyAmounts.profit + monthlyAmounts.loss;
 
   /* manageList -> list */
   useEffect(() => {
@@ -34,19 +36,28 @@ const Manage = () => {
   useEffect(() => {
     axios.get('http://localhost:3001/api/manages/amounts')
       .then(response => {
-        setAmounts(response.data);
-      })
-      .then(response => {
-        setPrevMonthAmounts(response.data);
+        let data = response.data;
+        setAmounts(data);
+
+        // 여기다. prevMonthAmounts 는 전월에 대한 합한값.
+        const prevMonth = filteredMonth - 1;
+        let prevMonthData = 0;
+        for(let i=1; i < filteredMonth; i++) {
+          if (filteredYear === new Date().getFullYear() && i < new Date().getMonth() + 1) {
+            if (data[i + '월']) {
+                prevMonthData += data[i + '월'];
+            }
+        }
+        }
+        console.log('이전 달까지의 데이터 합산: ', prevMonthData);
+        setPrevMonthAmounts(prevMonthData);
       })
       .catch(error => {
-        console.error('Error fetching monthly amounts:', error)
-      })
-  },[])
-  /* 함수 재사용 예정 */
-  const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
-  const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
-  
+        console.error('Error fetching monthly amounts:', error);
+      });
+  }, [filteredMonth]);
+
+
   // 월 이동
   const changeMonth = (diff) => {
     let month = filteredMonth + diff;
@@ -62,10 +73,8 @@ const Manage = () => {
     setFilteredMonth(month);
     setFilteredYear(year);
   }
-  
-  /* list와 현재의 월별 비교 및 상태관리 */
-  const [dateMatchingList, setDateMatchingList] = useState([]);
 
+  // 동일 월 맞추기
   useEffect(() => {
     const dateMatching = list.filter((manage) => {
       const manageDate = new Date(manage.date);
@@ -75,33 +84,22 @@ const Manage = () => {
     });
     setDateMatchingList(dateMatching);
   }, [list, filteredYear, filteredMonth]);
-  
+
   /* 당월 수익/지출 조건 + 합계 계산 */
   useEffect(() => {
     const profitCondition = item => item.type === '회비'|| item.type ==='지각' || item.type === '결석';
     const lossCondition = item => item.type === '구장'|| item.type ==='음료' || item.type === '장비';
 
-    const profitAmounts = dateMatchingList.filter(profitCondition).reduce((acc, cur) => acc + parseFloat(cur.amount), 0);
-    const lossAmounts = dateMatchingList.filter(lossCondition).reduce((acc, cur) => acc + parseFloat(cur.amount), 0);
+    const dataReduce = (acc, cur) => acc + parseFloat(cur.amount);
+    const profitAmounts = dateMatchingList.filter(profitCondition).reduce(dataReduce, 0);
+    const lossAmounts = dateMatchingList.filter(lossCondition).reduce(dataReduce, 0);
 
     setMonthlyAmounts({profit: profitAmounts, loss: lossAmounts});
-    console.log('amounts[filteredYear][filteredMonth] : ',amounts[filteredYear]?.[filteredMonth])
-    // month-1이 존재하지 않을수도. 인덱스인지? 몇월인지 모름.
-    // setPrevMonthAmounts(amounts[filteredYear][filteredMonth - 1]);
-  }, [dateMatchingList])
-
-  /* 총액 계산 (이월총액 + 당월수익 - 당월지출) */
-  const totalAmounts = prevMonthAmounts + monthlyAmounts.profit - monthlyAmounts.loss;
+  }, [dateMatchingList]);
 
 
-  console.log('amounts : ', amounts)
 
-  console.log('prevMonthAmounts : ', prevMonthAmounts);
-  console.log('monthlyAmounts.profit  : ', monthlyAmounts.profit )
-  console.log('monthlyAmounts.loss : ', monthlyAmounts.loss);
-  
 
-  
   /* 모달창 닫기 */
   const onCloseModal= () => {
     setIsModalOpen(false);
@@ -111,6 +109,15 @@ const Manage = () => {
   const addExpenseInfo = ()=> {
     setIsModalOpen(true);
   }
+
+
+  // console.log('dateMatchingList: ', dateMatchingList);
+  // console.log('monthlymounts: ', monthlyAmounts);
+  // console.log('prevMonthAmounts: ', prevMonthAmounts);
+  // console.log('monthlyAmounts.profit: ', monthlyAmounts.profit);
+  // console.log('monthlyAmounts.loss: ', monthlyAmounts.loss);
+  // console.log('filteredMonth: ', filteredMonth);
+  console.log('amounts: ', amounts);
 
   return (
     <>
