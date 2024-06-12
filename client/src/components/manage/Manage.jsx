@@ -39,9 +39,7 @@ const Manage = () => {
         let data = response.data;
         setAmounts(data);
 
-        // 여기다. prevMonthAmounts 는 전월에 대한 합한값.
-        const prevMonth = filteredMonth - 1;
-        let prevMonthData = 0;
+        let prevMonthData = 702260;   // 초기값
         for(let i=1; i < filteredMonth; i++) {
           if (filteredYear === new Date().getFullYear() && i < new Date().getMonth() + 1) {
             if (data[i + '월']) {
@@ -49,7 +47,7 @@ const Manage = () => {
             }
         }
         }
-        console.log('이전 달까지의 데이터 합산: ', prevMonthData);
+        
         setPrevMonthAmounts(prevMonthData);
       })
       .catch(error => {
@@ -88,7 +86,7 @@ const Manage = () => {
   /* 당월 수익/지출 조건 + 합계 계산 */
   useEffect(() => {
     const profitCondition = item => item.type === '회비'|| item.type ==='지각' || item.type === '결석';
-    const lossCondition = item => item.type === '구장'|| item.type ==='음료' || item.type === '장비';
+    const lossCondition = item => item.type === '구장'|| item.type ==='음료' || item.type === '장비' || item.type ==='주차비';
 
     const dataReduce = (acc, cur) => acc + parseFloat(cur.amount);
     const profitAmounts = dateMatchingList.filter(profitCondition).reduce(dataReduce, 0);
@@ -110,15 +108,7 @@ const Manage = () => {
     setIsModalOpen(true);
   }
 
-
-  // console.log('dateMatchingList: ', dateMatchingList);
-  // console.log('monthlymounts: ', monthlyAmounts);
-  // console.log('prevMonthAmounts: ', prevMonthAmounts);
-  // console.log('monthlyAmounts.profit: ', monthlyAmounts.profit);
-  // console.log('monthlyAmounts.loss: ', monthlyAmounts.loss);
-  // console.log('filteredMonth: ', filteredMonth);
-  console.log('amounts: ', amounts);
-
+  
   return (
     <>
     {isModalOpen && <Modal
@@ -144,15 +134,15 @@ const Manage = () => {
                 <div className='received-money'>
                   <div className='money-category'>회비수익</div>
                   {/* 서버에서 결과값 가져오자 */}
-                  <strong className='amount'>{monthlyAmounts.profit}</strong>
+                  <strong className='amount'>{monthlyAmounts.profit.toLocaleString()}</strong>
                 </div>
                 <div className='expense-money'>
                   <div className='money-category'>회비지출</div>
-                  <strong className='amount'>{monthlyAmounts.loss}</strong>
+                  <strong className='amount'>{monthlyAmounts.loss.toLocaleString()}</strong>
                 </div>
                 <div className='total-amount'>
                   <div className='money-category'>회비잔액</div>
-                  <strong className='amount'>{totalAmounts}</strong>
+                  <strong className='amount'>{totalAmounts.toLocaleString()}</strong>
                 </div>
               </div>
 

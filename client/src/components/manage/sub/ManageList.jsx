@@ -15,8 +15,8 @@ const ManageList = ({ dateMatchingList }) => {
   // 수익, 지출 리스트 조건부 필터링
   const [filteredList, setFilteredList] = useState([]);
 
-  const profitCondition = item => item.type === '회비'|| item.type ==='지각' || item.type === '결석'
-  const lossCondition = item => item.type === '구장'|| item.type ==='음료' || item.type === '장비'
+  const profitCondition = item => item.type === '회비'|| item.type ==='지각' || item.type === '결석';
+  const lossCondition = item => item.type === '구장'|| item.type ==='음료' || item.type === '장비' || item.type ==='주차비';
 
   // 전체, 수익, 지출 조건부
   useEffect(() => {
@@ -57,8 +57,8 @@ const ManageList = ({ dateMatchingList }) => {
             {item.img ? <img src={`./img/Player/${item.img}`} alt="" /> : ''}
             {item.detail}
           </div>
-          <div style={{color:`white`}} className='amount'>
-            {item.amount}
+          <div style={{color : parseInt(item.amount) > 0 ? 'green' : 'red'}} className='amount'>
+            {Math.abs(parseInt(item.amount)).toLocaleString()}
           </div>
           <div className='extra_info'>
             {item.extra_info}

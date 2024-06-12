@@ -10,24 +10,17 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
 
   const playGround = [{name:'천마'}, {name:'마루'}, {name:'종운'}];
 
+  const week = [{name: '1주차'},{name: '2주차'},{name: '3주차'},{name: '4주차'},{name: '5주차'}];
+
   // 모달 데이터
   const [formFields, setFormFields] = useState(
     {
       type: '',
-      detail: '김지강',
+      detail: '',
       amount: 0,
       extra_info: '',
     }
   )
-  // formFields 초기화
-  const resetFormFields = () => {
-    setFormFields({
-      type: '',
-      detail: '김지강',
-      amount: 0,
-      extra_info: '',
-    });
-  };
   
   const onChangeInfo = (e) => {
     const {name, value} = e.target;
@@ -40,12 +33,16 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
   // type에 따른 detail 항목 변화
   const selectedType = (e) => {
     const name = e.target.value;
+
     if(['회비', '지각', '결석'].includes(name)) {
       // 변경된 option
       setDetailType(playersList)
     }
     else if(name === '구장') {
       setDetailType(playGround)
+    }
+    else if(name === '주차비') {
+      setDetailType(week)
     }
     else if(name === '음료' || name === '장비') {
       setDetailType(null)
@@ -58,7 +55,7 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
     e.preventDefault();
 
     let amount = parseFloat(formFields.amount);
-    if(['구장', '음료', '장비'].includes(formFields.type)) {
+    if(['구장', '음료', '장비', '주차비'].includes(formFields.type)) {
       amount = -amount;
     }
 
@@ -74,14 +71,12 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
       .then((response) => {
         setList((prev) => [...prev, response.data]);
         onCloseModal();
-        resetFormFields();
       })
       .catch((error) => {
         console.error('error: ', error);
       });
 
     onCloseModal();
-    resetFormFields();
   }
 
 
@@ -109,15 +104,17 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
             <option value="구장">구장</option>
             <option value="음료">음료</option>
             <option value="장비">장비</option>
+            <option value="주차비">주차비</option>
           </select>
         </label>
         <label>
           내역
           {
             detailType === null ? 
-              (<input type="text" name="detail" placeholder="세부 사항 입력" />) 
+              (<input type="text" name="detail" placeholder="세부 사항 입력"/>) 
               :
-              <select name="detail" id="detail">
+              <select name="detail" id="detail"  value={formFields.detail}>
+                <option value="" disabled hidden>선택</option>
                 {detailType && detailType.map((item,id)=>(
                   <option key={id} value={item.name}>{item.name}</option>
                 ))}
