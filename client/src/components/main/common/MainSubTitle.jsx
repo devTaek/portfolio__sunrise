@@ -6,13 +6,10 @@ const MainSubTitle = ({
   title,
   to,
   showBtns,
-  date,
   filteredMonth,
   setFilteredMonth,
   filteredYear,
   setFilteredYear,
-  onClickPrevMonth,
-  onClickNextMonth
 }) => {
   
   // 월 이동
@@ -33,7 +30,7 @@ const MainSubTitle = ({
 
   return (
     <MainSubTitleBox>
-      <div className='main_players_sub_title'>
+      <div className='main-sub-title'>
         <h3>{title}</h3>
         <Link to={to} style={{paddingLeft: `10px`}}>+view more</Link>
       </div>
@@ -60,7 +57,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 color: white;
-.main_players_sub_title {
+.main-sub-title {
   display: flex;
   justify-contents: space-between;
   h3 {

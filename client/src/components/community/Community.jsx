@@ -7,17 +7,13 @@ import BoardTilte from '../common/BoardTilte';
 import Notice from './sub/Notice';
 
 import Gallery from './sub/Gallery';
-import Suggetsion from './sub/Suggetsion';
+import Suggetsion from './sub/Suggestion';
 
 const Community = () => {
   const {communityList} = useContext(CommunityContext);
   const {galleryList} = useContext(GalleryContext)
   const [selectedOption, setSelectedOption] = useState('공지사항');
-  // const location = useLocation();
-  // console.log(location);
-  // useEffect(() => {
-  //   console.log(location)
-  // }, [location])
+
   const options = [
     '공지사항',
     '갤러리',

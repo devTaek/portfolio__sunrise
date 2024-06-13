@@ -41,11 +41,10 @@ const MainManage = () => {
   }
   return (
     <div className="main_manage">
-      <div className="gap">
+      <div className="container">
         <MainSubTitle
           title='MANAGE'
           to='/manage'
-          date='2024.4'
           showBtns={true}
           filteredMonth={filteredMonth}
           filteredYear={filteredYear}
@@ -54,7 +53,7 @@ const MainManage = () => {
           onClickPrevMonth={onClickPrevMonth}
           onClickNextMonth={onClickNextMonth}
         />
-        <div className="fee_box">
+        <div className="fee-box">
           <ManageBox 
             boxTitle='수익'
             img={'income-icon.png'}

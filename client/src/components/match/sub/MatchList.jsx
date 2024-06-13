@@ -8,7 +8,7 @@ const MatchList = ({filteredMatches}) => {
               <div className="matchPlace">{item.where}</div>
             </div>
             <div className="center">
-              <div className="col-gap">
+              <div className="gap">
                 <span className='homeTeam'>{item.home}</span>
                 <i><img src={`./img/${item.home_logo}`} alt="" /></i>
                 <span>{item.home_score}</span>    {/* 더 높은 점수가 노란 글씨 입도록! */}

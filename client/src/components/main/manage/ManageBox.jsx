@@ -61,7 +61,7 @@ const ManageBox = ({boxTitle, img, option, filteredManages}) => {
           src={`./img/${img}`} alt=""
         />
       </div>
-      <div className="amount">{amounts}</div>
+      <div className="amount">{parseInt(amounts).toLocaleString()} ₩</div>
       <ul className="category">
         <li>구분</li>
         <li>내역</li>
@@ -72,7 +72,7 @@ const ManageBox = ({boxTitle, img, option, filteredManages}) => {
           <li key={id}>
             <span>{item.type}</span>
             <span>{item.detail}</span>
-            <span>{item.amount}</span>
+            <span style={{color : parseInt(item.amount) > 0 ? 'green' : 'red'}}>{Math.abs(parseInt(item.amount)).toLocaleString()}</span>
           </li>
         ))}
       </ul>
@@ -83,9 +83,10 @@ const ManageBox = ({boxTitle, img, option, filteredManages}) => {
 export default ManageBox
 
 const ManageBoxContainer = styled.div`
-  width: 47%;
-  height: 100%;
+  width: 48%;
+  height: 600px;
   min-height: 500px;
+  overflow: hidden;
   background-color: #18182C;
   border-radius: 40px;
   color: white;
