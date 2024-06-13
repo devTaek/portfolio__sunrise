@@ -1,14 +1,12 @@
-import {useContext} from 'react'
+import {useContext, useState} from 'react'
 import {CommunityContext, GalleryContext} from '../../../store/Context/SunriseContext'
 import MainSubTitle from '../common/MainSubTitle'
 import './mainCommunity.scss';
+import Content from './sub/Content';
 
 const MainCommunity = () => {
   const {communityList} = useContext(CommunityContext);
   const gallery = useContext(GalleryContext);
-
-
-  console.log(gallery)
 
   return (
     <div className="main-community">
@@ -29,19 +27,28 @@ const MainCommunity = () => {
           </div>
           <div>
             <div className="main-notice">
-              <div className="content">
-                <div className="title">Notice</div>
-                <div><strong>기업은행: 01081268890</strong></div>
-                <div>회비: 20,000</div>
-              </div>
+                <Content 
+                  title="Notice"
+                  content={
+                    <div className='details'>
+                      <div><strong>회비</strong> 20,000</div>
+                      <div><strong>용병</strong> 5,000</div>
+                      <div>기업은행 01081268890 (정태균)</div>
+                    </div>
+                  }
+                />
             </div>
             <div className="main-suggestion">
-              <ul className="content">
-                <li className="title">Suggestion</li>
-                <li>010-8126-8890</li>
-                <li>d.taegyun@gmail.com</li>
-              </ul>
-            </div>
+              <Content 
+                  title="Suggestion"
+                  content={
+                    <div className='details'>
+                      <div><strong>email</strong> d.taegyun@gmail.com</div>
+                      <div><strong>phone</strong>010-8126-8890</div>
+                  </div>
+                  }
+                />
+              </div>
           </div>
         </div>
       </div>
