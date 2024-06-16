@@ -26,16 +26,19 @@
             width: 100%;
             display: flex;
             align-items: center;
-            align-self: stretch;
             justify-content: space-between;
+            padding-bottom: 28px;
             @media all and (max-width: 1023px) {
               padding-bottom: 24px;
               border-bottom: 3px solid #fff;
             }
             button {
-              display: flex;
+              width: 44px;
+              height: 44px;
               padding: 16px;
+              display: flex;
               align-items: center;
+              justify-content: center;
               gap: 10px;
               border: 1px solid #000;
               border-radius: 100px;
@@ -47,6 +50,10 @@
                 @media all and (max-width: 767px) {
                   width: 16px;
                   height: 16px;
+                }
+                @media all and (max-width: 360px) {
+                  width: 8px;
+                  height: 8px;
                 }
               }
             }

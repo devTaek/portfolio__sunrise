@@ -94,6 +94,7 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
     <SelectedComponent ref={dialog}>
       <Button  onClick={onCloseModal}>X</Button>
       <form className='manage-form' onSubmit={formSubmit} onChange={onChangeInfo} method='post'>
+        <div className="title">수입 / 지출 입력</div>
         <label>
           구분
           <select name="type" id="type" onChange={selectedType}>
@@ -129,7 +130,7 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
           비고
           <textarea name="extra_info" id="extra_info" cols="60" rows="3" placeholder='할말더있어?'></textarea>
         </label>
-        <button type="submit">등록</button>
+        <button className='submit-btn' type="submit">등록</button>
       </form>
     </SelectedComponent>,
     document.getElementById('modal')
@@ -144,7 +145,8 @@ const SelectedComponent = styled.div`
   position: fixed;
   top: 55%;
   left: 50%;
-  width: 60%;
+  width: 30%;
+  height: 80%;
   transform: translate(-50%, -50%);
   margin: 0 auto;
   background: #0D0F19;
@@ -166,14 +168,39 @@ const SelectedComponent = styled.div`
       margin: 10px auto;
     }
   }
+  .title {
+    display: flex;
+    align-items: center;
+    color: white;
+    height: 85px;
+    font-size: 24px;
+  }
   label {
     display: grid;
     color: white;
+    height: 85px;
+    font-size: 12px;
+    align-items: center;
+    margin: 20px 0;
+    select, input, textarea {
+      height: 60px;
+        background: #22233B;
+        color: white;
+        border: none;
+        border-radius: 16px;
+        padding: 7px;
+    }
   }
   input[type='number']::-webkit-inner-spin-button,
   input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
-    margin: 0;
+  }
+  .submit-btn {
+    width: 100%;
+    height: 85px;
+    border: none;
+    border-radius: 16px;
+    font-size: 32px;
   }
 `;
 

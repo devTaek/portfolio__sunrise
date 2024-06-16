@@ -11,19 +11,21 @@ const Match = () => {
 
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
   const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
-  const prevMonthBtn = () => {
-    setFilteredMonth(filteredMonth-1);
-    if(filteredMonth <= 1) {
-      setFilteredMonth(12);
-      setFilteredYear(filteredYear - 1);
+
+  // 월 이동
+  const changeMonth = (diff) => {
+    let month = filteredMonth + diff;
+    let year = filteredYear;
+    if(month < 1) {
+      month = 12;
+      year -= 1;
+    } else if (month > 12) {
+      month = 1;
+      year += 1;
     }
-  }
-  const nextMonthBtn = () => {
-    setFilteredMonth(filteredMonth+1);
-    if(filteredMonth >= 12) {
-      setFilteredMonth(1);
-      setFilteredYear(filteredYear + 1);
-    }
+
+    setFilteredMonth(month);
+    setFilteredYear(year);
   }
 
   
@@ -44,10 +46,8 @@ const Match = () => {
               <DateFilter
                 filteredMonth={filteredMonth}
                 filteredYear={filteredYear}
-                prevMonthBtn={prevMonthBtn}
-                nextMonthBtn={nextMonthBtn}
+                changeMonth={changeMonth}
               />
-            
             <div className="row2">
               <span style={{textAlign: `left`}}>경기일정</span>
               <span>스코어</span>
