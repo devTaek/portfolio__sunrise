@@ -33,7 +33,7 @@ const MainMatch= () => {
           setFilteredYear={setFilteredYear}
         />
         <div className="gap">
-          <button className="prev_btn" onClick={prevMonthBtn}>왼쪽</button>
+          <button className="prev_btn" onClick={prevMonthBtn}><img src="./img/pc-prev-btn.png" alt="" /></button>
           <ul style={{
             width: `${matchList.length * 100}%`,
             transform: `translateX(-${currentIndex * (100 / matchList.length)}%)`
@@ -46,7 +46,7 @@ const MainMatch= () => {
               </li>
             ))}
           </ul>
-          <button className="next_btn" onClick={nextMonthBtn}>오른쪽</button>
+          <button className="next_btn" onClick={nextMonthBtn}><img src="./img/pc-next-btn.png" alt="" /></button>
         </div>
       </div>
     </div>

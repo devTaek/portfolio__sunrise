@@ -90,7 +90,6 @@ const ManageBoxContainer = styled.div`
   background-color: #18182C;
   border-radius: 40px;
   color: white;
-  margin: 10px;
   img {
     background-color: ${img => img === 'income-icon.png' ? '#2DBE85' : '#FC3044'};
     border-radius: 20px;

@@ -29,9 +29,8 @@ function Header() {
       window.removeEventListener('resize', handleResize);
     };
   }, [isToggled, isMobileView]);
-
   return (
-    <header style={{fontFamily: `Pretendard`}} id="header">
+    <header id="header">
       <div className="container">
         <div className="gap">
           <div className="logo">

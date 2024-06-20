@@ -40,7 +40,7 @@ const MainManage = () => {
     }
   }
   return (
-    <div className="main_manage">
+    <div className="main-manage">
       <div className="container">
         <MainSubTitle
           title='MANAGE'

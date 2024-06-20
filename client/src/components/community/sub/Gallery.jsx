@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import BoardTilte from '../../common/BoardTilte'
 
 const Gallery = ({galleryList}) => {
   return (
@@ -20,17 +19,22 @@ export default Gallery
 
 const GalleryContainer = styled.div`
   width: 100%;
-  padding: 80px 0;
   ul {
     width: 100%;
     display: flex;
     flex-flow: wrap;
-      align-items: center;
-      justify-content: center;
+    padding: 80px 0;
+    align-items: center;
+    justify-content: center;
     li {
+      overflow: hidden;
       img {
         width: 400px;
         height: 400px;
+        transition: all 0.6s;
+              &:hover {
+                transform: scale(1.1);
+              }
       }
     }
   }

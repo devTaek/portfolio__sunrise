@@ -26,7 +26,6 @@ const Button = styled.button`
     setCurrentPage,
     currentPage
   }) {
-  console.log(postsPerPage)
   const pageList = [];
 
   // 현재 postsNum과 postsPerPage의 값이 같다.

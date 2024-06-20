@@ -8,8 +8,8 @@ const MainPlayers = () => {
   const {playersList} = useContext(PlayersContext);
 
   return (
-    <div className="main_players">
-      <div className="gap">
+    <div className="main-players">
+      <div className="container">
         <MainSubTitle 
           title='PLAYERS'
           to='/players'

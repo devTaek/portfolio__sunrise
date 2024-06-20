@@ -5,7 +5,6 @@ const Content = ({title, content}) => {
 
   const handleMouseEnter = () => setIsContent(true);
   const handleMouseLeave = () => setIsContent(false);
-  console.log(isContent)
   return (
     <div className="content" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         {isContent ? content : <div className="title">{title} ?</div>}
