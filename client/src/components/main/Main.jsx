@@ -74,7 +74,11 @@ const AnimatedComponent = ({ children }) => {
         visible: { opacity: 1, y: 0 },
         hidden: { opacity: 0, y: 50 }
       }}
-      transition={{ duration: 0.5 }}
+      transition={{
+        ease: "easeInOut",
+        duration: 0.8,
+        y: { duration: 1 },
+    }}
       style={{ width: '100%' }}
     >
       {children}

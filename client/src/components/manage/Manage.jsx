@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useRef, useContext} from 'react'
+import React,{useState, useEffect, useRef, useContext, useMemo, useCallback} from 'react'
 import './manage.scss'
 import Modal from './sub/Modal'
 import Title from '../common/Title';
@@ -23,16 +23,19 @@ const Manage = () => {
   const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
 
   
-    /* 총액 계산 (이월총액 + 당월수익 - 당월지출) */
-    // prevMonthAmounts는 현재 달에 대한 이월금액이므로,
-    const totalAmounts = prevMonthAmounts + monthlyAmounts.profit + monthlyAmounts.loss;
+  // 총액 계산 (이월총액 + 당월수익 - 당월지출) 
+  // prevMonthAmounts는 현재 달에 대한 이월금액이므로,
+  const totalAmounts = useMemo (() => {
+    return prevMonthAmounts + monthlyAmounts.profit +monthlyAmounts.loss; 
+  }, [prevMonthAmounts, monthlyAmounts])
 
-  /* manageList -> list */
+
+  // manageList -> list 
   useEffect(() => {
     setList(manageList);
   },[manageList]);
 
-  /* 액수 총합(서버GET) */
+  // 액수 총합(서버GET) 
   useEffect(() => {
     axios.get('http://localhost:3001/api/manages/amounts')
       .then(response => {
@@ -45,19 +48,21 @@ const Manage = () => {
             if (data[i + '월']) {
                 prevMonthData += data[i + '월'];
             }
-        }
+          }
         }
         
         setPrevMonthAmounts(prevMonthData);
+        console.log('axios 함수실행')
       })
       .catch(error => {
         console.error('Error fetching monthly amounts:', error);
       });
-  }, [filteredMonth]);
+    
+  }, [filteredMonth, filteredYear]);
 
 
   // 월 이동
-  const changeMonth = (diff) => {
+  const changeMonth =(diff) => {
     let month = filteredMonth + diff;
     let year = filteredYear;
     if(month < 1) {
@@ -83,7 +88,7 @@ const Manage = () => {
     setDateMatchingList(dateMatching);
   }, [list, filteredYear, filteredMonth]);
 
-  /* 당월 수익/지출 조건 + 합계 계산 */
+  // 당월 수익/지출 조건 + 합계 계산 
   useEffect(() => {
     const profitCondition = item => item.type === '회비'|| item.type ==='지각' || item.type === '결석';
     const lossCondition = item => item.type === '구장'|| item.type ==='음료' || item.type === '장비' || item.type ==='주차비';
@@ -98,12 +103,12 @@ const Manage = () => {
 
 
 
-  /* 모달창 닫기 */
+  // 모달창 닫기 
   const onCloseModal= () => {
     setIsModalOpen(false);
   }
 
-  /* 모달창 띄우기*/
+  // 모달창 띄우기
   const addExpenseInfo = ()=> {
     setIsModalOpen(true);
   }
