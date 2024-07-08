@@ -3,24 +3,32 @@ const router = express.Router();
 const path = require('path');
 const fs = require('fs');
 
-const communityFilePath = path.join(__dirname, '../../data/communityList.json');
+const db = require('../../config/db');
 
+// notice GET 응답
 router.get('/', (req, res) => {
-  const fileData = fs.readFileSync(communityFilePath);
-  const communityList = JSON.parse(fileData).communityList;
-  res.json(communityList);
+  db.query("SELECT * FROM notice", (err, results, fields) => {
+    if(!err) {
+      res.send(results);
+    } else {
+      res.send(err);
+    }
+  })
 });
 
+// notice id params GET 응답
 router.get('/board/:id', (req, res) => {
-  const fileData = fs.readFileSync(communityFilePath);
-  const communityList = JSON.parse(fileData).communityList;
   const {id} =  req.params;
-  const board = communityList.find(item => item.id === parseInt(id));
-  if(board) {
-    res.json([board]);
-  } else {
-    res.status(404).json({message: 'Board not found'});
-  }
+  db.query("SELECT * FROM notice", [id] , (err, results, fields) => {
+    if(!err && results.length > 0) {
+      const foundBoard = results.find(board => board.notice_id === parseInt(id));
+      if(foundBoard) {
+        res.send(foundBoard);
+      } else {
+        console.error(err);
+      }
+    }
+  }) 
 })
 
 

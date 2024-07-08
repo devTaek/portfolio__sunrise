@@ -11,6 +11,7 @@ const CommunityContainer = () => {
     fetchData('community', setCommunityList)
     fetchData('gallery', setGalleryList)
   }, [])
+
   return(
     <CommunityContext.Provider value={{communityList}}>
       <GalleryContext.Provider value={{galleryList}}>

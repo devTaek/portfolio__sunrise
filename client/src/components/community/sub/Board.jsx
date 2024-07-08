@@ -1,23 +1,22 @@
 import { useState, useEffect } from 'react';
-import { useParams, useMatch,useNavigate, Link, useLocation} from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 import './board.scss';
 import { fetchData } from '../../../container/common/utils/fetchData';
 import Title from '../../common/Title';
-import Community from '../Community';
 import BoardTilte from '../../common/BoardTilte';
 
 const Board = () => {
   const [selectedOption, setSelectedOption] = useState('공지사항');
-  const [board, setBoard] = useState([])
-
+  const [board, setBoard] = useState([]);
+  
   const {id} = useParams();
 
+  // 이전글, 다음글, 목록 페이지 이동 (useNavigate)
   const navigate = useNavigate();
   const goBackBtn = () => navigate(`/community`);
-  // communityList의 id값 넘어서지 않기.
   const prevPageBtn = () => navigate(`/community/board/${parseInt(id) - 1}`)
   const nextPageBtn = () => navigate(`/community/board/${parseInt(id) + 1}`)
-  
+
   useEffect(() => {
     fetchData(`community/board/${id}`, setBoard)
   }, [id])
@@ -28,35 +27,27 @@ const Board = () => {
         <Title title='Community'/>
         <div className="community-box">
           <div className="container">
-            <div className="search-box">
-              {/* <div className="option">
-                {options.map((item,id)=>(
-                  <li key={id} onClick={selectOption}>{item}</li>
-                ))}
-              </div> */}
-            </div>
             <BoardTilte title={selectedOption} />
-            {board.map((item, id) => (
+            {board && 
               <table key={id}>
                 <thead>
                   <tr>
                     <th>제목</th>
-                    <td>{item.title}</td>
+                    <td>{board.notice_title}</td>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th>내용</th>
-                    <td>{item.content}</td>
+                    <td>{board.content}</td>
                   </tr>
                   <tr>
                     <th>등록일</th>
-                    <td>{item.createDate}</td>
+                    <td>{board.create_date}</td>
                   </tr>
                 </tbody>
               </table>
-              
-            ))}
+            }
             <div className="pageOption">
               <button onClick={prevPageBtn}>이전글</button>
               <button onClick={goBackBtn}>목록</button>

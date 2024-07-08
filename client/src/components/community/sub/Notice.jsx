@@ -1,32 +1,10 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import './notice.scss'
-import Board from './Board';
 
 const Notice = ({communityList}) => {
-  const changeInputBox = (e) => {
-    const text = e.target.value;
-  }
-
 
   return (
     <section className="notice">
-        {/* board seach area */}
-       
-            <>
-          {/* <div id="board-search">
-          <div className="container">
-            <div className="search-window">
-              <form onSubmit={changeInputBox}>
-                <div className="search-wrap">
-                  <input id="search" type="text" name="" value="검색어를 입력해주세요." onChange={changeInputBox}/>
-                  <button type="submit" className="btn btn-dark">검색</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div> */}
-        
         {/* board list area */}
           <div id="board-list">
             <div className="container">
@@ -41,22 +19,21 @@ const Notice = ({communityList}) => {
               <tbody>
                 {
                   communityList.map((item, id) => (
-                    <tr key={item.id}>
-                      <td>{item.id}</td>
+                    <tr key={id}>
+                      <td>{item.notice_id}</td>
                       <th>
-                        <Link to={`/community/board/${item.id}`}>
-                          {item.title}
+                        <Link to={`/community/board/${item.notice_id}`}>
+                          {item.notice_title}
                         </Link>
                       </th>
-                      <td>{item.createDate}</td>
+                      <td>{item.create_date}</td>
                     </tr>
-                    ))
+                  ))
                 }
                 </tbody>
               </table>
             </div>
         </div>
-        </>
     </section>
   )
 }

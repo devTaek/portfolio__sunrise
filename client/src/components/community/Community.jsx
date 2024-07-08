@@ -24,7 +24,6 @@ const Community = () => {
     const selectText = e.target.innerText;
     setSelectedOption(selectText)
   }
-  console.log(selectedOption)
 
   useEffect(() => {
     if(selectedOption === '건의사항') {
