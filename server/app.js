@@ -3,34 +3,23 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 const fs = require('fs');
+const userRoutes = require('./routes/index');
 
 app.use(cors({
   origin: `http://localhost:3000`,
   credentials: true,
 }));
-app.use(express.json());   // for parsing application/json
-app.use(express.urlencoded({ extended: true }));   // for parsing application/x-www-form-urlencoded
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-const playersRoutes = require('./routes/players');
-const matchRoutes = require('./routes/match');
-const manageRoutes = require('./routes/manage');
-const communityRoutes = require('./routes/community');
-const galleryRoutes = require('./routes/gallery');
-
-app.use('/api/players', playersRoutes);
-app.use('/api/matches', matchRoutes);
-app.use('/api/manages', manageRoutes);
-app.use('/api/community', communityRoutes);
-
-// community의 sub
-app.use('/api/gallery', galleryRoutes);
+app.use('/api', userRoutes)
 
 
 module.exports = app;
 
 /* build 파일 */
-// const frontendBuildPath = path.join(__dirname, PATH);
-// app.use(express.static(path.join(__dirname, "../client/build")));
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });
+const frontendBuildPath = path.join(__dirname, '../client/build');
+app.use(express.static(frontendBuildPath));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});

@@ -5,7 +5,8 @@ const fs = require('fs');
 
 const db = require('../../config/db');
 
-// notice GET 응답
+// notice
+// GET (읽기)
 router.get('/', (req, res) => {
   db.query("SELECT * FROM notice", (err, results, fields) => {
     if(!err) {
@@ -16,7 +17,8 @@ router.get('/', (req, res) => {
   })
 });
 
-// notice id params GET 응답
+// notice 
+// id params GET 응답
 router.get('/board/:id', (req, res) => {
   const {id} =  req.params;
   db.query("SELECT * FROM notice", [id] , (err, results, fields) => {
@@ -31,5 +33,16 @@ router.get('/board/:id', (req, res) => {
   }) 
 })
 
+// gallery
+// GET (읽기)
+router.get('/gallery', (req, res) => {
+  db.query("SELECT * FROM gallery", (err, results, fields)=> {
+    if(!err) {
+      res.send(results);
+    } else {
+      console.error(err);
+    }
+  })
+})
 
 module.exports = router;

@@ -50,19 +50,19 @@ const ManageList = ({ dateMatchingList }) => {
         {filteredList.map((item,id)=>{
           return(
           <li key={id}>
-          <div className='type'>
-            {item.type}
-          </div>
-          <div className='detail'>
-            {item.img ? <img src={`./img/Player/${item.img}`} alt="" /> : ''}
-            {item.detail}
-          </div>
-          <div style={{color : parseInt(item.amount) > 0 ? 'green' : 'red'}} className='amount'>
-            {Math.abs(parseInt(item.amount)).toLocaleString()}
-          </div>
-          <div className='extra_info'>
-            {item.extra_info}
-          </div>
+            <div className='type'>
+              {item.type}
+            </div>
+            <div className='detail'>
+              {item.img ? <img src={`./img/Player/${item.img}`} alt="" /> : ''}
+              {item.detail}
+            </div>
+            <div style={{color : parseInt(item.amount) > 0 ? 'green' : 'red'}} className='amount'>
+              {Math.abs(parseInt(item.amount)).toLocaleString()}
+            </div>
+            <div className='extra_info'>
+              {item.extra_info}
+            </div>
           </li>
         )})}
       </ul>

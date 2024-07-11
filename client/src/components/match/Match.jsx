@@ -35,7 +35,7 @@ const Match = () => {
     const matchMonth = matchDate.getMonth() + 1
     return filteredYear === matchYear && filteredMonth === matchMonth;
   })
-
+  console.log(filteredMatches)
   return (
     <div id='match'>
       <div className="container">

@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useRef, useContext, useMemo, useCallback} from 'react'
+import React,{useState, useEffect, useRef, useContext, useMemo} from 'react'
 import './manage.scss'
 import Modal from './sub/Modal'
 import Title from '../common/Title';
@@ -52,7 +52,6 @@ const Manage = () => {
         }
         
         setPrevMonthAmounts(prevMonthData);
-        console.log('axios 함수실행')
       })
       .catch(error => {
         console.error('Error fetching monthly amounts:', error);

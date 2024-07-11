@@ -9,7 +9,7 @@ const CommunityContainer = () => {
   const [galleryList, setGalleryList] = useState([]);
   useEffect(()=> {
     fetchData('community', setCommunityList)
-    fetchData('gallery', setGalleryList)
+    fetchData('/community/gallery', setGalleryList)
   }, [])
 
   return(
