@@ -37,7 +37,7 @@ const Manage = () => {
 
   // 액수 총합(서버GET) 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/manages/amounts')
+    axios.get('43.203.219.158/api/manages/amounts')
       .then(response => {
         let data = response.data;
         setAmounts(data);
