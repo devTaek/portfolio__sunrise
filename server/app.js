@@ -6,7 +6,7 @@ const fs = require('fs');
 const userRoutes = require('./routes/index');
 
 app.use(cors({
-  origin: `http://localhost:3000`,
+  origin: `http://43.203.219.158:3000`,
   credentials: true,
 }));
 app.use(express.json());
