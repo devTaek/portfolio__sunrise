@@ -37,7 +37,7 @@ const Manage = () => {
 
   // 액수 총합(서버GET) 
   useEffect(() => {
-    axios.get('http://43.203.219.158:3001/api/manages/amounts')
+    axios.get('http://localhost:3001/api/manages/amounts')
       .then(response => {
         let data = response.data;
         setAmounts(data);
@@ -123,7 +123,7 @@ const Manage = () => {
     />}
 
     <div id='manage'>
-        <Title title='Manage'/>
+    <Title title="Manage" backgroundImg='./img/bg-manage.png'/>
         <main className="manageBox">
           <div className="container">
             <div className="gap">

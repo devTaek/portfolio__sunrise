@@ -84,7 +84,7 @@ export default ManageBox
 
 const ManageBoxContainer = styled.div`
   width: 48%;
-  height: 600px;
+  height: 530px;
   min-height: 500px;
   overflow: hidden;
   background-color: #18182C;

@@ -32,7 +32,10 @@ const MainSubTitle = ({
     <MainSubTitleBox>
       <div className='main-sub-title'>
         <h3>{title}</h3>
-        <Link to={to} style={{paddingLeft: `10px`}}>+view more</Link>
+        <Link to={to} style={{paddingLeft: `10px`}}>
+          <i>+ </i>
+          <span> view more</span>
+        </Link>
       </div>
       {showBtns && (
         <div className='sequence_btn'>
@@ -52,7 +55,7 @@ export default MainSubTitle
 const MainSubTitleBox = styled.div`
 width: 100%;
 max-width: 1280px;
-margin: 80px auto;
+margin: 0 auto;
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -61,13 +64,18 @@ color: white;
   display: flex;
   justify-contents: space-between;
   h3 {
-    font-size: 36px;
+    font-size: 3rem;
     font-weight: 700;
   }
   a {
-    font-size: 18px;
+    font-size: 1em;
     color: gray;
     display: flex;
+    span {
+      @media all and (max-width: 767px) {
+        display: none;
+      }
+    }
   }
 }
 .sequence_btn {

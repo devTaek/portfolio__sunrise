@@ -34,7 +34,7 @@ const Community = () => {
   return (
     <div id='community'>
       <div className="container">
-        <Title title='Community'/>
+      <Title title="Community" backgroundImg='./img/bg-community.png'/>
         <div className="community-box">
           <div className="container">
             <div className="search-box">

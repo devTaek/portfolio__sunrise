@@ -45,15 +45,15 @@ const MainManage = () => {
         <MainSubTitle
           title='MANAGE'
           to='/manage'
-          showBtns={true}
-          filteredMonth={filteredMonth}
-          filteredYear={filteredYear}
-          setFilteredMonth={setFilteredMonth}
-          setFilteredYear={setFilteredYear}
-          onClickPrevMonth={onClickPrevMonth}
-          onClickNextMonth={onClickNextMonth}
+          // showBtns={true}
+          // filteredMonth={filteredMonth}
+          // filteredYear={filteredYear}
+          // setFilteredMonth={setFilteredMonth}
+          // setFilteredYear={setFilteredYear}
+          // onClickPrevMonth={onClickPrevMonth}
+          // onClickNextMonth={onClickNextMonth}
         />
-        <div className="fee-box">
+        {/* <div className="fee-box">
           <ManageBox 
             boxTitle='수익'
             img={'income-icon.png'}
@@ -66,7 +66,7 @@ const MainManage = () => {
             filteredManages={filteredManages}
             option= '지출'
           />
-        </div>
+        </div> */}
       </div>
     </div>
   )

@@ -39,7 +39,7 @@ const Match = () => {
   return (
     <div id='match'>
       <div className="container">
-        <Title title="Match" />
+      <Title title="Match" backgroundImg='./img/bg-match.png'/>
         <div className="matchBox">
           <div className="container">
             <div className="gap">

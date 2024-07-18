@@ -101,7 +101,7 @@ const Players = () => {
   return (
     <div id='players'>
       <div className="container">
-        <Title title='Players' />
+        <Title title="Players" backgroundImg='./img/bg-players.png'/>
         <div className="playerBox">
           <div className="container">
             <div className='search-box'>

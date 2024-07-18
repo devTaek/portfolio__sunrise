@@ -1,55 +1,35 @@
-import {useContext, useState} from 'react'
 import MainSubTitle from '../common/MainSubTitle'
-import { MatchListContext } from '../../../store/Context/SunriseContext'
 import './mainMatch.scss'
 
 const MainMatch= () => {
-  const {matchList} = useContext(MatchListContext);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  
-  const nextMonthBtn = () => {
-    if(currentIndex < matchList.length - 1) {
-      setCurrentIndex(prevIndex => prevIndex + 1); // 다음 항목으로 이동
-    }
-  }
-  const prevMonthBtn = () => {
-    if(currentIndex > 0) {
-      setCurrentIndex(prevIndex => prevIndex - 1)
-    }
-  }
 
-  const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
-  const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
   return (
-    <div className="main_match">
       <div className="container">
         <MainSubTitle
           title='MATCH'
           to='/match'
-          showBtns={true}   // DateFilter컴포넌트 유무.
-          filteredMonth={filteredMonth}
-          filteredYear={filteredYear}
-          setFilteredMonth={setFilteredMonth}
-          setFilteredYear={setFilteredYear}
         />
-        <div className="gap">
-          <button className="prev_btn" onClick={prevMonthBtn}><img src="./img/pc-prev-btn.png" alt="" /></button>
-          <ul style={{
-            width: `${matchList.length * 100}%`,
-            transform: `translateX(-${currentIndex * (100 / matchList.length)}%)`
-          }}>
-            {matchList.map((item, id) => (
-              <li key={id}>
-                <div className="home_team"><img src={`./img/${item.home_logo}`} alt="" />{item.home}</div>
-                <div className='score_box'>{item.home_score} - {item.away_score}</div>
-                <div className="away_team"><img src={`./img/${item.away_logo}`} alt="" />{item.away}</div>
-              </li>
-            ))}
-          </ul>
-          <button className="next_btn" onClick={nextMonthBtn}><img src="./img/pc-next-btn.png" alt="" /></button>
+        <div className="content">
+          <div className="coming-game">
+            <span>
+              2024.07.30(일) 19:00 천마풋살파크
+            </span>
+          </div>
+          <div className="matching-box">
+            <div className="home-team">
+              <img src='./img/pc-logo.png' alt="" />
+              <span>썬라이즈FC</span>
+            </div>
+            <div className="game-schedule" >
+              VS
+            </div>
+            <div className="away-team">
+              <img src='./img/pc-jeonbuk.png' alt="" />
+              <span>전북현대</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
   )
 }
 
