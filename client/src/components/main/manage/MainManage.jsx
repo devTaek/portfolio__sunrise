@@ -40,35 +40,33 @@ const MainManage = () => {
     }
   }
   return (
-    <div className="main-manage">
       <div className="container">
         <MainSubTitle
           title='MANAGE'
           to='/manage'
-          // showBtns={true}
-          // filteredMonth={filteredMonth}
-          // filteredYear={filteredYear}
-          // setFilteredMonth={setFilteredMonth}
-          // setFilteredYear={setFilteredYear}
-          // onClickPrevMonth={onClickPrevMonth}
-          // onClickNextMonth={onClickNextMonth}
+          showBtns={true}
+          filteredMonth={filteredMonth}
+          filteredYear={filteredYear}
+          setFilteredMonth={setFilteredMonth}
+          setFilteredYear={setFilteredYear}
+          onClickPrevMonth={onClickPrevMonth}
+          onClickNextMonth={onClickNextMonth}
         />
-        {/* <div className="fee-box">
+        <div className="fee-box">
           <ManageBox 
             boxTitle='수익'
-            img={'income-icon.png'}
+            img={'profit-icon.png'}
             filteredManages={filteredManages}
             option= '수익'
           />
           <ManageBox 
             boxTitle='지출'
-            img='expense-icon.png'
+            img='loss-icon.png'
             filteredManages={filteredManages}
             option= '지출'
           />
-        </div> */}
+        </div>
       </div>
-    </div>
   )
 }
 

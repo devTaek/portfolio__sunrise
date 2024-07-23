@@ -54,10 +54,10 @@ const ManageBox = ({boxTitle, img, option, filteredManages}) => {
 
   return (
     <ManageBoxContainer>
-      <div className="manageBox_title">
+      <div className="manageBox-title">
         <span>{boxTitle}</span>
         <img style={{
-          backgroundColor:img === 'income-icon.png' ? '#2DBE85' : '#FC3044'}} 
+          backgroundColor:img === 'profit-icon.png' ? '#2DBE85' : '#FC3044'}} 
           src={`./img/${img}`} alt=""
         />
       </div>
@@ -67,7 +67,7 @@ const ManageBox = ({boxTitle, img, option, filteredManages}) => {
         <li>내역</li>
         <li>금액</li>
       </ul>
-      <ul className='category_list'>
+      <ul className='category-list'>
         {filteredItem.map((item,id)=>(
           <li key={id}>
             <span>{item.type}</span>
@@ -84,14 +84,17 @@ export default ManageBox
 
 const ManageBoxContainer = styled.div`
   width: 48%;
-  height: 530px;
+  height: 600px;
   min-height: 500px;
   overflow: hidden;
   background-color: #18182C;
-  border-radius: 40px;
+  border-radius: 16px;
   color: white;
+  @media all and (max-width: 767px) {
+    width: calc(100% - 40px);
+    }
   img {
-    background-color: ${img => img === 'income-icon.png' ? '#2DBE85' : '#FC3044'};
+    background-color: ${img => img === 'profit-icon.png' ? '#2DBE85' : '#FC3044'};
     border-radius: 20px;
   }
   `

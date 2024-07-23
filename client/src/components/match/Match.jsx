@@ -28,14 +28,14 @@ const Match = () => {
     setFilteredYear(year);
   }
 
-  
+  // 각 월에 맞는 데이터 매칭 필터
   const filteredMatches = matchList.filter((match)=>{
     const matchDate = new Date(match.date)
     const matchYear = matchDate.getFullYear()
     const matchMonth = matchDate.getMonth() + 1
     return filteredYear === matchYear && filteredMonth === matchMonth;
   })
-  console.log(filteredMatches)
+
   return (
     <div id='match'>
       <div className="container">

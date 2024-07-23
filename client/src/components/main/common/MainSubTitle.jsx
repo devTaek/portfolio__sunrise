@@ -66,6 +66,9 @@ color: white;
   h3 {
     font-size: 3rem;
     font-weight: 700;
+    @media all and (max-width: 767px) {
+      font-size: 7vw;
+    }
   }
   a {
     font-size: 1em;

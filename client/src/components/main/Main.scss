@@ -7,15 +7,17 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    gap: 80px;
     .section {
       width: calc(100vw - 80px);
-      height: calc(100vh - 112px);  // 헤더 112px 제외
+      height: calc(100% - 112px);  // 헤더 112px 제외
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 20px;
-      &.match {
+      padding: 120px 20px;
+      &.match, &.players, &.manage, &.community {
         width: 100%;
+        // height: 100vh; // vh 설정해야댐
         max-width: 1280px;
         margin: 0 auto;
       }

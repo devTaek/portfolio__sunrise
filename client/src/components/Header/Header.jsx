@@ -36,6 +36,7 @@ function Header() {
           <div className="logo">
             <Link to="/">
               <img src='./img/pc-logo.png' alt="" />
+              <span>SUNRISE</span>
             </Link>
           </div>
           <ul className="header__menu">
