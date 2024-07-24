@@ -22,7 +22,7 @@ const MainContainer = () => {
     fetchData('matches', setMatchList)
     fetchData('manages', setManageList)
     fetchData('community', setCommunityList)
-    fetchData('gallery', setGallery)
+    fetchData('/community/gallery', setGallery)
   },[])
 
   return(

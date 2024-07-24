@@ -7,7 +7,7 @@ const Content = ({title, content}) => {
   const handleMouseLeave = () => setIsContent(false);
   return (
     <div className="content" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        {isContent ? content : <div className="title">{title} ?</div>}
+        {isContent ? content : <div className="title">{title}</div>}
     </div>
   )
 }

@@ -95,7 +95,6 @@
               height: 160px;
               display: flex;
               align-items: center;
-              align-self: stretch;
               justify-content: space-between;
               padding: 48px 40px;
               border-radius: 16px;
@@ -141,18 +140,17 @@
                   width: 100%;
                   display: flex;
                   align-items: center;
-                  justify-content: space-between;
+                  justify-content: center;
                   gap: 32px;
                   transition: all 0.7s;
                   @media all and (max-width: 1238px) {
                     gap: 5px;
                   }
                   @media all and (max-width: 1023px) {
-                    width: 100%;
-                    gap: 20px;
+                    margin: 0 20px;
                   }
                   @media all and (max-width: 767px) {
-                    gap: 10px;
+                    margin: 0 2px;
                   }
                   
                   

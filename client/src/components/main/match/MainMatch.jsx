@@ -7,7 +7,7 @@ const MainMatch= () => {
       <div className="container">
         <MainSubTitle
           title='MATCH'
-          to='/match'
+          link='/match'
         />
         <div className="content">
           <div className="coming-game">

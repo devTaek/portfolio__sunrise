@@ -43,8 +43,8 @@ const MainManage = () => {
       <div className="container">
         <MainSubTitle
           title='MANAGE'
-          to='/manage'
-          showBtns={true}
+          link='/manage'
+          buttons={true}
           filteredMonth={filteredMonth}
           filteredYear={filteredYear}
           setFilteredMonth={setFilteredMonth}
