@@ -2,7 +2,7 @@
   position: fixed;
   width: 100%;
   left: 0;
-  padding: 20px;
+  padding: 21px;
   z-index: 99;
   font-family: Pretendard;
   background-image: -webkit-radial-gradient(center top, elipse farthest-corner, transparent 0%, rgba(0,0,0,0.8) 100%);
@@ -12,15 +12,18 @@
   }
   .container {
     width: 100%;
+    max-width: 1280px;
     height: 72px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
     padding: 0 20px;
     @media all and (max-width: 767px) {
       height: 76px;
     }
     .gap {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -34,7 +37,6 @@
         justify-content: space-between;
       }
       .logo {
-        width: 184px;
         @media all and (max-width: 976px) {
           width: 80px;
         }
@@ -42,7 +44,7 @@
           width: 10%;
         }
         a {
-          width: 64px;
+          width: 160px;
           height: 64px;
           display: flex;
           align-items: center;
@@ -135,7 +137,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: black;
+    background-color: #0D0F19;
     color: white;
     display: grid;
     padding-top: 35px;

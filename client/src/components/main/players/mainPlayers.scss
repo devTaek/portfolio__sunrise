@@ -1,28 +1,21 @@
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-250px * 7))}
-}
-.main-players {
-  width: 100%;
-  margin: 0 auto;
+.players {
+  max-width: 1280px;
   .container {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    gap: 40px;
-    ul {
+    .card-container {
+      width: 100%;
       display: flex;
-      overflow: hidden;
-      animation: scroll 90s linear infinite;
-		  display: flex;
-		  width: calc(250px * 14);
-      li {
+      .player-card {
+         margin: 20px;
         img {
           width: 410px;
           height: 450px;
+          border: 1px solid white;
+          border-radius: 16px;
         }
       }
     }

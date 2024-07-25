@@ -1,30 +1,38 @@
-import {useContext} from 'react'
-import { PlayersContext } from '../../../store/Context/SunriseContext'
 import MainSubTitle from '../common/MainSubTitle';
 import './mainPlayers.scss';
+import PlayerCard from './PlayerCard';
+import {useState, useContext} from 'react';
 
+import { PlayersContext } from '../../../store/Context/SunriseContext';
 
 const MainPlayers = () => {
   const {playersList} = useContext(PlayersContext);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
+  // 픽셀 이동
+  const changeImg = (diff) => {
+    let newIndex = currentIndex + diff;
+    if(newIndex < 0) {
+      newIndex = playersList.length;
+    } else if (newIndex >= playersList.length) {
+      newIndex = 0;
+    }
+    setCurrentIndex(newIndex);
+  }
+  console.log(currentIndex)
   return (
-    <div className="main-players">
       <div className="container">
         <MainSubTitle 
           title='PLAYERS'
-          to='/players'
-          showBtns={false}
+          link='/players'
+          buttons={false}
+          list={playersList}
+          changeImg={changeImg}
         />
-        <ul>
-          {playersList.map((item,id)=>(
-              <li key={id}>
-                <img src={`./img/Player/${item.img}`} alt="" />
-              </li>
-            )
-          )}
+        <ul className="card-container">
+          {<PlayerCard list={playersList} />}
         </ul>
       </div>
-    </div>
   )
 }
 

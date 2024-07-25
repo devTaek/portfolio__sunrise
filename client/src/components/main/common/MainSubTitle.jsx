@@ -4,14 +4,15 @@ import DateFilter from '../../common/DateFilter'
 
 const MainSubTitle = ({
   title,
-  to,
-  showBtns,
+  link,
+  buttons,
   filteredMonth,
   setFilteredMonth,
   filteredYear,
   setFilteredYear,
+  changeImg
 }) => {
-  
+
   // 월 이동
   const changeMonth = (diff) => {
     let month = filteredMonth + diff;
@@ -32,20 +33,27 @@ const MainSubTitle = ({
     <MainSubTitleBox>
       <div className='main-sub-title'>
         <h3>{title}</h3>
-        <Link to={to} style={{paddingLeft: `10px`}}>
+        <Link to={link} style={{paddingLeft: `10px`}}>
           <i>+ </i>
           <span> view more</span>
         </Link>
       </div>
-      {showBtns && (
-        <div className='sequence_btn'>
-          <DateFilter 
-            filteredMonth={filteredMonth}
-            filteredYear={filteredYear}
-            changeMonth={changeMonth}
-          />
+      {buttons ? (
+        <DateFilter 
+          filteredMonth={filteredMonth}
+          filteredYear={filteredYear}
+          changeMonth={changeMonth}
+        />
+      ) : 
+        <div className='move-btns'>
+          <button onClick={() => {changeImg(-1)}}>
+            <img style={{transform: `rotate(180deg)`}} src="./img/nextBtn.svg" alt="" />
+          </button>
+          <button onClick={() => {changeImg(+1)}}>
+            <img src="./img/nextBtn.svg" alt="" />
+          </button>
         </div>
-      )}
+      }
     </MainSubTitleBox>
   )
 }
@@ -81,10 +89,11 @@ color: white;
     }
   }
 }
-.sequence_btn {
+.date-filter, .move-btns {
   display: flex;
   aling-items: center;
   justify-contents: center;
+  gap: 20px;
   button {
     width: 44px;
     height: 44px;
