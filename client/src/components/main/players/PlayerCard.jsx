@@ -1,16 +1,16 @@
-import React from "react"
+// import React from "react"
 
-const PlayersCard = ({list, currentIndex}) => {
+// const PlayersCard = ({list, currentIndex}) => {
 
-  return (
-    <>
-    {list.map((item, id) => (
-        <div key={id} className='player-card'>
-          <img src={`./img/Player/${item.img}`} alt="" />
-        </div>
-    ))}
-    </>  
-  )
-}
+//   return (
+//     <>
+//     {list.map((item, id) => (
+//         <li key={id} className='player-card'>
+//           <img src={`./img/Player/${item.img}`} alt="" />
+//         </li>
+//     ))}
+//     </>  
+//   )
+// }
 
-export default PlayersCard
+// export default PlayersCard
