@@ -5,49 +5,67 @@ import {useState, useContext, useEffect, useRef} from 'react';
 import { PlayersContext } from '../../../store/Context/SunriseContext';
 
 const MainPlayers = () => {
-  const ref = useRef(null);
+  const slideRef = useRef(null);
   const {playersList} = useContext(PlayersContext);
   
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [slideList, setSlideList] = useState([]);
   const [listWidth, setListWidth] = useState(0);
 
-  const [slide, setSlide] = useState({
-    transform: `translateX(-${currentIndex * listWidth}px)`,
-    transition: `all 0.4s ease-in-out`,
-  })
+  // slide transform 설정
+  const [style, setStyle] = useState({});
 
+
+  // useContext(PlayersContext)
+  // playersList -> slideList
+  // 앞,뒤 인덱스 추가 -> 무한루프
   useEffect(() => {
     if(playersList && playersList.length > 0) {
       setSlideList([
-        playersList[playersList.length-1],
+        // playersList[playersList.length-1],
         ...playersList,
-        playersList[0],
+        // playersList[0],
       ]);
     }
   }, [playersList])
 
-  // list 너비 + 마진값 (listWidth);
+
+  // .player-card 너비 값
   useEffect(() => {
-    if(ref.current) {
-      const width = ref.current.offsetWidth + 20;
-      setListWidth(width);
+    if(slideRef.current !== null) {
+      const card = slideRef.current.querySelector('.player-card');
+      if(card) {
+        const cardWidth = card.offsetWidth;
+        setListWidth(cardWidth)
+      }
     }
   }, [slideList])
 
-  useEffect(() => {
-    setSlide({
-      transform: `translateX(-${currentIndex * listWidth}px)`,
-      transition: `all 0.4s ease-in-out`,
-    })
-  },[currentIndex, listWidth])
 
-  // changeImg 버튼 클릭 -> setCurrentIndex();
+  // 슬라이드 버튼
+  // if문 -> currentIndex 범위
   const changeImg = (diff) => {
-    setCurrentIndex(() => {});
+    setCurrentIndex(prevIndex =>{
+      let newIndex = prevIndex + diff;
+      if(newIndex < 0) {newIndex = slideList.length -1;}
+      if(newIndex >= slideList.length) {newIndex = 1;}
+      return newIndex;
+    });
   };
 
 
+  // currnetIndex에 따른 슬라이드 이동
+  useEffect(() => {
+    const moveSlide = () => {
+      let transform = `translateX(-${currentIndex * listWidth }px)`
+      if(listWidth > 0) {
+        setStyle({
+          transform: transform
+        })
+      }
+    }
+    moveSlide();
+  }, [currentIndex, listWidth])
 
   return (
       <div className="container">
@@ -58,15 +76,13 @@ const MainPlayers = () => {
           list={playersList}
           changeImg={changeImg}
         />
-        <div className="slide-wrapper">
-          <ul className="card-container">
-            {slideList.map((item, id) => (
-              <li ref={ref} key={id} style={slide} className='player-card'>
-                <img src={`./img/Player/${item.img}`} alt="" />
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul ref={slideRef} className="card-container" style={style}>
+          {slideList.map((item, id) => (
+            <li key={id} className='player-card'>
+              <img src={`./img/Player/${item.img}`} alt="" />
+            </li>
+          ))}
+        </ul>
       </div>
   )
 }
