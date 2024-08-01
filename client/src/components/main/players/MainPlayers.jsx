@@ -22,12 +22,10 @@ const MainPlayers = () => {
   useEffect(() => {
     if(playersList && playersList.length > 0) {
       setSlideList([
-        // playersList[playersList.length-1],
         ...playersList,
-        // playersList[0],
       ]);
     }
-  }, [playersList])
+  }, [playersList, currentIndex])
 
 
   // .player-card 너비 값
@@ -46,13 +44,14 @@ const MainPlayers = () => {
   // if문 -> currentIndex 범위
   const changeImg = (diff) => {
     setCurrentIndex(prevIndex =>{
-      let newIndex = prevIndex + diff;
+      let newIndex = prevIndex + diff;  
+
       if(newIndex < 0) {newIndex = slideList.length -1;}
-      if(newIndex >= slideList.length) {newIndex = 1;}
+      if(newIndex >= slideList.length) {newIndex = 0;}
+
       return newIndex;
     });
   };
-
 
   // currnetIndex에 따른 슬라이드 이동
   useEffect(() => {
