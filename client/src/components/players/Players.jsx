@@ -35,64 +35,25 @@ const Players = () => {
     setSortedByStats(playersList);
   }, [playersList]);
   
-  const onSortedStaminer = () => {
-    const sortedByStats = [...playersList].sort((a,b)=>b.stats[0].A-a.stats[0].A);
-    setSortedByStats(sortedByStats)
-  }
-  const onSortedComposure = () => {
-    const sortedByStats = [...playersList].sort((a,b)=>b.stats[1].A-a.stats[1].A)
-    setSortedByStats(sortedByStats)
-  }
-  const onSortedByaccuracy = () => {
-    const sortedByStats = [...playersList].sort((a,b)=>b.stats[2].A-a.stats[2].A)
-    setSortedByStats(sortedByStats)
-  }
-  const onSortedBySpace = () => {
-    const sortedByStats = [...playersList].sort((a,b)=>b.stats[3].A-a.stats[3].A)
-    setSortedByStats(sortedByStats)
-  }
-  const onSortedByJudgment = () => {
-    const sortedByStats = [...playersList].sort((a,b)=>b.stats[4].A-a.stats[4].A)
-    setSortedByStats(sortedByStats)
-  }
-  const onSortedByBasic = () => {
-    const sortedByStats = [...playersList].sort((a,b)=>b.stats[5].A-a.stats[5].A)
-    setSortedByStats(sortedByStats)
-  }
-
-
-  // 이거 봐
-  // const thisfunction = () => {
-  //   for(let i=0; i<6; i++) {
-  //     return (console.log([...playersList].sort((a,b)=>b.stats[i].A-a.stats[i].A)))
-  //   }
-  // }
-
-  const onSortedByOption = (options) => {
-    switch (options) {
-      case '체력':
-        onSortedStaminer();
-        break;
-      case '침착성':
-        onSortedComposure();
-        break;
-      case '정확성':
-        onSortedByaccuracy();
-        break;
-      case '공간능력':
-        onSortedBySpace();
-        break;
-      case '판단력':
-        onSortedByJudgment();
-        break;
-      case '기본기':
-        onSortedByBasic();
-        break;
-      default:
-        setSortedByStats(playersList);
-    }
-  }
   
+    const onSortedByOption = (option) => {
+      const statIndexMap = {
+        '체력': 0,
+        '침착성': 1,
+        '정확성': 2,
+        '공간능력': 3,
+        '판단력': 4,
+        '기본기': 5,
+      };
+    
+      const index = statIndexMap[option];
+      if (index !== undefined) {
+        const sortedByStats = [...playersList].sort((a, b) => b.stats[index].A - a.stats[index].A);
+        setSortedByStats(sortedByStats);
+      } else {
+        setSortedByStats(playersList);
+      }
+    };
   const totalDataLength = playersList.length;
   const firstPostIndex = (currentPage - 1) * postsPerPage;
   const lastPostIndex = firstPostIndex + postsPerPage;

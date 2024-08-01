@@ -12,10 +12,14 @@ const Title = ({title, backgroundImg}) => {
 
 export default Title;
 
-const TitleContainer = styled.div`
+const TitleContainer = styled.div.attrs(props => ({
+  style: {
+    backgroundImage:  `url(${props.backgroundImg})`,
+  }
+}))`
   width: 100vw;
   height: 100vh;
-  background: ${({backgroundImg}) => `url(${backgroundImg}) no-repeat center/cover fixed`};
+  background: no-repeat center/cover fixed;
   .gap {
     width: 100%;
     height: 100%;

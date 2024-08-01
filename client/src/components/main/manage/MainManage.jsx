@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import './mainManage.scss';
 
 import MainSubTitle from '../common/MainSubTitle';
-import ManageBox from './ManageBox';
+import ManageBox from './sub/ManageBox';
 
 import { ManageListContext } from '../../../store/Context/SunriseContext';
 
