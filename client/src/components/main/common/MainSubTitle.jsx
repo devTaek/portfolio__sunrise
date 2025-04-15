@@ -13,7 +13,6 @@ const MainSubTitle = ({
   changeImg
 }) => {
 
-  // 월 이동
   const changeMonth = (diff) => {
     let month = filteredMonth + diff;
     let year = filteredYear;
@@ -46,10 +45,10 @@ const MainSubTitle = ({
         />
       ) : 
         <div className='move-btns'>
-          <button onClick={() => {changeImg(-1)}}>
+          <button onClick={() => changeImg && changeImg(-1)}>
             <img style={{transform: `rotate(180deg)`}} src="./img/nextBtn.svg" alt="" />
           </button>
-          <button onClick={() => {changeImg(+1)}}>
+          <button onClick={() => changeImg && changeImg(+1)}>
             <img src="./img/nextBtn.svg" alt="" />
           </button>
         </div>

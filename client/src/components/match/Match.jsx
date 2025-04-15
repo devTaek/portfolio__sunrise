@@ -1,7 +1,6 @@
-import React,{useContext, useState} from 'react';
+import { useState } from 'react';
 import './match.scss';
 
-import { MatchListContext } from '../../store/Context/SunriseContext';
 import Title from '../common/Title';
 import DateFilter from '../common/DateFilter';
 import MatchList from './sub/MatchList';
@@ -14,7 +13,6 @@ const Match = () => {
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
   const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
 
-  // 월 이동
   const changeMonth = (diff) => {
     let month = filteredMonth + diff;
     let year = filteredYear;
@@ -29,8 +27,6 @@ const Match = () => {
     setFilteredMonth(month);
     setFilteredYear(year);
   }
-
-  // 각 월에 맞는 데이터 매칭 필터
   const filteredMatches = matchList.filter((match)=>{
     const matchDate = new Date(match.game_date)
     const matchYear = matchDate.getFullYear()

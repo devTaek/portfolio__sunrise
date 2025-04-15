@@ -1,24 +1,18 @@
 import MainSubTitle from '../common/MainSubTitle';
 import './mainPlayers.scss';
-import {useState, useContext, useEffect, useRef} from 'react';
+import {useState, useEffect, useRef} from 'react';
 
-import { PlayersContext } from '../../../store/Context/SunriseContext';
+import { playersState } from '../../../store/recoil/atoms/state';
+import { useRecoilValue } from 'recoil';
 
 const MainPlayers = () => {
   const slideRef = useRef(null);
-  const {playersList} = useContext(PlayersContext);
-  
+  const playersList = useRecoilValue(playersState)
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideList, setSlideList] = useState([]);
   const [listWidth, setListWidth] = useState(0);
 
-  // slide transform 설정
   const [style, setStyle] = useState({});
-
-
-  // useContext(PlayersContext)
-  // playersList -> slideList
-  // 앞,뒤 인덱스 추가 -> 무한루프
   useEffect(() => {
     if(playersList && playersList.length > 0) {
       setSlideList([
@@ -27,8 +21,6 @@ const MainPlayers = () => {
     }
   }, [playersList, currentIndex])
 
-
-  // .player-card 너비 값
   useEffect(() => {
     if(slideRef.current !== null) {
       const card = slideRef.current.querySelector('.player-card');
@@ -39,9 +31,6 @@ const MainPlayers = () => {
     }
   }, [slideList])
 
-
-  // 슬라이드 버튼
-  // if문 -> currentIndex 범위
   const changeImg = (diff) => {
     setCurrentIndex(prevIndex =>{
       let newIndex = prevIndex + diff;  
@@ -52,8 +41,6 @@ const MainPlayers = () => {
       return newIndex;
     });
   };
-
-  // currnetIndex에 따른 슬라이드 이동
   useEffect(() => {
     const moveSlide = () => {
       let transform = `translateX(-${currentIndex * listWidth }px)`

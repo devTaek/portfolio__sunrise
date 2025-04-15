@@ -28,7 +28,6 @@ const Button = styled.button`
   }) {
   const pageList = [];
 
-  // 현재 postsNum과 postsPerPage의 값이 같다.
   const totalPages = Math.ceil(totalDataLength / postsPerPage);
   for (let i = 1; i <= totalPages; i++) {
     pageList.push(i);
@@ -41,9 +40,7 @@ const Button = styled.button`
   const goToPrevPage = () => {
     setCurrentPage(currentPage - 1);
   };
-  // if (totalPages === 1) {
-  //   return null;
-  // }
+
   return (
     <div className="pagination">
       <PaginationContainre>

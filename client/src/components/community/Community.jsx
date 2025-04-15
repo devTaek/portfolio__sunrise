@@ -1,5 +1,4 @@
-import {useContext, useEffect, useState} from 'react';
-import {CommunityContext, GalleryContext} from '../../store/Context/SunriseContext';
+import {useEffect, useState} from 'react';
 import './community.scss';
 
 import Title from '../common/Title';
@@ -8,10 +7,13 @@ import Notice from './sub/Notice';
 
 import Gallery from './sub/Gallery';
 import Suggetsion from './sub/Suggestion';
+import { useRecoilValue } from 'recoil';
+import { communityState } from '../../store/recoil/atoms/state';
+import { galleryState } from '../../store/recoil/atoms/state';
 
 const Community = () => {
-  const {communityList} = useContext(CommunityContext);
-  const {galleryList} = useContext(GalleryContext)
+  const communityList = useRecoilValue(communityState);
+  const galleryList = useRecoilValue(galleryState);
   const [selectedOption, setSelectedOption] = useState('공지사항');
 
   const options = [

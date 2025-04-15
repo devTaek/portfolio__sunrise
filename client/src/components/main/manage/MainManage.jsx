@@ -1,22 +1,18 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import './mainManage.scss';
 
 import MainSubTitle from '../common/MainSubTitle';
 import ManageBox from './sub/ManageBox';
 
-import { ManageListContext } from '../../../store/Context/SunriseContext';
+import { manageState } from '../../../store/recoil/atoms/state';
+import { useRecoilValue } from 'recoil';
 
 const MainManage = () => {
-  const {manageList} = useContext(ManageListContext);
+  const manageList = useRecoilValue(manageState);
 
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
   const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
 
-  
-
-  // manageList를 filter를 통해 새로운 날짜를 만들어 
-  // 현재 filtereMonth or filtereYear의 상태값과 비교해
-  // 같은 값을 가진 것을 새로운 배열로 나타내주는 함수.
   const filteredManages = manageList.filter((manage) => {
     const manageDate = new Date(manage.date);
     const manageYear = manageDate.getFullYear();

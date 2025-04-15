@@ -11,7 +11,6 @@ const Board = () => {
   
   const {id} = useParams();
 
-  // 이전글, 다음글, 목록 페이지 이동 (useNavigate)
   const navigate = useNavigate();
   const goBackBtn = () => navigate(`/community`);
   const prevPageBtn = () => navigate(`/community/board/${parseInt(id) - 1}`)

@@ -37,10 +37,16 @@ const Main = () => {
 const AnimatedComponent = ({ children }) => {
   const controls = useAnimation();
   const ref = useRef(null);
+  const hasMounted = useRef(false); 
 
+  
   useEffect(() => {
+    hasMounted.current = true;
+
     const observer = new IntersectionObserver(
       (entries) => {
+        if (!hasMounted.current) return;
+
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             controls.start('visible');
@@ -50,7 +56,7 @@ const AnimatedComponent = ({ children }) => {
         });
       },
       {
-        threshold: 0, // 10% 정도 보이면 트리거
+        threshold: 0,
       }
     );
 

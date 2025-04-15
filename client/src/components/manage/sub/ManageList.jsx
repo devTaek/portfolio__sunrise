@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 const ManageList = ({ dateMatchingList }) => {
   
 
-  // 전체, 수익, 지출 분류
   const options = ['전체', '수익', '지출'];
   const [selectedOption, setSelectedOption] = useState('전체');
 
@@ -12,13 +11,11 @@ const ManageList = ({ dateMatchingList }) => {
     setSelectedOption(selectText)
   }
   
-  // 수익, 지출 리스트 조건부 필터링
   const [filteredList, setFilteredList] = useState([]);
 
   const profitCondition = item => item.type === '회비'|| item.type ==='지각' || item.type === '결석';
   const lossCondition = item => item.type === '구장'|| item.type ==='음료' || item.type === '장비' || item.type ==='주차비';
 
-  // 전체, 수익, 지출 조건부
   useEffect(() => {
     let typeFiltered = dateMatchingList;
     if(selectedOption === '수익') {
@@ -39,7 +36,6 @@ const ManageList = ({ dateMatchingList }) => {
         <li>비고</li>
       </ul>
 
-      {/* 수익/지출 카테고리 */}
       <div className="option">
         {options.map((item,id)=>(
           <li key={id} onClick={selectOption}>{item}</li>

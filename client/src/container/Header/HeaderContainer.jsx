@@ -1,7 +1,6 @@
 import React from "react";
 import Header from '../../components/Header/Header';
 
-import { HeaderContext } from "../../store/Context/SunriseContext";
 
 const CommunityContainer = () => {
   
@@ -20,9 +19,7 @@ const CommunityContainer = () => {
   ]
 
   return(
-    <HeaderContext.Provider value={{headerMenu, snsMenu}}>
-      <Header />
-    </HeaderContext.Provider>
+      <Header headerMenu={headerMenu} snsMenu={snsMenu} />
   )
 }
 

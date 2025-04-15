@@ -93,35 +93,6 @@
                 padding-right: 40px;
                 font-size: 30px;
               }
-              // span {
-              //   font-size: 32px;
-              //   font-weight: 700;
-              //   font-family: Pretendard;
-              //   @media all and (max-width: 1023px) {
-              //     font-size: 25px;
-              //   }
-              //   @media all and (max-width: 767px) {
-              //     font-size: 22px;
-              //   }
-              //   @media all and (max-width: 360px) {
-              //     font-size: 18px;
-              //   }
-              // }
-              // .total-money {
-              //   font-size: 32px;
-              //   text-decoration: underline;
-              //   font-weight: 700;
-              //   font-family: Pretendard;
-              //   @media all and (max-width: 1023px) {
-              //     font-size: 25px;
-              //   }
-              //   @media all and (max-width: 767px) {
-              //     font-size: 22px;
-              //   }
-              //   @media all and (max-width: 360px) {
-              //     font-size: 18px;
-              //   }
-              // }
             }
           }
           .dateBox {
@@ -172,16 +143,12 @@
               display: none;
             }
             >li {
-              // row3 하고 다시한번 체크
               width: 160px;
               text-align: center;
 
               :nth-child(3) {
                 display: none;
               }
-              // @media all and (max-width: 600px) {
-              //   display: none;
-              // }
             }
           }
 

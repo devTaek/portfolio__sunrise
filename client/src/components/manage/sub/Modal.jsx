@@ -5,14 +5,10 @@ import axios from 'axios';
 
 const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }, ref) {
   const dialog = useRef();
-  // 구분
   const [detailType, setDetailType] = useState([]);
-
   const playGround = [{name:'천마'}, {name:'마루'}, {name:'종운'}];
-
   const week = [{name: '1주차'},{name: '2주차'},{name: '3주차'},{name: '4주차'},{name: '5주차'}];
 
-  // 모달 데이터
   const [formFields, setFormFields] = useState(
     {
       type: '',
@@ -30,12 +26,10 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
     }));
   }
   
-  // type에 따른 detail 항목 변화
   const selectedType = (e) => {
     const name = e.target.value;
 
     if(['회비', '지각', '결석'].includes(name)) {
-      // 변경된 option
       setDetailType(playersList)
     }
     else if(name === '구장') {
@@ -49,9 +43,7 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
     }
   }
 
-  // 서버 POST
   const formSubmit = (e) => {
-    // 기본 동작 방지: 폼이 제출될 때 페이지 새로고침을 방지하려면 e.preventDefault()를 사용
     e.preventDefault();
 
     let amount = parseFloat(formFields.amount);
@@ -79,8 +71,6 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
     onCloseModal();
   }
 
-
-  // index.html modal창 띄우기(제일 앞쪽)
   useImperativeHandle(ref, () => {
     return{
       open() {
@@ -88,7 +78,6 @@ const Modal = forwardRef( function Modal ({ playersList, setList, onCloseModal }
       }
     }
   });
-
   
   return createPortal (
     <SelectedComponent ref={dialog}>

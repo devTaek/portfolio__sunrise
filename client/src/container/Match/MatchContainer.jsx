@@ -7,14 +7,6 @@ import { matchState } from "../../store/recoil/atoms/state";
 
 const MatchContainer = () => {
 
-  const [matchList, setMatchList] = useRecoilState(matchState);
-
-  useEffect(()=> {
-    fetchData('matches', setMatchList)
-  },[])
-
-  console.log(matchList)
-
   return (
     <Match />
   )

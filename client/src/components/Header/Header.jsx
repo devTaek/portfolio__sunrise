@@ -1,14 +1,11 @@
-import React, {useState,useEffect,useContext} from 'react'
+import React, {useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import './header.scss';
 
 import ToggledMenu from './ToggledMenu';
 
-import { HeaderContext } from '../../store/Context/SunriseContext';
 
-function Header() {
-
-  const {headerMenu,snsMenu} = useContext(HeaderContext);
+const Header = ({headerMenu, snsMenu}) => {
 
   const [isToggled, setIsToggled] = useState(false);
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 767);

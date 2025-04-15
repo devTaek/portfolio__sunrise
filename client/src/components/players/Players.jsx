@@ -1,17 +1,18 @@
-import {useContext, useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import './players.scss';
 
-import { PlayersContext } from '../../store/Context/SunriseContext';
 
 import Title from '../common/Title';
 import DisplayCountSelector from '../common/DisplayCountSelector';
 import PostList from './sub/PostList';
 import Pagination from '../common/Pagination';
+import { playersState } from '../../store/recoil/atoms/state';
+import { useRecoilValue } from 'recoil';
 
 
 const Players = () => {
 
-  const {playersList} = useContext(PlayersContext);
+  const playersList = useRecoilValue(playersState);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(3);
   const [sortedByStats, setSortedByStats] = useState([]);

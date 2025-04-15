@@ -160,10 +160,10 @@
             font-size: 22px;
             font-weight: 700;
             @media all and (max-width: 499px) {
-              font-size: 1em; // 원하는 작은 폰트 크기
+              font-size: 1em;
             }
             @media all and (min-width: 500px) and (max-width: 767px) {
-              font-size: 2em; // 중간 크기 폰트
+              font-size: 2em;
             }
           }
         }

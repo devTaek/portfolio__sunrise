@@ -1,10 +1,11 @@
-import { useContext,useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { PlayersContext } from "../../../../store/Context/SunriseContext"
+import { useRecoilValue } from 'recoil'
+import { playersState } from '../../../../store/recoil/atoms/state'
 
 
 const ManageBox = ({boxTitle, img, option, filteredManages}) => {
-  const {playersList} = useContext(PlayersContext);
+  const playersList = useRecoilValue(playersState);
 
   const [amounts, setAmounts] = useState(0);
 
@@ -27,16 +28,6 @@ const ManageBox = ({boxTitle, img, option, filteredManages}) => {
   useEffect(()=>{
     setAmounts(totalAmount)
   },[totalAmount])
-
-/*   const filteredByOption = (filteredManages, option) => {
-    if(option === '수익') {
-      return filteredManages.filter(incomeCondition)
-    } else if(option === '지출') {
-      return filteredManages.filter(expenseCondition)
-    } else {
-      return filteredManages
-    }
-  } */
 
   useEffect(()=> {
     const callImg = () => {

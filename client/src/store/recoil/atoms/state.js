@@ -16,3 +16,8 @@ export const communityState = atom({
   key: "communityState",
   default: [],
 })
+
+export const galleryState = atom({
+  key: "galleryState",
+  default: [],
+})

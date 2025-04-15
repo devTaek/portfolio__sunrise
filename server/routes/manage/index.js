@@ -5,14 +5,12 @@ const fs = require('fs');
 
 const manageFilePath = path.join(__dirname, '../../data/manageList.json');
 
-// manageList 데이터
 router.get('/', async (req, res) => {
   const fileData = fs.readFileSync(manageFilePath);
   const list = JSON.parse(fileData);
   res.json(list.manageList);
 });
 
-// manageList 데이터 등록
 router.post('/', (req, res) => {
   const fileData = fs.readFileSync(manageFilePath);
 
@@ -25,8 +23,6 @@ router.post('/', (req, res) => {
   res.json(newData);  
 });
 
-
-// 월별 총액 리스트 API
 router.get('/amounts', async (req, res) => {
   try {
     const fileData = await fs.readFileSync(manageFilePath, 'utf-8');
