@@ -1,7 +1,7 @@
-import PageContainer from '../components/PageContainer';
+import PageContainer from '../container/PageContainer';
 import Board from '../components/community/sub/Board';
 
-import Header from '../container/Header/HeaderContainer';
+import Header from '../container/Header';
 
 const CommunityBoard = () => {
 

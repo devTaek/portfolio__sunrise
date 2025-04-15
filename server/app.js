@@ -16,10 +16,3 @@ app.use('/api', userRoutes)
 
 
 module.exports = app;
-
-/* build 파일 */
-// const frontendBuildPath = path.join(__dirname, '../client/build');
-// app.use(express.static(frontendBuildPath));
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });

@@ -25,11 +25,6 @@ const Players = () => {
     '기본기',
     'ㄱㄴㄷ'
   ]
-  // [...playersList].sort(()=>()) : [...playersList] sort함수는 변하기때문에 기존 함수를 복사시켜서 가져온다.
-  // 그 값을 sortedByStats에 정의하고난 후,
-  // setSortedByStats에 상태를 업데이트시켜준다.
-  // setSortedByStats의 초기값으로 기존 배열 playersList로 넣어주고 난 후
-  // 기존에 props로 보내주었던 playersList의 slice함수를 setSortedByStats의 slice함수로 변경시켜준다.
 
   useEffect(() => {
     setSortedByStats(playersList);

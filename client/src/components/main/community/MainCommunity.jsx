@@ -38,8 +38,8 @@ const MainCommunity = () => {
                   title="Suggestion !"
                   content={
                     <div className='details'>
-                      <div><strong>email</strong> d.taegyun@gmail.com</div>
-                      <div><strong>phone</strong>010-8126-8890</div>
+                      <div>d.taegyun@gmail.com</div>
+                      <div>010-8126-8890</div>
                     </div>
                   }
                 />

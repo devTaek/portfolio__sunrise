@@ -1,7 +1,7 @@
-import PageContainer from '../components/PageContainer';
-import MainContainer from '../container/Main/MainContainer';
+import PageContainer from '../container/PageContainer';
+import MainContainer from '../container/Main';
 
-import Header from '../container/Header/HeaderContainer';
+import Header from '../container/Header';
 
 function Main() {
   return (

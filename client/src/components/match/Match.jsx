@@ -5,9 +5,11 @@ import { MatchListContext } from '../../store/Context/SunriseContext';
 import Title from '../common/Title';
 import DateFilter from '../common/DateFilter';
 import MatchList from './sub/MatchList';
+import { useRecoilValue } from 'recoil';
+import { matchState } from '../../store/recoil/atoms/state';
 
 const Match = () => {
-  const {matchList} = useContext(MatchListContext);
+  const matchList = useRecoilValue(matchState);
 
   const [filteredMonth, setFilteredMonth] = useState(new Date().getMonth() + 1);
   const [filteredYear, setFilteredYear] = useState(new Date().getFullYear());
@@ -30,7 +32,7 @@ const Match = () => {
 
   // 각 월에 맞는 데이터 매칭 필터
   const filteredMatches = matchList.filter((match)=>{
-    const matchDate = new Date(match.date)
+    const matchDate = new Date(match.game_date)
     const matchYear = matchDate.getFullYear()
     const matchMonth = matchDate.getMonth() + 1
     return filteredYear === matchYear && filteredMonth === matchMonth;

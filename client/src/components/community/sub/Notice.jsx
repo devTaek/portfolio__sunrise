@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import './notice.scss'
 
 const Notice = ({communityList}) => {
-
+  console.log(communityList)
   return (
     <section className="notice">
         {/* board list area */}

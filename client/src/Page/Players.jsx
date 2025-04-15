@@ -1,7 +1,7 @@
-import PageContainer from '../components/PageContainer';
-import PlayersContainer from '../container/Players/PlayersContainer';
+import PageContainer from '../container/PageContainer';
+import PlayersContainer from '../container/Players';
 
-import Header from '../container/Header/HeaderContainer';
+import Header from '../container/Header';
 
 const Players = () => {
   return (

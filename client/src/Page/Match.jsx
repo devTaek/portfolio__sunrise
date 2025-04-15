@@ -1,7 +1,7 @@
-import PageContainer from '../components/PageContainer';
-import MatchContainer from '../container/Match/MatchContainer';
+import PageContainer from '../container/PageContainer';
+import MatchContainer from '../container/Match';
 
-import Header from '../container/Header/HeaderContainer';
+import Header from '../container/Header';
 
 const Match = () => {
   return (

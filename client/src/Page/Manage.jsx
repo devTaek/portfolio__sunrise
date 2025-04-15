@@ -1,7 +1,7 @@
-import PageContainer from '../components/PageContainer';
-import ManageContainer from '../container/Manage/ManageContainer';
+import PageContainer from '../container/PageContainer';
+import ManageContainer from '../container/Manage';
 
-import Header from '../container/Header/HeaderContainer';
+import Header from '../container/Header';
 
 const Manage = () => {
   return (

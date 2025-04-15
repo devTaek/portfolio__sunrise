@@ -48,7 +48,7 @@ const Button = styled.button`
     <div className="pagination">
       <PaginationContainre>
         <Button onClick={goToPrevPage} disabled={currentPage === 1}>
-          ◀️
+          ◀
         </Button>
 
         {pageList.map((page) => (
@@ -62,7 +62,7 @@ const Button = styled.button`
         ))}
 
         <Button onClick={goToNextPage} disabled={currentPage === pageList.length}>
-          ▶️
+          ▶
         </Button>
       </PaginationContainre>
     </div>

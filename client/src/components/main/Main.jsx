@@ -50,7 +50,7 @@ const AnimatedComponent = ({ children }) => {
         });
       },
       {
-        threshold: 0.1, // 10% 정도 보이면 트리거
+        threshold: 0, // 10% 정도 보이면 트리거
       }
     );
 

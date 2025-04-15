@@ -2,20 +2,21 @@ import React, { useEffect, useState } from "react";
 import Match from '../../components/match/Match';
 import {fetchData} from '../common/utils/fetchData'
 
-import {MatchListContext} from '../../store/Context/SunriseContext';
+import { useRecoilState } from "recoil";
+import { matchState } from "../../store/recoil/atoms/state";
 
 const MatchContainer = () => {
 
-  const [matchList, setMatchList] = useState([]);
+  const [matchList, setMatchList] = useRecoilState(matchState);
 
   useEffect(()=> {
     fetchData('matches', setMatchList)
   },[])
 
+  console.log(matchList)
+
   return (
-    <MatchListContext.Provider value={{matchList, setMatchList}}>
-      <Match />
-    </MatchListContext.Provider>
+    <Match />
   )
 }
 

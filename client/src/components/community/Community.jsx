@@ -1,6 +1,6 @@
 import {useContext, useEffect, useState} from 'react';
-import './community.scss';
 import {CommunityContext, GalleryContext} from '../../store/Context/SunriseContext';
+import './community.scss';
 
 import Title from '../common/Title';
 import BoardTilte from '../common/BoardTilte';

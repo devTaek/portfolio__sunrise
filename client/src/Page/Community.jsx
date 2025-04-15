@@ -1,7 +1,7 @@
-import PageContainer from '../components/PageContainer';
-import CommunityContainer from '../container/Community/CommunityContainer';
+import PageContainer from '../container/PageContainer';
+import CommunityContainer from '../container/Community';
 
-import Header from '../container/Header/HeaderContainer';
+import Header from '../container/Header';
 
 const Community = () => {
 

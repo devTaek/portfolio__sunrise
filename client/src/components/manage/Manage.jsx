@@ -134,7 +134,7 @@ const Manage = () => {
                 changeMonth={changeMonth}
               />
 
-              <div className='total-money-box'> {/* 클래스명 수정필요 */}
+              <div className='total-money-box'>
                 <div className='received-money'>
                   <div className='money-category'>회비수익</div>
                   {/* 서버에서 결과값 가져오자 */}

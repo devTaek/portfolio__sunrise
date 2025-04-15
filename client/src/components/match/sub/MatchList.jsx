@@ -4,7 +4,7 @@ const MatchList = ({filteredMatches}) => {
       {filteredMatches.map((item, id)=>(
           <li className="row3" key={id}>
             <div className="left">
-              <div className="matchDate">{item.date} {item.time}</div>
+              <div className="matchDate">{item.game_date} {item.game_time}</div>
               <div className="matchPlace">{item.place}</div>
             </div>
             <div className="center">

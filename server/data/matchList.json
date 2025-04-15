@@ -1,9 +1,9 @@
 { 
   "matchList":[
     {
-      "date": "2023-12-11",
+      "game_date": "2023-12-11",
       "place": "대전 월드컵 경기장",
-      "time": "06:00",
+      "game_time": "06:00",
       "home": "Sunrise",
       "home_logo": "pc-logo.png",
       "away": "JEJU",
@@ -12,9 +12,9 @@
       "away_score": 2
     },
     {
-      "date": "2024-03-11",
+      "game_date": "2024-03-11",
       "place": "마루공원 1면",
-      "time": "07:00",
+      "game_time": "07:00",
       "home": "Sunrise",
       "home_logo": "pc-logo.png",
       "away": "DAEJEON",
@@ -23,9 +23,9 @@
       "away_score": 5
     },
     {
-      "date": "2024-04-11",
+      "game_date": "2024-04-11",
       "place": "천마풋살파크 b구장",
-      "time": "06:00",
+      "game_time": "06:00",
       "home": "Sunrise",
       "home_logo": "pc-logo.png",
       "away": "GEOJE",
@@ -34,9 +34,9 @@
       "away_score": 2
     },
     {
-      "date": "2024-05-11",
+      "game_date": "2024-05-11",
       "place": "마루공원 2면",
-      "time": "08:00",
+      "game_time": "08:00",
       "home": "Sunrise",
       "home_logo": "pc-logo.png",
       "away": "JEONBUK",
@@ -45,9 +45,9 @@
       "away_score": 1
     },
     {
-      "date": "2024-03-11",
+      "game_date": "2024-03-11",
       "place": "대전 월드컵 경기장",
-      "time": "06:00",
+      "game_time": "06:00",
       "home": "Sunrise",
       "home_logo": "pc-logo.png",
       "away": "JEJU",
@@ -56,9 +56,9 @@
       "away_score": 0
     },
     {
-      "date": "2024-06-11",
+      "game_date": "2024-06-11",
       "place": "마루공원 2면",
-      "time": "08:00",
+      "game_time": "08:00",
       "home": "Sunrise",
       "home_logo": "pc-logo.png",
       "away": "JEONBUK",
@@ -67,9 +67,9 @@
       "away_score": 1
     },
     {
-      "date": "2024-06-11",
+      "game_date": "2024-06-11",
       "place": "마루공원 2면",
-      "time": "08:00",
+      "game_time": "08:00",
       "home": "Sunrise",
       "home_logo": "pc-logo.png",
       "away": "JEONBUK",
@@ -78,9 +78,9 @@
       "away_score": 3
     },
     {
-      "date": "2024-06-11",
+      "game_date": "2024-06-11",
       "place": "마루공원 2면",
-      "time": "08:00",
+      "game_time": "08:00",
       "home": "Sunrise",
       "home_logo": "pc-logo.png",
       "away": "JEONBUK",
